@@ -36,5 +36,10 @@ namespace COCSProject
                 Response.Redirect("search.aspx");
             }
         }
+
+        protected void btnProfile_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("profile.aspx");
+        }
     }
 }

@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="forgotPassword.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="profile.aspx" />
     <Content Include="register.aspx" />
     <Content Include="resetPassword.aspx" />
     <Content Include="search.aspx" />
@@ -89,6 +90,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="profile.aspx.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profile.aspx.designer.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="homepage.aspx.cs">
