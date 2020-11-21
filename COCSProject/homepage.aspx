@@ -18,7 +18,7 @@
             <asp:Button ID="btnSearch" runat="server" Text="Search" style="float:right" />
             <asp:TextBox ID="txtSearch" runat="server" style="float:right"></asp:TextBox>
             <br />
-            <asp:Button ID="btnLogin" runat="server" Text="Log In" />
+            <asp:Button ID="btnLogin" runat="server" Text="Log In" OnClick="btnLogin_Click" />
         </div>
         <p>
             <strong>NERD HERD COCS (Collaborative Online Catering System)</strong></p>

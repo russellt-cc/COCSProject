@@ -16,6 +16,23 @@ namespace COCSProject
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            if (ddlUserType.SelectedValue == "Customer")
+            {
+                CreateNewCustomerEntry(txtUserName.Text);
+            }
+            else if (ddlUserType.SelectedValue == "Caterer")
+            {
+                CreateNewCustomerEntry(txtUserName.Text);
+            }
+        }
+
+        private void CreateNewCustomerEntry(string name)
+        {
+            
+        }
+
+        private void CreateNewCatererEntry(string name)
+        {
 
         }
     }
