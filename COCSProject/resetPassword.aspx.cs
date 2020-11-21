@@ -7,16 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace COCSProject
 {
-    public partial class login : System.Web.UI.Page
+    public partial class resetPassword : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-
-        protected void btnForgot_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("forgotPassword.aspx");
         }
     }
 }

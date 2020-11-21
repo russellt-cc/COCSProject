@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head runat="server">
     <title></title>
     <style type="text/css">
@@ -14,11 +14,13 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click" />
+            <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click" Width="255px" />
             <asp:Button ID="btnSearch" runat="server" Text="Search" style="float:right" />
             <asp:TextBox ID="txtSearch" runat="server" style="float:right"></asp:TextBox>
             <br />
-            <asp:Button ID="btnLogin" runat="server" Text="Log In" OnClick="btnLogin_Click" />
+            <asp:Button ID="btnLogin" runat="server" Text="Log In" OnClick="btnLogin_Click" Width="255px" />
+            <br />
+            <asp:Button ID="btnChangePassword" runat="server" OnClick="btnChangePassword_Click" Text="Change Password" Width="255px" />
         </div>
         <p>
             <strong>NERD HERD COCS (Collaborative Online Catering System)</strong></p>

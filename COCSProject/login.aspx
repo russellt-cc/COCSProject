@@ -17,6 +17,8 @@
             <span class="auto-style1"><strong>Login to NERD HERD COCS (Collaborative Online Catering System)</strong></span><br />
             <asp:Login ID="Login1" runat="server">
             </asp:Login>
+            <br />
+            <asp:Button ID="btnForgot" runat="server" OnClick="btnForgot_Click" Text="Forgot Password?" />
         </div>
     </form>
 </body>
