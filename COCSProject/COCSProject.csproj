@@ -71,6 +71,7 @@
     <Content Include="login.aspx" />
     <Content Include="register.aspx" />
     <Content Include="resetPassword.aspx" />
+    <Content Include="search.aspx" />
     <Content Include="Web.config" />
     <Content Include="homepage.aspx" />
   </ItemGroup>
@@ -110,6 +111,13 @@
     </Compile>
     <Compile Include="resetPassword.aspx.designer.cs">
       <DependentUpon>resetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="search.aspx.cs">
+      <DependentUpon>search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="search.aspx.designer.cs">
+      <DependentUpon>search.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -28,5 +28,13 @@ namespace COCSProject
         {
             Response.Redirect("resetPassword.aspx");
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == "")
+            {
+                Response.Redirect("search.aspx");
+            }
+        }
     }
 }

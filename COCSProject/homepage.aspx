@@ -14,7 +14,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Button ID="btnSearch" runat="server" Text="Search" style="float:right" />
+            <asp:Button ID="btnSearch" runat="server" Text="Search" style="float:right" OnClick="btnSearch_Click" />
             <asp:TextBox ID="txtSearch" runat="server" style="float:right"></asp:TextBox>
             <asp:LoginView ID="LoginView1" runat="server">
                 <AnonymousTemplate>
