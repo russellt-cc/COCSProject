@@ -42,6 +42,14 @@
             <br />
             <br />
             <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" />
+            <br />
+            <br />
+            <asp:CreateUserWizard ID="CreateUserWizard1" runat="server">
+                <WizardSteps>
+                    <asp:CreateUserWizardStep runat="server" />
+                    <asp:CompleteWizardStep runat="server" />
+                </WizardSteps>
+            </asp:CreateUserWizard>
         </div>
     </form>
 </body>
