@@ -67,64 +67,64 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="forgotPassword.aspx" />
-    <Content Include="login.aspx" />
-    <Content Include="profile.aspx" />
-    <Content Include="register.aspx" />
-    <Content Include="resetPassword.aspx" />
-    <Content Include="search.aspx" />
+    <Content Include="common\forgotPassword.aspx" />
+    <Content Include="common\login.aspx" />
+    <Content Include="common\profile.aspx" />
+    <Content Include="common\register.aspx" />
+    <Content Include="common\resetPassword.aspx" />
+    <Content Include="common\search.aspx" />
     <Content Include="Web.config" />
-    <Content Include="homepage.aspx" />
+    <Content Include="common\homepage.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="forgotPassword.aspx.cs">
+    <Compile Include="common\forgotPassword.aspx.cs">
       <DependentUpon>forgotPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="forgotPassword.aspx.designer.cs">
+    <Compile Include="common\forgotPassword.aspx.designer.cs">
       <DependentUpon>forgotPassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="login.aspx.cs">
+    <Compile Include="common\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="login.aspx.designer.cs">
+    <Compile Include="common\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="profile.aspx.cs">
+    <Compile Include="common\profile.aspx.cs">
       <DependentUpon>profile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="profile.aspx.designer.cs">
+    <Compile Include="common\profile.aspx.designer.cs">
       <DependentUpon>profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="homepage.aspx.cs">
+    <Compile Include="common\homepage.aspx.cs">
       <DependentUpon>homepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="homepage.aspx.designer.cs">
+    <Compile Include="common\homepage.aspx.designer.cs">
       <DependentUpon>homepage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="register.aspx.cs">
+    <Compile Include="common\register.aspx.cs">
       <DependentUpon>register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="register.aspx.designer.cs">
+    <Compile Include="common\register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="resetPassword.aspx.cs">
+    <Compile Include="common\resetPassword.aspx.cs">
       <DependentUpon>resetPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="resetPassword.aspx.designer.cs">
+    <Compile Include="common\resetPassword.aspx.designer.cs">
       <DependentUpon>resetPassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="search.aspx.cs">
+    <Compile Include="common\search.aspx.cs">
       <DependentUpon>search.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="search.aspx.designer.cs">
+    <Compile Include="common\search.aspx.designer.cs">
       <DependentUpon>search.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
