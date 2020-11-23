@@ -23,10 +23,12 @@
                 </AnonymousTemplate>
                 <LoggedInTemplate>
                     <asp:Button ID="btnChangePassword" runat="server" OnClick="btnChangePassword_Click" Text="Change Password" Width="255px" />
-                    <asp:Button ID="btnLogOut" runat="server" Text="Log Out" Width="255px" />
+                    <asp:Button ID="btnLogOut" runat="server" Text="Log Out" Width="255px" OnClick="btnLogOut_Click" />
                     <asp:Button ID="btnProfile" runat="server" OnClick="btnProfile_Click" Text="View Profile" Width="255px" />
                 </LoggedInTemplate>
             </asp:LoginView>
+            <br />
+            <asp:LoginStatus ID="LoginStatus1" runat="server" />
             <br />
         </div>
         <p>
