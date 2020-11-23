@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,6 +10,7 @@ namespace COCSProject
 {
     public partial class register : System.Web.UI.Page
     {
+        private string connectionString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=CateringSystemT02;Integrated Security=True";
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -22,7 +24,7 @@ namespace COCSProject
             }
             else if (ddlUserType.SelectedValue == "Caterer")
             {
-                CreateNewCustomerEntry(txtUserName.Text);
+                CreateNewCatererEntry(txtUserName.Text);
             }
         }
 
@@ -32,6 +34,24 @@ namespace COCSProject
         }
 
         private void CreateNewCatererEntry(string name)
+        {
+            SqlConnection cnn = new SqlConnection(connectionString);
+            cnn.Open();
+            SqlCommand command;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+
+            string sql = "Insert into Caterers (Caterer_Name) values('" + name + "')";
+
+            command = new SqlCommand(sql, cnn);
+
+            adapter.InsertCommand = command;
+            adapter.InsertCommand.ExecuteNonQuery();
+
+            command.Dispose();
+            cnn.Close();
+        }
+
+        protected void CreateUserWizard1_CreatedUser(object sender, EventArgs e)
         {
 
         }
