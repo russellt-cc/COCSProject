@@ -18,5 +18,10 @@ namespace COCSProject
         {
             Response.Redirect("forgotPassword.aspx");
         }
+
+        protected void btnHomePage_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/common/homepage.aspx");
+        }
     }
 }

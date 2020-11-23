@@ -13,6 +13,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <p>
+            <asp:Button ID="btnHomePage" runat="server" OnClick="btnHomePage_Click" Text="Home Page" />
+        </p>
         <div>
             <asp:LoginView ID="LoginView1" runat="server">
                 <AnonymousTemplate>

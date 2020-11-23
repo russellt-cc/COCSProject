@@ -14,7 +14,11 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <span class="auto-style1"><strong>Forgot Password?</strong></span><br />
+            <asp:Button ID="btnHomePage" runat="server" OnClick="btnHomePage_Click" Text="Home Page" />
+            <span class="auto-style1"><strong>
+            <br />
+            <br />
+            Forgot Password?</strong></span><br />
             <br />
             <asp:PasswordRecovery ID="PasswordRecovery1" runat="server">
             </asp:PasswordRecovery>
