@@ -31,11 +31,12 @@ namespace COCSProject
 
         private void CreateNewCustomerEntry(string name)
         {
-            
-        }
+            // Vars
+            string firstName = txtFirstName.Text;
+            string lastName = txtLastName.Text;
+            string email = txtEmail.Text;
+            string password = txtPassword.Text;
 
-        private void CreateNewCatererEntry(string name)
-        {
             // Creating and opening connection to db
             SqlConnection cnn = new SqlConnection(connectionString);
             cnn.Open();
@@ -43,7 +44,7 @@ namespace COCSProject
             SqlDataAdapter adapter = new SqlDataAdapter();
 
             // Make insert query
-            string sql = "Insert into Caterers (Caterer_Name) values('" + name + "')";
+            string sql = "Insert into Users (User_Name, Type, First_Name, Last_Name, Email, Password) values('" + name + "', 'customer', '" + firstName + "', '" + lastName + "', '" + email + "', " + password + "')";
 
             // Initialize command object
             command = new SqlCommand(sql, cnn);
@@ -56,6 +57,37 @@ namespace COCSProject
             command.Dispose();
             cnn.Close();
         }
+
+        private void CreateNewCatererEntry(string name)
+        {
+            // Vars
+            string firstName = txtFirstName.Text;
+            string lastName = txtLastName.Text;
+            string email = txtEmail.Text;
+            string password = txtPassword.Text;
+
+            // Creating and opening connection to db
+            SqlConnection cnn = new SqlConnection(connectionString);
+            cnn.Open();
+            SqlCommand command;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+
+            // Make insert query
+            string sql = "Insert into Users (User_Name, Type, First_Name, Last_Name, Email, Password) values('" + name + "', 'caterer', '" + firstName + "', '" + lastName + "', '" + email + "', " + password + "')";
+
+            // Initialize command object
+            command = new SqlCommand(sql, cnn);
+
+            // Execute command
+            adapter.InsertCommand = command;
+            adapter.InsertCommand.ExecuteNonQuery();
+
+            // Cleanup
+            command.Dispose();
+            cnn.Close();
+        }
+
+
 
         protected void CreateUserWizard1_CreatedUser(object sender, EventArgs e)
         {
