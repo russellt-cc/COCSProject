@@ -73,6 +73,7 @@
     <Content Include="admin_module\Dashboard.aspx" />
     <Content Include="admin_module\Manage_Caterers.aspx" />
     <Content Include="admin_module\Report.aspx" />
+    <Content Include="CateringPackages\cateringPackagesMenu.aspx" />
     <Content Include="common\cateringPackagesMenu.aspx" />
     <Content Include="common\forgotPassword.aspx" />
     <Content Include="common\login.aspx" />
@@ -80,10 +81,18 @@
     <Content Include="common\register.aspx" />
     <Content Include="common\resetPassword.aspx" />
     <Content Include="common\search.aspx" />
+    <Content Include="login.aspx" />
     <Content Include="Web.config" />
     <Content Include="common\homepage.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CateringPackages\cateringPackagesMenu.aspx.cs">
+      <DependentUpon>cateringPackagesMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CateringPackages\cateringPackagesMenu.aspx.designer.cs">
+      <DependentUpon>cateringPackagesMenu.aspx</DependentUpon>
+    </Compile>
     <Compile Include="common\cateringPackagesMenu.aspx.cs">
       <DependentUpon>cateringPackagesMenu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -111,6 +120,13 @@
     </Compile>
     <Compile Include="common\profile.aspx.designer.cs">
       <DependentUpon>profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="common\homepage.aspx.cs">
