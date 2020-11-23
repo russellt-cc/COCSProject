@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="common\cateringPackagesMenu.aspx" />
     <Content Include="common\forgotPassword.aspx" />
     <Content Include="common\login.aspx" />
     <Content Include="common\profile.aspx" />
@@ -77,6 +78,13 @@
     <Content Include="common\homepage.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="common\cateringPackagesMenu.aspx.cs">
+      <DependentUpon>cateringPackagesMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\cateringPackagesMenu.aspx.designer.cs">
+      <DependentUpon>cateringPackagesMenu.aspx</DependentUpon>
+    </Compile>
     <Compile Include="common\forgotPassword.aspx.cs">
       <DependentUpon>forgotPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
