@@ -48,14 +48,21 @@
             <tr>
                 <td class="auto-style2"></td>
                 <td class="auto-style2">
-                    <asp:CheckBoxList ID="CheckBoxList1" runat="server" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged">
-                        <asp:ListItem>Databound</asp:ListItem>
-                        <asp:ListItem>Databound</asp:ListItem>
-                        <asp:ListItem>Databound</asp:ListItem>
-                        <asp:ListItem>Databound</asp:ListItem>
-                        <asp:ListItem>Databound</asp:ListItem>
-                        <asp:ListItem>Databound</asp:ListItem>
-                    </asp:CheckBoxList>
+                    <asp:DataList ID="dataListMenu" runat="server" DataKeyField="Report_ID" DataSourceID="dataSourceMenu" OnSelectedIndexChanged="dataListMenu_SelectedIndexChanged">
+                <ItemTemplate>
+                    Caterer_1:
+                    <asp:Label ID="Caterer_1Label" runat="server" Text='<%# Eval("Caterer_1") %>' />
+                    <br />
+                    Caterer_2:
+                    <asp:Label ID="Caterer_2Label" runat="server" Text='<%# Eval("Caterer_2") %>' />
+                    <br />
+                    Caterer_3:
+                    <asp:Label ID="Caterer_3Label" runat="server" Text='<%# Eval("Caterer_3") %>' />
+                    <br />
+                    
+<br />
+                </ItemTemplate>
+            </asp:DataList>
                 </td>
                 <td class="auto-style2"></td>
                 
