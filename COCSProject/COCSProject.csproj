@@ -73,6 +73,7 @@
     <Content Include="admin_module\Dashboard.aspx" />
     <Content Include="admin_module\Manage_Caterers.aspx" />
     <Content Include="admin_module\Report.aspx" />
+    <Content Include="CateringPackages\cateringPackagesMenu.aspx" />
     <Content Include="common\cateringPackagesMenu.aspx" />
     <Content Include="common\forgotPassword.aspx" />
     <Content Include="common\login.aspx" />
@@ -85,6 +86,13 @@
     <Content Include="common\homepage.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CateringPackages\cateringPackagesMenu.aspx.cs">
+      <DependentUpon>cateringPackagesMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CateringPackages\cateringPackagesMenu.aspx.designer.cs">
+      <DependentUpon>cateringPackagesMenu.aspx</DependentUpon>
+    </Compile>
     <Compile Include="common\cateringPackagesMenu.aspx.cs">
       <DependentUpon>cateringPackagesMenu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
