@@ -41,5 +41,10 @@ namespace COCSProject
         {
             Response.Redirect("profile.aspx");
         }
+
+        protected void btnLogOut_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
