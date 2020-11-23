@@ -70,6 +70,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin_module\Dashboard.aspx" />
+    <Content Include="admin_module\Manage_Caterers.aspx" />
+    <Content Include="admin_module\Report.aspx" />
     <Content Include="common\cateringPackagesMenu.aspx" />
     <Content Include="common\forgotPassword.aspx" />
     <Content Include="common\login.aspx" />
