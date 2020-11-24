@@ -15,6 +15,8 @@
     <form id="form1" runat="server">
         <div>
             <span class="auto-style1"><strong>Login to NERD HERD COCS (Collaborative Online Catering System)<br />
+            <asp:Button ID="btnHomePage" runat="server" OnClick="btnHomePage_Click" Text="Home Page" />
+            <br />
             <br />
             </strong>
             <asp:Label ID="Label1" runat="server" Font-Underline="False" Text="Log In"></asp:Label>
@@ -30,13 +32,6 @@
             <br />
             <asp:Button ID="btnLogIn" runat="server" OnClick="btnLogIn_Click" Text="Log In" />
             <br />
-            <asp:Button ID="btnHomePage" runat="server" OnClick="btnHomePage_Click" Text="Home Page" />
-            <span class="auto-style1"><strong>
-            <br />
-            <br />
-            Login to NERD HERD COCS (Collaborative Online Catering System)</strong></span><br />
-            <asp:Login ID="Login1" runat="server" DestinationPageUrl="homepage.aspx">
-            </asp:Login>
             <br />
             <asp:Button ID="btnForgot" runat="server" OnClick="btnForgot_Click" Text="Forgot Password?" />
         </div>

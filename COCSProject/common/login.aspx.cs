@@ -68,7 +68,7 @@ namespace COCSProject
                 if (ckbStayLogged.Checked)
                 {
                     userInfo.Expires = DateTime.Now.AddDays(30);
-                } 
+                }
                 else
                 {
                     userInfo.Expires = DateTime.Now.AddMinutes(5);
@@ -83,6 +83,8 @@ namespace COCSProject
                 // Odd error detection
                 txtUserName.Text = "Something went wrong!";
             }
+        }
+
         protected void btnHomePage_Click(object sender, EventArgs e)
         {
             Response.Redirect("/common/homepage.aspx");

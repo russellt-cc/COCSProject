@@ -24,7 +24,6 @@ namespace COCSProject
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Label1 control.
         /// btnHomePage control.
         /// </summary>
         /// <remarks>
@@ -34,7 +33,7 @@ namespace COCSProject
         protected global::System.Web.UI.WebControls.Button btnHomePage;
 
         /// <summary>
-        /// Login1 control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
