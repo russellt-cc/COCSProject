@@ -76,5 +76,25 @@ namespace COCSProject
         {
             Response.Redirect("~/admin_module/manage_caterers.aspx");
         }
+
+        protected void btnTeam_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/CustomerModule/myteam.aspx");
+        }
+
+        protected void btnCustomerMenu_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/CustomerModule/cateringPackagesMenu.aspx");
+        }
+
+        protected void btnCart_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/CustomerModule/cart.aspx");
+        }
+
+        protected void btnCustomerOrders_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/CustomerModule/myorders.aspx");
+        }
     }
 }
