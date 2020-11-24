@@ -11,5 +11,10 @@
         <div>
         </div>
     </form>
+    <h1>Orders</h1>
+    <p>Package 1, November 14, 2020, $45.99</p> <br />
+    <p>Package 2, November 30, 2020, $99.99</p> <br />
+    <p>Package 5, December 12, 2020, $84.99</p>
+
 </body>
 </html>
