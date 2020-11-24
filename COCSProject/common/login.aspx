@@ -14,9 +14,22 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <span class="auto-style1"><strong>Login to NERD HERD COCS (Collaborative Online Catering System)</strong></span><br />
-            <asp:Login ID="Login1" runat="server" DestinationPageUrl="homepage.aspx">
-            </asp:Login>
+            <span class="auto-style1"><strong>Login to NERD HERD COCS (Collaborative Online Catering System)<br />
+            <br />
+            </strong>
+            <asp:Label ID="Label1" runat="server" Font-Underline="False" Text="Log In"></asp:Label>
+            <br />
+            </span>
+            <asp:Label ID="Label2" runat="server" Text="User Name:"></asp:Label>
+            <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="Label3" runat="server" Text="Password:"></asp:Label>
+            <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+            <br />
+            <asp:CheckBox ID="ckbStayLogged" runat="server" Text="Stay Logged In" />
+            <br />
+            <asp:Button ID="btnLogIn" runat="server" OnClick="btnLogIn_Click" Text="Log In" />
+            <br />
             <br />
             <asp:Button ID="btnForgot" runat="server" OnClick="btnForgot_Click" Text="Forgot Password?" />
         </div>

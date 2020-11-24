@@ -44,7 +44,7 @@ namespace COCSProject
             SqlDataAdapter adapter = new SqlDataAdapter();
 
             // Make insert query
-            string sql = "Insert into Users (User_Name, Type, First_Name, Last_Name, Email, Password) values('" + name + "', 'customer', '" + firstName + "', '" + lastName + "', '" + email + "', " + password + "')";
+            string sql = "Insert into Users (User_Name, Type, First_Name, Last_Name, Email, Password) values('" + name + "', 'customer', '" + firstName + "', '" + lastName + "', '" + email + "', '" + password + "')";
 
             // Initialize command object
             command = new SqlCommand(sql, cnn);

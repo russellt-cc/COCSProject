@@ -87,3 +87,19 @@ CREATE TABLE Order_Packages (
   Package_ID int NOT NULL,
   Quantity int NOT NULL,
 ) 
+
+--
+-- Table structure for Users
+--
+
+CREATE TABLE Users (
+	User_ID int NOT NULL PRIMARY KEY identity,
+	User_Name varchar(100) NOT NULL,
+	Type varchar(100) NOT NULL,
+	First_Name varchar(100) NOT NULL,
+	Last_Name varchar(100) NOT NULL,
+	Email varchar(100) NOT NULL,
+	Password varchar(100) NOT NULL,
+	Caterer_ID int
+)
+	
