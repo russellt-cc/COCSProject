@@ -47,7 +47,7 @@
             </tr>
             <tr>
                 <td class="auto-style2"></td>
-                <td class="auto-style2">
+<%--                <td class="auto-style2">
                     <asp:DataList ID="dataListMenu" runat="server" DataKeyField="Report_ID" DataSourceID="dataSourceMenu" OnSelectedIndexChanged="dataListMenu_SelectedIndexChanged">
                 <ItemTemplate>
                     Caterer_1:
@@ -63,7 +63,7 @@
 <br />
                 </ItemTemplate>
             </asp:DataList>
-                </td>
+                </td>--%>
                 <td class="auto-style2"></td>
                 
                 

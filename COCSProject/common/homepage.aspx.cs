@@ -46,5 +46,35 @@ namespace COCSProject
         {
 
         }
+
+        protected void btnMenu_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/catererModule/menu.aspx");
+        }
+
+        protected void btnPackages_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/catererModule/packages.aspx");
+        }
+
+        protected void btnOrders_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/catererModule/orders.aspx");
+        }
+
+        protected void btnDashboard_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/admin_module/dashboard.aspx");
+        }
+
+        protected void btnReports_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/admin_module/report.aspx");
+        }
+
+        protected void btnManageCaterers_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/admin_module/manage_caterers.aspx");
+        }
     }
 }
