@@ -11,7 +11,7 @@ namespace COCSProject
     public partial class login : System.Web.UI.Page
     {
         // Connection string
-        private string connectionString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=CateringSystemT02;Integrated Security=True";
+        private string connectionString = @"Data Source=cocsnerdherd.database.windows.net;Initial Catalog=CateringSystemT02;Persist Security Info=True;User ID=cocs;Password=password1!";
         protected void Page_Load(object sender, EventArgs e)
         {
             HttpCookie reqCookies = Request.Cookies["userInfo"];
