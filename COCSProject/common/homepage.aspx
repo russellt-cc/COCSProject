@@ -24,8 +24,28 @@
                 <LoggedInTemplate>
                     <asp:Button ID="btnChangePassword" runat="server" OnClick="btnChangePassword_Click" Text="Change Password" Width="255px" />
                     <asp:Button ID="btnProfile" runat="server" OnClick="btnProfile_Click" Text="View Profile" Width="255px" />
+                    <br />
+                    <br />
+                    (only for caterers)<br />
+                    <asp:Button ID="btnMenu" runat="server" OnClick="btnMenu_Click" Text="Menu" Width="255px" />
+                    <asp:Button ID="btnPackages" runat="server" OnClick="btnPackages_Click" Text="Packages" Width="255px" />
+                    <asp:Button ID="btnOrders" runat="server" OnClick="btnOrders_Click" Text="Orders" Width="255px" />
+                    <br />
+                    <br />
+                    (only for admins)<br />
+                    <asp:Button ID="btnDashboard" runat="server" OnClick="btnDashboard_Click" Text="Dashboard" Width="255px" />
+                    <asp:Button ID="btnReports" runat="server" OnClick="btnReports_Click" Text="Reports" Width="255px" />
+                    <asp:Button ID="btnManageCaterers" runat="server" OnClick="btnManageCaterers_Click" Text="Manage Caterers" Width="255px" />
+                    <br />
+                    <br />
+                    (only for customers)<br />
+                    <asp:Button ID="btnTeam" runat="server" OnClick="btnTeam_Click" Text="My Team" Width="255px" />
+                    <asp:Button ID="btnCustomerMenu" runat="server" OnClick="btnCustomerMenu_Click" Text="Menu/Packages" Width="255px" />
+                    <asp:Button ID="btnCart" runat="server" OnClick="btnCart_Click" style="height: 35px" Text="Cart" Width="255px" />
+                    <asp:Button ID="btnCustomerOrders" runat="server" OnClick="btnCustomerOrders_Click" Text="Orders" Width="255px" />
                 </LoggedInTemplate>
             </asp:LoginView>
+            <br />
             <br />
             <asp:LoginStatus ID="LoginStatus1" runat="server" />
             <br />

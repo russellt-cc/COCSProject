@@ -14,7 +14,11 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <span class="auto-style1"><strong>Register for NERD HERD COCS (Collaborative Online Catering System)</strong></span><br />
+            <asp:Button ID="btnHomePage" runat="server" OnClick="btnHomePage_Click" Text="Home Page" />
+            <span class="auto-style1"><strong>
+            <br />
+            <br />
+            Register for NERD HERD COCS (Collaborative Online Catering System)</strong></span><br />
             <br />
             User Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>

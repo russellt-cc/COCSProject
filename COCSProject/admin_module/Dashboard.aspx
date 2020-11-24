@@ -42,7 +42,7 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>
-            <asp:DataList ID="dataListMenu" runat="server" DataKeyField="Dashboard_ID" DataSourceID="dataSourceMenu" OnSelectedIndexChanged="dataListMenu_SelectedIndexChanged">
+ <%--           <asp:DataList ID="dataListMenu" runat="server" DataKeyField="Dashboard_ID" DataSourceID="dataSourceMenu" OnSelectedIndexChanged="dataListMenu_SelectedIndexChanged">
                 <ItemTemplate>
                     Total_Orders:
                     <asp:Label ID="Total_OrdersLabel" runat="server" Text='<%# Eval("Total_Oders") %>' />
@@ -60,7 +60,7 @@
                     <asp:Label ID="Total_Canceled_OrdersLabel" runat="server" Text='<%# Eval("Total_Canceled_Orders") %>' />
                     <br />
                     Total_Registered_Customers:
-                    <asp:Label ID="Total_Registered_Customers" runat="server" Text='<%# Eval("Total_Registered_Customers") %>' />
+                    <asp:Label ID="Total_Registered_Customers" runat="server" Text='<%# Eval("Total_Registered_Customers") %>' />--%>
                     <br />
                     
                     <br />

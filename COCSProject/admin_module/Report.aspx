@@ -35,14 +35,14 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style3"><asp:DataList ID="dataListMenu1" runat="server" DataKeyField="Admin_Name" DataSourceID="dataSourceMenu" OnSelectedIndexChanged="dataListMenu_SelectedIndexChanged">
+                <td class="auto-style3"><%--<asp:DataList ID="dataListMenu1" runat="server" DataKeyField="Admin_Name" DataSourceID="dataSourceMenu" OnSelectedIndexChanged="dataListMenu_SelectedIndexChanged">
                 <ItemTemplate>
                     Admin_Name:
                     <asp:Label ID="Admin_NameLabel" runat="server" Text='<%# Eval("Admin_Name") %>' />
                     
 <br />
                 </ItemTemplate>
-            </asp:DataList>
+            </asp:DataList>--%>
                     <br />
                 </td>
                 <td class="auto-style2">&nbsp;</td>
@@ -63,7 +63,7 @@
                     Previous Report : </td>
             </tr>
             <tr>
-                <td><asp:DataList ID="dataListMenu" runat="server" DataKeyField="Report_ID" DataSourceID="dataSourceMenu" OnSelectedIndexChanged="dataListMenu_SelectedIndexChanged">
+<%--                <td><asp:DataList ID="dataListMenu" runat="server" DataKeyField="Report_ID" DataSourceID="dataSourceMenu" OnSelectedIndexChanged="dataListMenu_SelectedIndexChanged">
                 <ItemTemplate>
                     Order_Count:
                     <asp:Label ID="Order_CountLabel" runat="server" Text='<%# Eval("Order_Count") %>' />
@@ -84,9 +84,9 @@
 <br />
                 </ItemTemplate>
             </asp:DataList>
-                </td>
+                </td>--%>
                 <td>&nbsp;</td>
-                <td><asp:DataList ID="dataListMenu0" runat="server" DataKeyField="Previous_Report_ID" DataSourceID="dataSourceMenu" OnSelectedIndexChanged="dataListMenu_SelectedIndexChanged">
+<%--                <td><asp:DataList ID="dataListMenu0" runat="server" DataKeyField="Previous_Report_ID" DataSourceID="dataSourceMenu" OnSelectedIndexChanged="dataListMenu_SelectedIndexChanged">
                 <ItemTemplate>
                     Order_Count:
                     <asp:Label ID="Order_CountLabel" runat="server" Text='<%# Eval("Order_Count") %>' />
@@ -107,7 +107,7 @@
 <br />
                 </ItemTemplate>
             </asp:DataList>
-                </td>
+                </td>--%>
             </tr>
             <tr>
                 <td class="auto-style4"></td>

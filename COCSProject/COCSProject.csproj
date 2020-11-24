@@ -74,22 +74,51 @@
     <Content Include="admin_module\Manage_Caterers.aspx" />
     <Content Include="admin_module\Report.aspx" />
     <Content Include="CateringPackages\cateringPackagesMenu.aspx" />
+    <Content Include="catererModule\menu.aspx" />
+    <Content Include="catererModule\orders.aspx" />
+    <Content Include="catererModule\packages.aspx" />
+    <Content Include="CustomerModule\cateringPackagesMenu.aspx" />
     <Content Include="common\forgotPassword.aspx" />
     <Content Include="common\login.aspx" />
     <Content Include="common\profile.aspx" />
     <Content Include="common\register.aspx" />
     <Content Include="common\resetPassword.aspx" />
     <Content Include="common\search.aspx" />
+    <Content Include="CustomerModule\cart.aspx" />
+    <Content Include="CustomerModule\CustomerModule.html" />
+    <Content Include="CustomerModule\myorders.aspx" />
+    <Content Include="CustomerModule\myteam.aspx" />
     <Content Include="login.aspx" />
     <Content Include="Web.config" />
     <Content Include="common\homepage.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CateringPackages\cateringPackagesMenu.aspx.cs">
+    <Compile Include="catererModule\menu.aspx.cs">
+      <DependentUpon>menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="catererModule\menu.aspx.designer.cs">
+      <DependentUpon>menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="catererModule\orders.aspx.cs">
+      <DependentUpon>orders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="catererModule\orders.aspx.designer.cs">
+      <DependentUpon>orders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="catererModule\packages.aspx.cs">
+      <DependentUpon>packages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="catererModule\packages.aspx.designer.cs">
+      <DependentUpon>packages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerModule\cateringPackagesMenu.aspx.cs">
       <DependentUpon>cateringPackagesMenu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CateringPackages\cateringPackagesMenu.aspx.designer.cs">
+    <Compile Include="CustomerModule\cateringPackagesMenu.aspx.designer.cs">
       <DependentUpon>cateringPackagesMenu.aspx</DependentUpon>
     </Compile>
     <Compile Include="common\forgotPassword.aspx.cs">
@@ -112,6 +141,27 @@
     </Compile>
     <Compile Include="common\profile.aspx.designer.cs">
       <DependentUpon>profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerModule\cart.aspx.cs">
+      <DependentUpon>cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerModule\cart.aspx.designer.cs">
+      <DependentUpon>cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerModule\myorders.aspx.cs">
+      <DependentUpon>myorders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerModule\myorders.aspx.designer.cs">
+      <DependentUpon>myorders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerModule\myteam.aspx.cs">
+      <DependentUpon>myteam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerModule\myteam.aspx.designer.cs">
+      <DependentUpon>myteam.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -152,6 +202,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\COCSProjects - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -159,6 +210,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

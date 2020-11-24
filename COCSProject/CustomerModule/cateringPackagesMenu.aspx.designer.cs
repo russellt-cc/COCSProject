@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace COCSProject
-{
-
-
-    public partial class forgotPassword
-    {
-
+namespace COCSProject.common {
+    
+    
+    public partial class cateringPackagesMenu {
+        
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -22,23 +20,23 @@ namespace COCSProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        
         /// <summary>
-        /// btnHomePage control.
+        /// dataListPackages control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnHomePage;
-
+        protected global::System.Web.UI.WebControls.DataList dataListPackages;
+        
         /// <summary>
-        /// PasswordRecovery1 control.
+        /// dataSourceCaterers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PasswordRecovery PasswordRecovery1;
+        protected global::System.Web.UI.WebControls.SqlDataSource dataSourceCaterers;
     }
 }

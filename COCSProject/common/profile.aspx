@@ -9,6 +9,9 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Button ID="btnHomePage" runat="server" OnClick="btnHomePage_Click" Text="Home Page" />
+            <br />
+            <br />
             <asp:Image ID="Image1" runat="server" Height="255px" Width="255px" />
             <br />
             <asp:Button ID="btnChangePicture" runat="server" Text="Change Picture" Width="255px" />

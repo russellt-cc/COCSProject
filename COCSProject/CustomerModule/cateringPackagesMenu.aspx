@@ -6,7 +6,9 @@
 <head runat="server">
     <title></title>
     <script>
-        
+        function AddToCart() {
+            
+        }
     </script>
     <style>
         *{
@@ -23,6 +25,7 @@
             background-color: lightgrey;
             border-right: 10px solid white;
             padding: 15px;
+            
         }
         aside{
             float: right;
@@ -67,20 +70,43 @@
         <main class="clearfix">
             <article>
                 <h1>Caterers and Packages</h1>
+                <asp:DataList ID="dataListPackages" runat="server" DataKeyField="Caterer_ID" DataSourceID="dataSourceCaterers">
+                    <ItemTemplate>
+                        Caterer_ID:
+                            <asp:Label ID="Caterer_IDLabel" runat="server" Text='<%# Eval("Caterer_ID") %>' />
+                            <br />
+                        Caterer_Name:
+                            <asp:Label ID="Caterer_NameLabel" runat="server" Text='<%# Eval("Caterer_Name") %>' />
+                            <br />
+                        Caterer_Description:
+                            <asp:Label ID="Caterer_DescriptionLabel" runat="server" Text='<%# Eval("Caterer_Description") %>' />
+                            <br />
+                        Caterer_Phone:
+                            <asp:Label ID="Caterer_PhoneLabel" runat="server" Text='<%# Eval("Caterer_Phone") %>' />
+                            <br />
+                        Caterer_Image:
+                            <asp:Label ID="Caterer_ImageLabel" runat="server" Text='<%# Eval("Caterer_Image") %>' />
+                            <br />
+        <br />
+                    </ItemTemplate>
+                </asp:DataList>
+
+
+                <asp:SqlDataSource ID="dataSourceCaterers" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString2 %>" SelectCommand="SELECT * FROM [Caterers]"></asp:SqlDataSource>
                 
             </article>
             <aside><h1>Menu Items</h1>
                         <h3 class="menuList">Drinks</h3>
                     <ul>
-                        <li>Drink 1</li>
-                        <li>drink 2</li>
-                        <li>drink 3</li>
+                        <li>Drink 1<button onclick="AddToCart()">+</button></li>
+                        <li>drink 2<button onclick="AddToCart()">+</button></li>
+                        <li>drink 3<button onclick="AddToCart()">+</button></li>
                     </ul>
                         <h3 class="menuList">Meals</h3>
                     <ul>
-                        <li>meal 1</li>
-                        <li>meal 2</li>
-                        <li>meal 3</li>
+                        <li>meal 1<button onclick="AddToCart()">+</button></li>
+                        <li>meal 2<button onclick="AddToCart()">+</button></li>
+                        <li>meal 3<button onclick="AddToCart()">+</button></li>
                     </ul>
             </aside>
         </main>

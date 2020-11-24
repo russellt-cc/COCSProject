@@ -83,6 +83,9 @@ namespace COCSProject
                 // Odd error detection
                 txtUserName.Text = "Something went wrong!";
             }
+        protected void btnHomePage_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/common/homepage.aspx");
         }
     }
 }
