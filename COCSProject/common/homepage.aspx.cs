@@ -16,7 +16,7 @@ namespace COCSProject
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            Response.Redirect("register.aspx");
+            Response.Redirect("~/common/register.aspx");
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -26,20 +26,20 @@ namespace COCSProject
 
         protected void btnChangePassword_Click(object sender, EventArgs e)
         {
-            Response.Redirect("resetPassword.aspx");
+            Response.Redirect("~/common/resetPassword.aspx");
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             if (txtSearch.Text == "")
             {
-                Response.Redirect("search.aspx");
+                Response.Redirect("~/common/search.aspx");
             }
         }
 
         protected void btnProfile_Click(object sender, EventArgs e)
         {
-            Response.Redirect("profile.aspx");
+            Response.Redirect("~/common/profile.aspx");
         }
 
         protected void btnLogOut_Click(object sender, EventArgs e)

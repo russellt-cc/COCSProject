@@ -17,13 +17,13 @@ namespace COCSProject
             HttpCookie reqCookies = Request.Cookies["userInfo"];
             if (reqCookies != null)
             {
-                Response.Redirect("profile.aspx");
+                Response.Redirect("~/common/profile.aspx");
             }
         }
 
         protected void btnForgot_Click(object sender, EventArgs e)
         {
-            Response.Redirect("forgotPassword.aspx");
+            Response.Redirect("~/common/forgotPassword.aspx");
         }
 
         protected void btnLogIn_Click(object sender, EventArgs e)
@@ -76,7 +76,7 @@ namespace COCSProject
 
                 // Push cookie
                 Response.Cookies.Add(userInfo);
-                Response.Redirect("profile.aspx");
+                Response.Redirect("~/common/profile.aspx");
             }
             else
             {
