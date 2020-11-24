@@ -73,7 +73,6 @@
     <Content Include="admin_module\Dashboard.aspx" />
     <Content Include="admin_module\Manage_Caterers.aspx" />
     <Content Include="admin_module\Report.aspx" />
-    <Content Include="CateringPackages\cateringPackagesMenu.aspx" />
     <Content Include="catererModule\menu.aspx" />
     <Content Include="catererModule\orders.aspx" />
     <Content Include="catererModule\packages.aspx" />
@@ -88,7 +87,6 @@
     <Content Include="CustomerModule\CustomerModule.html" />
     <Content Include="CustomerModule\myorders.aspx" />
     <Content Include="CustomerModule\myteam.aspx" />
-    <Content Include="login.aspx" />
     <Content Include="Web.config" />
     <Content Include="common\homepage.aspx" />
   </ItemGroup>
@@ -162,13 +160,6 @@
     </Compile>
     <Compile Include="CustomerModule\myteam.aspx.designer.cs">
       <DependentUpon>myteam.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="login.aspx.cs">
-      <DependentUpon>login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="login.aspx.designer.cs">
-      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="common\homepage.aspx.cs">
