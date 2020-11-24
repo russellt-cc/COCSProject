@@ -53,24 +53,34 @@ namespace COCSProject
                 Output = Output + dataReader.GetValue(0);
             }
 
+            // Cleanup
+            dataReader.Close();
+            command.Dispose();
+            cnn.Close();
+
             if (Output == pass)
             {
+                // Make cookie
                 HttpCookie userInfo = new HttpCookie("userInfo");
+                // Populate cookie
                 userInfo["UserName"] = user;
+                // Check stay logged in box and set expiry on cookie
                 if (ckbStayLogged.Checked)
                 {
                     userInfo.Expires = DateTime.Now.AddDays(30);
                 } 
                 else
                 {
-                    userInfo.Expires = DateTime.Now.AddHours(6);
+                    userInfo.Expires = DateTime.Now.AddMinutes(5);
                 }
 
+                // Push cookie
                 Response.Cookies.Add(userInfo);
                 Response.Redirect("profile.aspx");
             }
             else
             {
+                // Odd error detection
                 txtUserName.Text = "Something went wrong!";
             }
         }
