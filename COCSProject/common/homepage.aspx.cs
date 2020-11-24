@@ -21,7 +21,7 @@ namespace COCSProject
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            Response.Redirect("login.aspx");
+            Response.Redirect("~/common/login.aspx");
         }
 
         protected void btnChangePassword_Click(object sender, EventArgs e)

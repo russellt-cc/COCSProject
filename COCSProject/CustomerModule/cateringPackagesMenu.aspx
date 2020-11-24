@@ -92,7 +92,7 @@
                 </asp:DataList>
 
 
-                <asp:SqlDataSource ID="dataSourceCaterers" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString2 %>" SelectCommand="SELECT * FROM [Caterers]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="dataSourceCaterers" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT * FROM [Caterers]"></asp:SqlDataSource>
                 
             </article>
             <aside><h1>Menu Items</h1>

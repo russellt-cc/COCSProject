@@ -35,7 +35,7 @@
                 </ItemTemplate>
             </asp:DataList>
             <br />
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString4 %>" SelectCommand="SELECT * FROM [Caterer_Packages]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT * FROM [Caterer_Packages]"></asp:SqlDataSource>
             </span>
         </div>
     </form>

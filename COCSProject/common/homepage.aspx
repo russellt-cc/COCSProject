@@ -16,13 +16,13 @@
         <div>
             <asp:Button ID="btnSearch" runat="server" Text="Search" style="float:right" OnClick="btnSearch_Click" />
             <asp:TextBox ID="txtSearch" runat="server" style="float:right"></asp:TextBox>
-            <asp:LoginView ID="LoginView1" runat="server">
-                <AnonymousTemplate>
-                    <asp:Button ID="btnRegister" runat="server" OnClick="btnRegister_Click" Text="Register" Width="255px" />
+            (only for anonymous users)<br />
+                                <asp:Button ID="btnRegister" runat="server" OnClick="btnRegister_Click" Text="Register" Width="255px" />
                     <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click" Text="Log In" Width="255px" />
-                </AnonymousTemplate>
-                <LoggedInTemplate>
-                    <asp:Button ID="btnChangePassword" runat="server" OnClick="btnChangePassword_Click" Text="Change Password" Width="255px" />
+            <br />
+            <br />
+            (only for logged in users)<br />
+            <asp:Button ID="btnChangePassword" runat="server" OnClick="btnChangePassword_Click" Text="Change Password" Width="255px" />
                     <asp:Button ID="btnProfile" runat="server" OnClick="btnProfile_Click" Text="View Profile" Width="255px" />
                     <br />
                     <br />
@@ -43,8 +43,7 @@
                     <asp:Button ID="btnCustomerMenu" runat="server" OnClick="btnCustomerMenu_Click" Text="Menu/Packages" Width="255px" />
                     <asp:Button ID="btnCart" runat="server" OnClick="btnCart_Click" style="height: 35px" Text="Cart" Width="255px" />
                     <asp:Button ID="btnCustomerOrders" runat="server" OnClick="btnCustomerOrders_Click" Text="Orders" Width="255px" />
-                </LoggedInTemplate>
-            </asp:LoginView>
+
             <br />
             <br />
             <asp:LoginStatus ID="LoginStatus1" runat="server" />
