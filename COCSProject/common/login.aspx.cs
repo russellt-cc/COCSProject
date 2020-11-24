@@ -42,7 +42,7 @@ namespace COCSProject
             string sql, Output = "";
 
             // Building query and command
-            sql = "SELECT Password, User_Name FROM Users WHERE User_Name = " + user;
+            sql = "SELECT Password, User_Name FROM Users WHERE User_Name ='" + user + "'";
             command = new SqlCommand(sql, cnn);
 
             dataReader = command.ExecuteReader();
