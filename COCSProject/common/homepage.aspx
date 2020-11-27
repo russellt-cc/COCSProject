@@ -41,7 +41,7 @@
                     (only for customers)<br />
                     <asp:Button ID="btnTeam" runat="server" OnClick="btnTeam_Click" Text="My Team" Width="255px" />
                     <asp:Button ID="btnCustomerMenu" runat="server" OnClick="btnCustomerMenu_Click" Text="Menu/Packages" Width="255px" />
-                    <asp:Button ID="btnCart" runat="server" OnClick="btnCart_Click" style="height: 35px" Text="Cart" Width="255px" />
+                    <asp:Button ID="btnCart" runat="server" OnClick="btnCart_Click" Text="Cart" Width="255px" />
                     <asp:Button ID="btnCustomerOrders" runat="server" OnClick="btnCustomerOrders_Click" Text="Orders" Width="255px" />
 
             <br />
