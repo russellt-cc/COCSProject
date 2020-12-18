@@ -19,15 +19,14 @@
             <asp:Button ID="btnReports" runat="server" OnClick="btnReports_Click" Text="Reports" Width="255px" />
             <asp:Button ID="btnManageCaterers" runat="server" OnClick="btnManageCaterers_Click" Text="Manage Caterers" Width="255px" />
             <br />
-            <span class="auto-style1"><strong>Admin Manage Roles</strong></span><br />
+            <span class="auto-style1"><strong>Admin Manage Roles and Users</strong></span><br />
             <br />
-            Create Roles:<br />
+            <span class="auto-style1">Create or Remove Roles:</span><br />
             Role Name:
             <asp:TextBox ID="txtRoleName" runat="server"></asp:TextBox>
             <br />
             <asp:Button ID="btnNewRole" runat="server" OnClick="btnNewRole_Click" Text="Create a New Role" Width="255px" />
             <asp:Button ID="btnRemoveRole" runat="server" OnClick="btnRemoveRole_Click" Text="Remove Role" Width="255px" />
-            <br />
             <br />
             <asp:Label ID="lblActionStatus" runat="server" Text="Status OK"></asp:Label>
             <br />
@@ -42,10 +41,9 @@
                     <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
                 </Columns>
             </asp:GridView>
-            <br />
             <asp:SqlDataSource ID="sqlDataSourceRoles" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT * FROM [vw_aspnet_Roles]"></asp:SqlDataSource>
             <br />
-            Assign Roles:<br />
+            <span class="auto-style1">Assign or Unassign Roles:</span><br />
             Role:
             <asp:TextBox ID="txtSelectRole" runat="server"></asp:TextBox>
             <br />
@@ -90,7 +88,6 @@
                     <asp:BoundField DataField="RoleName" HeaderText="RoleName" SortExpression="RoleName" />
                 </Columns>
             </asp:GridView>
-            <br />
             <asp:SqlDataSource ID="SqlDataSourceUsersInRoles" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="select aspnet_Users.UserName, aspnet_Users.UserId, aspnet_UsersInRoles.RoleId, aspnet_Roles.RoleName
 from aspnet_Users
 left join aspnet_UsersInRoles
@@ -98,7 +95,7 @@ on aspnet_Users.UserId = aspnet_UsersInRoles.UserId
 left join aspnet_Roles
 on aspnet_UsersInRoles.RoleId = aspnet_Roles.RoleId"></asp:SqlDataSource>
             <br />
-            Manage Users:<br />
+            <span class="auto-style1">Add or Remove Users:</span><br />
             User Name:
             <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
             <br />
@@ -116,7 +113,6 @@ on aspnet_UsersInRoles.RoleId = aspnet_Roles.RoleId"></asp:SqlDataSource>
             <br />--%>
             <asp:Button ID="btnAddUser" runat="server" OnClick="btnAddUser_Click" Text="Add User" Width="255px" />
             <asp:Button ID="btnRemoveUser" runat="server" Text="Remove User" Width="255px" OnClick="btnRemoveUser_Click" />
-            <br />
             <br />
             <asp:Label ID="lblActionStatus3" runat="server" Text="Status OK"></asp:Label>
             <br />
@@ -159,7 +155,6 @@ on aspnet_UsersInRoles.RoleId = aspnet_Roles.RoleId"></asp:SqlDataSource>
                     <asp:BoundField DataField="LastActivityDate" HeaderText="LastActivityDate" SortExpression="LastActivityDate" />
                 </Columns>
             </asp:GridView>
-            <br />
             <asp:SqlDataSource ID="SqlDataSourceUsers" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT * FROM [vw_aspnet_Users]"></asp:SqlDataSource>
             <br />
         </div>

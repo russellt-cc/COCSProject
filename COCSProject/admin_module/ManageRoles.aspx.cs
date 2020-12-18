@@ -60,7 +60,7 @@ namespace COCSProject.admin_module
             try
             {
                 if (rName == "") throw new Exception("Enter the name of role to remove");
-                if (rName.ToLower() == "admin" || rName.ToLower() == "caterer" || rName.ToLower() == "customer" || rName.ToLower() == "potentialcaterer") throw new Exception("You cannot remove admin, caterer, or customer roles");
+                if (rName.ToLower() == "admin" || rName.ToLower() == "caterer" || rName.ToLower() == "customer" || rName.ToLower() == "potentialcaterer" || rName.ToLower() == "declinedcaterer") throw new Exception("You cannot remove admin, caterer, or customer roles");
                 if (!System.Web.Security.Roles.RoleExists(rName)) throw new Exception("Role does not exist");
                 System.Web.Security.Roles.DeleteRole(rName);
                 lblActionStatus.Text = $"Role (<strong>{rName}</strong>) was removed successfully.";
@@ -86,7 +86,7 @@ namespace COCSProject.admin_module
             }
             catch (Exception ex)
             {
-                lblActionStatus2.Text = $"Role (<strong>{rName}</strong>) was <strong>NOT</strong> assigned successfully.<br/>Error: {ex.Message}";
+                lblActionStatus2.Text = $"Role (<strong>{rName}</strong>) was <strong>NOT</strong> assigned successfully.<br/>Error: {ex.Message}.";
             }
         }
 
@@ -104,7 +104,7 @@ namespace COCSProject.admin_module
             }
             catch (Exception ex)
             {
-                lblActionStatus2.Text = $"Role (<strong>{rName}</strong>) was <strong>NOT</strong> unassigned successfully.<br/>Error: {ex.Message}";
+                lblActionStatus2.Text = $"Role (<strong>{rName}</strong>) was <strong>NOT</strong> unassigned successfully.<br/>Error: {ex.Message}.";
             }
         }
 
@@ -166,7 +166,7 @@ namespace COCSProject.admin_module
             {
                 string uName = txtUserName.Text.Trim();
                 if (uName == "") throw new Exception("Enter the name of the user");
-                if (System.Web.Security.Membership.GetUser(uName) == null) throw new Exception("User name not found");
+                if (System.Web.Security.Membership.FindUsersByName(uName) == null) throw new Exception("User name not found");
                 System.Web.Security.Membership.DeleteUser(uName);
                 lblActionStatus3.Text = $"User <strong>{uName}</strong> was removed successfully.";
                 gvUsersInRolesList.DataBind();
