@@ -102,6 +102,18 @@ on aspnet_UsersInRoles.RoleId = aspnet_Roles.RoleId"></asp:SqlDataSource>
             User Name:
             <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
             <br />
+            Password:&nbsp;&nbsp;
+            <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+            <br />
+<%--            Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+            <br />
+            Question:&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="txtQuestion" runat="server"></asp:TextBox>
+            <br />
+            Answer:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="txtAnswer" runat="server"></asp:TextBox>
+            <br />--%>
             <asp:Button ID="btnAddUser" runat="server" OnClick="btnAddUser_Click" Text="Add User" Width="255px" />
             <asp:Button ID="btnRemoveUser" runat="server" Text="Remove User" Width="255px" OnClick="btnRemoveUser_Click" />
             <br />

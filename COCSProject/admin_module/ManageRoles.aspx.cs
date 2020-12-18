@@ -13,11 +13,7 @@ namespace COCSProject.admin_module
         {
             if (!Page.IsPostBack)
             {
-                //dlRolesList.DataBind();
-                //UsersRoleList.DataBind();
-                //ddlUsersList.DataBind();
-                //CheckRolesForSelectedUser();
-                //lblRoleID.Text = ddlRoles.SelectedValue;
+
             }
         }
 
@@ -44,56 +40,35 @@ namespace COCSProject.admin_module
         protected void btnNewRole_Click(object sender, EventArgs e)
         {
             string rName = txtRoleName.Text.Trim();
-            if (rName == "")
+            try
             {
-                lblActionStatus.Text = $"Role was <strong>NOT</strong> created successfully.<br/>Error: Role cannot have no name.";
+                if (rName == "") throw new Exception("Role cannot have no name");
+                if (System.Web.Security.Roles.RoleExists(rName)) throw new Exception("Role already exists");
+                System.Web.Security.Roles.CreateRole(rName);
+                lblActionStatus.Text = $"Role (<strong>{rName}</strong>) was created successfully.";
+                gvRolesList.DataBind();
             }
-            else if (!System.Web.Security.Roles.RoleExists(rName))
+            catch (Exception ex)
             {
-                try
-                {
-                    System.Web.Security.Roles.CreateRole(rName);
-                    lblActionStatus.Text = $"Role (<strong>{rName}</strong>) was created successfully.";
-                    gvRolesList.DataBind();
-                }
-                catch (Exception ex)
-                {
-                    lblActionStatus.Text = $"Role (<strong>{rName}</strong>) was <strong>NOT</strong> created successfully.<br/>Error: {ex.Message}";
-                }
-            }
-            else 
-            { 
-                lblActionStatus.Text = $"Role (<strong>{rName}</strong>) was <strong>NOT</strong> created successfully.<br/>Error: Role already exists.";
+                lblActionStatus.Text = $"Role (<strong>{rName}</strong>) was <strong>NOT</strong> created successfully.<br/>Error: {ex.Message}";
             }
         }
 
         protected void btnRemoveRole_Click(object sender, EventArgs e)
         {
             string rName = txtRoleName.Text.Trim();
-            if (rName == "")
+            try
             {
-                lblActionStatus.Text = $"Role was <strong>NOT</strong> removed successfully.<br/>Error: Enter the name of the role to remove.";
+                if (rName == "") throw new Exception("Enter the name of role to remove");
+                if (rName.ToLower() == "admin" || rName.ToLower() == "caterer" || rName.ToLower() == "customer") throw new Exception("You cannot remove admin, caterer, or customer roles");
+                if (!System.Web.Security.Roles.RoleExists(rName)) throw new Exception("Role does not exist");
+                System.Web.Security.Roles.DeleteRole(rName);
+                lblActionStatus.Text = $"Role (<strong>{rName}</strong>) was removed successfully.";
+                gvRolesList.DataBind();
             }
-            else if (rName.ToLower() == "admin" || rName.ToLower() == "caterer" || rName.ToLower() == "customer")
+            catch (Exception ex)
             {
-                lblActionStatus.Text = $"Role (<strong>{rName}</strong>) was <strong>NOT</strong> removed successfully.<br/>Error: You cannot remove admin, caterer, or customer roles.";
-            }
-            else if (System.Web.Security.Roles.RoleExists(rName))
-            {
-                try
-                {
-                    System.Web.Security.Roles.DeleteRole(rName);
-                    lblActionStatus.Text = $"Role (<strong>{rName}</strong>) was removed successfully.";
-                    gvRolesList.DataBind();
-                }
-                catch (Exception ex)
-                {
-                    lblActionStatus.Text = $"Role (<strong>{rName}</strong>) was <strong>NOT</strong> removed successfully.<br/>Error: {ex.Message}";
-                }
-            }
-            else
-            {
-                lblActionStatus.Text = $"Role (<strong>{rName}</strong>) was <strong>NOT</strong> removed successfully.<br/>Error: Role does not exist.";
+                lblActionStatus.Text = $"Role (<strong>{rName}</strong>) was <strong>NOT</strong> removed successfully.<br/>Error: {ex.Message}";
             }
         }
 
@@ -101,25 +76,17 @@ namespace COCSProject.admin_module
         {
             string rName = txtSelectRole.Text.Trim();
             string uName = txtSelectUser.Text.Trim();
-            if (rName == "" || uName == "")
+            try
             {
-                lblActionStatus2.Text = $"Role was <strong>NOT</strong> assigned successfully.<br/>Error: Enter the name of the role and user.";
+                if (rName == "" || uName == "") throw new Exception("Enter the name of the role and user");
+                if (!System.Web.Security.Roles.RoleExists(rName)) throw new Exception("Role does not exist");
+                lblActionStatus2.Text = $"Role (<strong>{rName}</strong>) was assigned successfully.";
+                System.Web.Security.Roles.AddUserToRole(uName, rName);
+                gvUsersInRolesList.DataBind();
             }
-            else if (System.Web.Security.Roles.RoleExists(rName))
+            catch (Exception ex)
             {
-                try
-                {
-                    System.Web.Security.Roles.AddUserToRole(uName, rName);
-                    gvUsersInRolesList.DataBind();
-                }
-                catch (Exception ex)
-                {
-                    lblActionStatus2.Text = $"Role (<strong>{rName}</strong>) was <strong>NOT</strong> assigned successfully.<br/>Error: {ex.Message}";
-                }
-            }
-            else
-            {
-                lblActionStatus2.Text = $"Role was <strong>NOT</strong> assigned successfully.<br/>Error: Role does not exist.";
+                lblActionStatus2.Text = $"Role (<strong>{rName}</strong>) was <strong>NOT</strong> assigned successfully.<br/>Error: {ex.Message}";
             }
         }
 
@@ -127,51 +94,69 @@ namespace COCSProject.admin_module
         {
             string rName = txtSelectRole.Text.Trim();
             string uName = txtSelectUser.Text.Trim();
-            if (rName == "" || uName == "")
+            try
             {
-                lblActionStatus2.Text = $"Role was <strong>NOT</strong> unassigned successfully.<br/>Error: Enter the name of the role and user.";
+                if (rName == "" || uName == "") throw new Exception("Enter the name of the role and user");
+                if (!System.Web.Security.Roles.RoleExists(rName)) throw new Exception("Role does not exist");
+                lblActionStatus2.Text = $"Role (<strong>{rName}</strong>) was unassigned successfully.";
+                System.Web.Security.Roles.RemoveUserFromRole(uName, rName);
+                gvUsersInRolesList.DataBind();
             }
-            else if (System.Web.Security.Roles.RoleExists(rName))
+            catch (Exception ex)
             {
-                try
-                {
-                    System.Web.Security.Roles.RemoveUserFromRole(uName, rName);
-                    gvUsersInRolesList.DataBind();
-                }
-                catch (Exception ex)
-                {
-                    lblActionStatus2.Text = $"Role (<strong>{rName}</strong>) was <strong>NOT</strong> unassigned successfully.<br/>Error: {ex.Message}";
-                }
-            }
-            else
-            {
-                lblActionStatus2.Text = $"Role was <strong>NOT</strong> unassigned successfully.<br/>Error: Role does not exist.";
+                lblActionStatus2.Text = $"Role (<strong>{rName}</strong>) was <strong>NOT</strong> unassigned successfully.<br/>Error: {ex.Message}";
             }
         }
 
         protected void btnAddUser_Click(object sender, EventArgs e)
         {
-            string uName = txtUserName.Text;
-            if (uName == "")
+            string uName = txtUserName.Text.Trim();
+            string password = txtPassword.Text.Trim();
+            //string email = txtEmail.Text;
+            //string question = txtQuestion.Text;
+            //string answer = txtAnswer.Text;
+            try
             {
-                lblActionStatus3.Text = $"User was <strong>NOT</strong> added successfully.<br/>Error: Enter the name of the user.";
+                if (uName == "") throw new Exception("Enter the name of the user");
+                if (password == "") throw new Exception("Enter a password for the user");
+                //if (email == "") throw new Exception("Enter an email for the user");
+                //if (question == "") throw new Exception("Enter a security question for the user");
+                //if (answer == "") throw new Exception("Enter a security answer for the user");
+                if (!(System.Web.Security.Membership.GetUser(uName) == null)) throw new Exception("User already exists");
+                //System.Web.Security.Membership.CreateUser(uName, password, email, question, answer, true, out System.Web.Security.MembershipCreateStatus status);
+                System.Web.Security.Membership.CreateUser(uName, password);
+                //switch (status)
+                //{
+                //    case System.Web.Security.MembershipCreateStatus.Success:
+                //        return;
+                //    case System.Web.Security.MembershipCreateStatus.DuplicateUserName:
+                //        throw new Exception("Username already exists. Please enter a different user name");
+                //    case System.Web.Security.MembershipCreateStatus.DuplicateEmail:
+                //        throw new Exception("A username for that email address already exists. Please enter a different email address");
+                //    case System.Web.Security.MembershipCreateStatus.InvalidPassword:
+                //        throw new Exception("The password provided is invalid. Please enter a valid password value");
+                //    case System.Web.Security.MembershipCreateStatus.InvalidEmail:
+                //        throw new Exception("The email address provided is invalid. Please check the value and try again");
+                //    case System.Web.Security.MembershipCreateStatus.InvalidAnswer:
+                //        throw new Exception("The password retrieval answer provided is invalid. Please check the value and try again");
+                //    case System.Web.Security.MembershipCreateStatus.InvalidQuestion:
+                //        throw new Exception("The password retrieval question provided is invalid. Please check the value and try again");
+                //    case System.Web.Security.MembershipCreateStatus.InvalidUserName:
+                //        throw new Exception("The user name provided is invalid. Please check the value and try again");
+                //    case System.Web.Security.MembershipCreateStatus.ProviderError:
+                //        throw new Exception("The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator");
+                //    case System.Web.Security.MembershipCreateStatus.UserRejected:
+                //        throw new Exception("The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator");
+                //    default:
+                //        throw new Exception("An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator");
+                //}
+                lblActionStatus3.Text = $"User <strong>{uName}</strong> was added successfully.";
+                gvUsersInRolesList.DataBind();
+                gvUsersList.DataBind();
             }
-            else if (!(System.Web.Security.Membership.GetUser(uName) == null))
+            catch (Exception ex)
             {
-                lblActionStatus3.Text = $"User was <strong>NOT</strong> added successfully.<br/>Error: User already exists.";
-            }
-            else
-            {
-                try
-                {
-                    System.Web.Security.Membership.CreateUser(uName, "password");
-                    gvUsersInRolesList.DataBind();
-                    gvUsersList.DataBind();
-                }
-                catch (Exception ex)
-                {
-                    lblActionStatus3.Text = $"User was <strong>NOT</strong> added successfully.<br/>Error: {ex.Message}.";
-                }
+                lblActionStatus3.Text = $"User <strong>{uName}</strong> was <strong>NOT</strong> added successfully.<br/>Error: {ex.Message}.";
             }
         }
 
@@ -180,9 +165,10 @@ namespace COCSProject.admin_module
             try
             {
                 string uName = txtUserName.Text.Trim();
-                if (uName == "") throw new Exception("Enter the name of the user.");
-                if (System.Web.Security.Membership.GetUser(uName) == null) throw new Exception("User name not found.");
+                if (uName == "") throw new Exception("Enter the name of the user");
+                if (System.Web.Security.Membership.GetUser(uName) == null) throw new Exception("User name not found");
                 System.Web.Security.Membership.DeleteUser(uName);
+                lblActionStatus3.Text = $"User <strong>{uName}</strong> was removed successfully.";
                 gvUsersInRolesList.DataBind();
                 gvUsersList.DataBind();
             }
