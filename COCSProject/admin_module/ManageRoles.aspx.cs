@@ -65,5 +65,35 @@ namespace COCSProject.admin_module
                 lblActionStatus.Text = $"Role (<strong>{rName}</strong>) was <strong>NOT</strong> created successfully.<br/>Error: Role already exists.";
             }
         }
+
+        protected void btnRemoveRole_Click(object sender, EventArgs e)
+        {
+            string rName = txtRoleName.Text.Trim();
+            if (rName == "")
+            {
+                lblActionStatus.Text = $"Role was <strong>NOT</strong> removed successfully.<br/>Error: Enter the name of the role to remove.";
+            }
+            else if (rName.ToLower() == "admin" || rName.ToLower() == "caterer" || rName.ToLower() == "customer")
+            {
+                lblActionStatus.Text = $"Role (<strong>{rName}</strong>) was <strong>NOT</strong> removed successfully.<br/>Error: You cannot remove admin, caterer, or customer roles.";
+            }
+            else if (System.Web.Security.Roles.RoleExists(rName))
+            {
+                try
+                {
+                    System.Web.Security.Roles.DeleteRole(rName);
+                    lblActionStatus.Text = $"Role (<strong>{rName}</strong>) was removed successfully.";
+                    gvRolesList.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    lblActionStatus.Text = $"Role (<strong>{rName}</strong>) was <strong>NOT</strong> removed successfully.<br/>Error: {ex.Message}";
+                }
+            }
+            else
+            {
+                lblActionStatus.Text = $"Role (<strong>{rName}</strong>) was <strong>NOT</strong> removed successfully.<br/>Error: Role does not exist.";
+            }
+        }
     }
 }

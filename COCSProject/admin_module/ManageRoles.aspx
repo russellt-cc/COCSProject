@@ -21,6 +21,7 @@
             <asp:TextBox ID="txtRoleName" runat="server"></asp:TextBox>
             <br />
             <asp:Button ID="btnNewRole" runat="server" OnClick="btnNewRole_Click" Text="Create a New Role" />
+            <asp:Button ID="btnRemoveRole" runat="server" OnClick="btnRemoveRole_Click" Text="Remove Role" />
             <br />
             <br />
             <asp:Label ID="lblActionStatus" runat="server" Text="Status OK"></asp:Label>
