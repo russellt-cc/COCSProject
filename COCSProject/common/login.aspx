@@ -34,6 +34,10 @@
             <br />
             <br />
             <asp:Button ID="btnForgot" runat="server" OnClick="btnForgot_Click" Text="Forgot Password?" />
+            <br />
+            <br />
+            <asp:Login ID="Login1" runat="server" OnLoggedIn="Login1_LoggedIn">
+            </asp:Login>
         </div>
     </form>
 </body>

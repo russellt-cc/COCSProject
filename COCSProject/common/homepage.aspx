@@ -16,33 +16,51 @@
         <div>
             <asp:Button ID="btnSearch" runat="server" Text="Search" style="float:right" OnClick="btnSearch_Click" />
             <asp:TextBox ID="txtSearch" runat="server" style="float:right"></asp:TextBox>
-            (only for anonymous users)<br />
-                                <asp:Button ID="btnRegister" runat="server" OnClick="btnRegister_Click" Text="Register" Width="255px" />
+            <asp:LoginView ID="LoginView1" runat="server">
+                <AnonymousTemplate>
+                    (only for anonymous users)<br />
+                    <asp:Button ID="btnRegister" runat="server" OnClick="btnRegister_Click" Text="Register" Width="255px" />
                     <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click" Text="Log In" Width="255px" />
-            <br />
-            <br />
-            (only for logged in users)<br />
-            <asp:Button ID="btnChangePassword" runat="server" OnClick="btnChangePassword_Click" Text="Change Password" Width="255px" />
+                </AnonymousTemplate>
+                <LoggedInTemplate>
+                    (only for logged in users)<br />
+                    <asp:Button ID="btnChangePassword" runat="server" OnClick="btnChangePassword_Click" Text="Change Password" Width="255px" />
                     <asp:Button ID="btnProfile" runat="server" OnClick="btnProfile_Click" Text="View Profile" Width="255px" />
                     <br />
-                    <br />
-                    (only for caterers)<br />
-                    <asp:Button ID="btnMenu" runat="server" OnClick="btnMenu_Click" Text="Menu" Width="255px" />
-                    <asp:Button ID="btnPackages" runat="server" OnClick="btnPackages_Click" Text="Packages" Width="255px" />
-                    <asp:Button ID="btnOrders" runat="server" OnClick="btnOrders_Click" Text="Orders" Width="255px" />
-                    <br />
-                    <br />
-                    (only for admins)<br />
-                    <asp:Button ID="btnDashboard" runat="server" OnClick="btnDashboard_Click" Text="Dashboard" Width="255px" />
-                    <asp:Button ID="btnReports" runat="server" OnClick="btnReports_Click" Text="Reports" Width="255px" />
-                    <asp:Button ID="btnManageCaterers" runat="server" OnClick="btnManageCaterers_Click" Text="Manage Caterers" Width="255px" />
-                    <br />
-                    <br />
-                    (only for customers)<br />
-                    <asp:Button ID="btnTeam" runat="server" OnClick="btnTeam_Click" Text="My Team" Width="255px" />
-                    <asp:Button ID="btnCustomerMenu" runat="server" OnClick="btnCustomerMenu_Click" Text="Menu/Packages" Width="255px" />
-                    <asp:Button ID="btnCart" runat="server" OnClick="btnCart_Click" Text="Cart" Width="255px" />
-                    <asp:Button ID="btnCustomerOrders" runat="server" OnClick="btnCustomerOrders_Click" Text="Orders" Width="255px" />
+                </LoggedInTemplate>
+            </asp:LoginView>
+
+            <br />
+            <br />
+            <asp:LoginView ID="LoginView2" runat="server">
+                <RoleGroups>
+                    <asp:RoleGroup Roles="Admin">
+                        <ContentTemplate>
+                            (only for admins)<br />
+                            <asp:Button ID="btnDashboard" runat="server" OnClick="btnDashboard_Click" Text="Dashboard" Width="255px" />
+                            <asp:Button ID="btnReports" runat="server" OnClick="btnReports_Click" Text="Reports" Width="255px" />
+                            <asp:Button ID="btnManageCaterers" runat="server" OnClick="btnManageCaterers_Click" Text="Manage Caterers" Width="255px" />
+                        </ContentTemplate>
+                    </asp:RoleGroup>
+                    <asp:RoleGroup Roles="Caterer">
+                        <ContentTemplate>
+                            (only for caterers)<br />
+                            <asp:Button ID="btnMenu" runat="server" OnClick="btnMenu_Click" Text="Menu" Width="255px" />
+                            <asp:Button ID="btnPackages" runat="server" OnClick="btnPackages_Click" Text="Packages" Width="255px" />
+                            <asp:Button ID="btnOrders" runat="server" OnClick="btnOrders_Click" Text="Orders" Width="255px" />
+                        </ContentTemplate>
+                    </asp:RoleGroup>
+                    <asp:RoleGroup Roles="Customer">
+                        <ContentTemplate>
+                            (only for customers)<br />
+                            <asp:Button ID="btnTeam" runat="server" OnClick="btnTeam_Click" Text="My Team" Width="255px" />
+                            <asp:Button ID="btnCustomerMenu" runat="server" OnClick="btnCustomerMenu_Click" Text="Menu/Packages" Width="255px" />
+                            <asp:Button ID="btnCart" runat="server" OnClick="btnCart_Click" Text="Cart" Width="255px" />
+                            <asp:Button ID="btnCustomerOrders" runat="server" OnClick="btnCustomerOrders_Click" Text="Orders" Width="255px" />
+                        </ContentTemplate>
+                    </asp:RoleGroup>
+                </RoleGroups>
+            </asp:LoginView>
 
             <br />
             <br />

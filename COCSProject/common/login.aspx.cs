@@ -89,5 +89,10 @@ namespace COCSProject
         {
             Response.Redirect("/common/homepage.aspx");
         }
+
+        protected void Login1_LoggedIn(object sender, EventArgs e)
+        {
+            Response.Redirect("/common/homepage.aspx");
+        }
     }
 }
