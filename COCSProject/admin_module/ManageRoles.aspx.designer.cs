@@ -96,13 +96,13 @@ namespace COCSProject.admin_module
         protected global::System.Web.UI.WebControls.Label lblActionStatus;
 
         /// <summary>
-        /// dlRolesList control.
+        /// gvRolesList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dlRolesList;
+        protected global::System.Web.UI.WebControls.GridView gvRolesList;
 
         /// <summary>
         /// sqlDataSourceRoles control.
@@ -114,13 +114,13 @@ namespace COCSProject.admin_module
         protected global::System.Web.UI.WebControls.SqlDataSource sqlDataSourceRoles;
 
         /// <summary>
-        /// dlUserList control.
+        /// gvUsersInRolesList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dlUserList;
+        protected global::System.Web.UI.WebControls.GridView gvUsersInRolesList;
 
         /// <summary>
         /// SqlDataSourceUsersInRoles control.
@@ -132,13 +132,13 @@ namespace COCSProject.admin_module
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceUsersInRoles;
 
         /// <summary>
-        /// dlUsers control.
+        /// gvUsersList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dlUsers;
+        protected global::System.Web.UI.WebControls.GridView gvUsersList;
 
         /// <summary>
         /// SqlDataSourceUsers control.

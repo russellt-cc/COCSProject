@@ -33,34 +33,24 @@
             <br />
             <br />
             <span class="auto-style1">Roles List:</span><br />
-            <asp:DataList ID="dlRolesList" runat="server" DataKeyField="ApplicationId" DataSourceID="SqlDataSourceRoles">
-                <ItemTemplate>
-                    ApplicationId:
-                    <asp:Label ID="ApplicationIdLabel" runat="server" Text='<%# Eval("ApplicationId") %>' />
-                    <br />
-                    RoleId:
-                    <asp:Label ID="RoleIdLabel" runat="server" Text='<%# Eval("RoleId") %>' />
-                    <br />
-                    RoleName:
-                    <asp:Label ID="RoleNameLabel" runat="server" Text='<%# Eval("RoleName") %>' />
-                    <br />
-                    LoweredRoleName:
-                    <asp:Label ID="LoweredRoleNameLabel" runat="server" Text='<%# Eval("LoweredRoleName") %>' />
-                    <br />
-                    Description:
-                    <asp:Label ID="DescriptionLabel" runat="server" Text='<%# Eval("Description") %>' />
-                    <br />
-<br />
-                </ItemTemplate>
-            </asp:DataList>
+            <asp:GridView ID="gvRolesList" runat="server" AutoGenerateColumns="False" DataKeyNames="ApplicationId,LoweredRoleName" DataSourceID="sqlDataSourceRoles">
+                <Columns>
+                    <asp:BoundField DataField="ApplicationId" HeaderText="ApplicationId" ReadOnly="True" SortExpression="ApplicationId" />
+                    <asp:BoundField DataField="RoleId" HeaderText="RoleId" SortExpression="RoleId" />
+                    <asp:BoundField DataField="RoleName" HeaderText="RoleName" SortExpression="RoleName" />
+                    <asp:BoundField DataField="LoweredRoleName" HeaderText="LoweredRoleName" ReadOnly="True" SortExpression="LoweredRoleName" />
+                    <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
+                </Columns>
+            </asp:GridView>
+            <br />
             <asp:SqlDataSource ID="sqlDataSourceRoles" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT * FROM [vw_aspnet_Roles]"></asp:SqlDataSource>
             <br />
-<%--            <asp:DropDownList ID="ddlRoles" runat="server" DataSourceID="SqlDataSourceRoles" DataTextField="RoleName" DataValueField="RoleId" OnSelectedIndexChanged="ddlRoles_SelectedIndexChanged">
+            <%--            <asp:DropDownList ID="ddlRoles" runat="server" DataSourceID="SqlDataSourceRoles" DataTextField="RoleName" DataValueField="RoleId" OnSelectedIndexChanged="ddlRoles_SelectedIndexChanged">
             </asp:DropDownList>
             <asp:Label ID="lblRoleID" runat="server" Text="Label"></asp:Label>
             <br />
             <br />--%>
-            <span class="auto-style1">Users in Roles List:</span><asp:DataList ID="dlUserList" runat="server" DataSourceID="SqlDataSourceUsersInRoles">
+            <span class="auto-style1">Users in Roles List:</span><%--<asp:DataList ID="dlUserList" runat="server" DataSourceID="SqlDataSourceUsersInRoles">
                 <ItemTemplate>
                     UserName:
                     <asp:Label ID="UserNameLabel" runat="server" Text='<%# Eval("UserName") %>' />
@@ -76,7 +66,17 @@
                     <br />
                     <br />
                 </ItemTemplate>
-            </asp:DataList>
+            </asp:DataList>--%>
+            <br />
+            <asp:GridView ID="gvUsersInRolesList" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceUsersInRoles">
+                <Columns>
+                    <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
+                    <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" />
+                    <asp:BoundField DataField="RoleId" HeaderText="RoleId" SortExpression="RoleId" />
+                    <asp:BoundField DataField="RoleName" HeaderText="RoleName" SortExpression="RoleName" />
+                </Columns>
+            </asp:GridView>
+            <br />
             <asp:SqlDataSource ID="SqlDataSourceUsersInRoles" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="select aspnet_Users.UserName, aspnet_Users.UserId, aspnet_UsersInRoles.RoleId, aspnet_Roles.RoleName
 from aspnet_Users
 left join aspnet_UsersInRoles
@@ -84,7 +84,7 @@ on aspnet_Users.UserId = aspnet_UsersInRoles.UserId
 left join aspnet_Roles
 on aspnet_UsersInRoles.RoleId = aspnet_Roles.RoleId"></asp:SqlDataSource>
             <br />
-            <span class="auto-style1">Users List:</span><asp:DataList ID="dlUsers" runat="server" DataKeyField="ApplicationId" DataSourceID="SqlDataSourceUsers">
+            <span class="auto-style1">Users List:</span><%--<asp:DataList ID="dlUsers" runat="server" DataKeyField="ApplicationId" DataSourceID="SqlDataSourceUsers">
                 <ItemTemplate>
                     ApplicationId:
                     <asp:Label ID="ApplicationIdLabel" runat="server" Text='<%# Eval("ApplicationId") %>' />
@@ -109,7 +109,20 @@ on aspnet_UsersInRoles.RoleId = aspnet_Roles.RoleId"></asp:SqlDataSource>
                     <br />
 <br />
                 </ItemTemplate>
-            </asp:DataList>
+            </asp:DataList>--%>
+            <br />
+            <asp:GridView ID="gvUsersList" runat="server" AutoGenerateColumns="False" DataKeyNames="ApplicationId,LoweredUserName" DataSourceID="SqlDataSourceUsers">
+                <Columns>
+                    <asp:BoundField DataField="ApplicationId" HeaderText="ApplicationId" ReadOnly="True" SortExpression="ApplicationId" />
+                    <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" />
+                    <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
+                    <asp:BoundField DataField="LoweredUserName" HeaderText="LoweredUserName" ReadOnly="True" SortExpression="LoweredUserName" />
+                    <asp:BoundField DataField="MobileAlias" HeaderText="MobileAlias" SortExpression="MobileAlias" />
+                    <asp:CheckBoxField DataField="IsAnonymous" HeaderText="IsAnonymous" SortExpression="IsAnonymous" />
+                    <asp:BoundField DataField="LastActivityDate" HeaderText="LastActivityDate" SortExpression="LastActivityDate" />
+                </Columns>
+            </asp:GridView>
+            <br />
             <asp:SqlDataSource ID="SqlDataSourceUsers" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT * FROM [vw_aspnet_Users]"></asp:SqlDataSource>
             <br />
         </div>

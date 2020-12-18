@@ -13,7 +13,7 @@ namespace COCSProject.admin_module
         {
             if (!Page.IsPostBack)
             {
-                dlRolesList.DataBind();
+                //dlRolesList.DataBind();
                 //UsersRoleList.DataBind();
                 //ddlUsersList.DataBind();
                 //CheckRolesForSelectedUser();
@@ -54,7 +54,7 @@ namespace COCSProject.admin_module
                 {
                     System.Web.Security.Roles.CreateRole(rName);
                     lblActionStatus.Text = $"Role (<strong>{rName}</strong>) was created successfully.";
-                    dlRolesList.DataBind();
+                    gvRolesList.DataBind();
                 }
                 catch (Exception ex)
                 {
@@ -84,7 +84,7 @@ namespace COCSProject.admin_module
                 {
                     System.Web.Security.Roles.DeleteRole(rName);
                     lblActionStatus.Text = $"Role (<strong>{rName}</strong>) was removed successfully.";
-                    dlRolesList.DataBind();
+                    gvRolesList.DataBind();
                 }
                 catch (Exception ex)
                 {
