@@ -13,14 +13,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
             <asp:Button ID="btnHomePage" runat="server" OnClick="btnHomePage_Click" Text="Home Page" Width="255px" />
             <asp:Button ID="btnDashboard" runat="server" OnClick="btnDashboard_Click" Text="Dashboard" Width="255px" />
             <asp:Button ID="btnReports" runat="server" OnClick="btnReports_Click" Text="Reports" Width="255px" />
             <asp:Button ID="btnManageRoles" runat="server" OnClick="btnManageRoles_Click" Text="Manage Roles and Users" Width="255px" />
             <br />
             <br />
-            <span class="auto-style1"><strong>Admin Manage Caterers</strong></span><br />
+            <strong>Admin Manage Caterers</strong><br />
             <br />
             <span class="auto-style1">List of approved caterers:</span><asp:GridView ID="gvApprovedCaterers" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceCaterers">
                 <Columns>
@@ -53,7 +52,6 @@
             <asp:Button ID="btnDecline" runat="server" OnClick="btnDecline_Click" Text="Decline Request" Width="255px" />
             <br />
             <asp:Label ID="lblStatus" runat="server" Text="Status OK"></asp:Label>
-        </div>
     </form>
 </body>
 </html>

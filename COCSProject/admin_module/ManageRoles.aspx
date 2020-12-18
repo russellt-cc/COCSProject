@@ -13,14 +13,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
             <asp:Button ID="btnHomePage" runat="server" OnClick="btnHomePage_Click" Text="Home Page" Width="255px" />
             <asp:Button ID="btnDashboard" runat="server" OnClick="btnDashboard_Click" Text="Dashboard" Width="255px" />
             <asp:Button ID="btnReports" runat="server" OnClick="btnReports_Click" Text="Reports" Width="255px" />
             <asp:Button ID="btnManageCaterers" runat="server" OnClick="btnManageCaterers_Click" Text="Manage Caterers" Width="255px" />
             <br />
             <br />
-            <span class="auto-style1"><strong>Admin Manage Roles and Users</strong></span><br />
+            <strong>Admin Manage Roles and Users</strong><br />
             <br />
             <span class="auto-style1">Roles List:</span><asp:GridView ID="gvRolesList" runat="server" AutoGenerateColumns="False" DataSourceID="sqlDataSourceRoles">
                 <Columns>
@@ -146,7 +145,6 @@ on aspnet_UsersInRoles.RoleId = aspnet_Roles.RoleId"></asp:SqlDataSource>
             <br />
             <asp:Label ID="lblActionStatus3" runat="server" Text="Status OK"></asp:Label>
             <br />
-        </div>
     </form>
 </body>
 </html>
