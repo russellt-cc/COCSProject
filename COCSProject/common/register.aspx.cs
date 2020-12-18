@@ -98,5 +98,10 @@ namespace COCSProject
         {
             Response.Redirect("~/common/homepage.aspx");
         }
+
+        protected void CreateUserWizard1_ContinueButtonClick(object sender, EventArgs e)
+        {
+            Response.Redirect("~/common/homepage.aspx");
+        }
     }
 }
