@@ -13,7 +13,8 @@
             <asp:Button ID="btnReports" runat="server" OnClick="btnReports_Click" Text="Reports" Width="255px" />
             <asp:Button ID="btnManageCaterers" runat="server" OnClick="btnManageCaterers_Click" Text="Manage Caterers" Width="255px" />
             <asp:Button ID="btnManageRoles" runat="server" OnClick="btnManageRoles_Click" Text="Manage Roles" Width="255px" />
-        </div>
+            <br />
+            Admin Dashboard</div>
     </form>
 </body>
 </html>

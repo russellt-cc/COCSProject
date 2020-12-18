@@ -13,5 +13,25 @@ namespace COCSProject.admin_module
         {
 
         }
+
+        protected void btnHomePage_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/common/homepage.aspx");
+        }
+
+        protected void btnDashboard_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/admin_module/Dashboard2.aspx");
+        }
+
+        protected void btnManageCaterers_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/admin_module/Manage_Caterers2.aspx");
+        }
+
+        protected void btnManageRoles_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/admin_module/ManageRoles.aspx");
+        }
     }
 }

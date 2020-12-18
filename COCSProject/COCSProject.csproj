@@ -74,8 +74,8 @@
     <Content Include="admin_module\Dashboard2.aspx" />
     <Content Include="admin_module\ManageRoles.aspx" />
     <Content Include="admin_module\Manage_Caterers.aspx" />
-    <Content Include="admin_module\Report.aspx" />
     <Content Include="admin_module\Manage_Caterers2.aspx" />
+    <Content Include="admin_module\Report.aspx" />
     <Content Include="admin_module\Report2.aspx" />
     <Content Include="catererModule\menu.aspx" />
     <Content Include="catererModule\orders.aspx" />

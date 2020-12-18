@@ -11,7 +11,7 @@ namespace COCSProject.admin_module
 {
 
 
-    public partial class WebForm1
+    public partial class Manage_Caterers2
     {
 
         /// <summary>
@@ -42,13 +42,13 @@ namespace COCSProject.admin_module
         protected global::System.Web.UI.WebControls.Button btnDashboard;
 
         /// <summary>
-        /// btnManageCaterers control.
+        /// btnReports control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnManageCaterers;
+        protected global::System.Web.UI.WebControls.Button btnReports;
 
         /// <summary>
         /// btnManageRoles control.
