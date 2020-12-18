@@ -114,6 +114,51 @@ namespace COCSProject.admin_module
         protected global::System.Web.UI.WebControls.SqlDataSource sqlDataSourceRoles;
 
         /// <summary>
+        /// txtSelectRole control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSelectRole;
+
+        /// <summary>
+        /// txtSelectUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSelectUser;
+
+        /// <summary>
+        /// btnAssignRole control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAssignRole;
+
+        /// <summary>
+        /// btnUnassignRole control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUnassignRole;
+
+        /// <summary>
+        /// lblActionStatus2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblActionStatus2;
+
+        /// <summary>
         /// gvUsersInRolesList control.
         /// </summary>
         /// <remarks>

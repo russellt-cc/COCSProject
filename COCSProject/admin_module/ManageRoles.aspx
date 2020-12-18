@@ -25,8 +25,8 @@
             Role Name:
             <asp:TextBox ID="txtRoleName" runat="server"></asp:TextBox>
             <br />
-            <asp:Button ID="btnNewRole" runat="server" OnClick="btnNewRole_Click" Text="Create a New Role" />
-            <asp:Button ID="btnRemoveRole" runat="server" OnClick="btnRemoveRole_Click" Text="Remove Role" />
+            <asp:Button ID="btnNewRole" runat="server" OnClick="btnNewRole_Click" Text="Create a New Role" Width="255px" />
+            <asp:Button ID="btnRemoveRole" runat="server" OnClick="btnRemoveRole_Click" Text="Remove Role" Width="255px" />
             <br />
             <br />
             <asp:Label ID="lblActionStatus" runat="server" Text="Status OK"></asp:Label>
@@ -44,6 +44,20 @@
             </asp:GridView>
             <br />
             <asp:SqlDataSource ID="sqlDataSourceRoles" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT * FROM [vw_aspnet_Roles]"></asp:SqlDataSource>
+            <br />
+            Assign Roles:<br />
+            Role:
+            <asp:TextBox ID="txtSelectRole" runat="server"></asp:TextBox>
+            <br />
+            User:
+            <asp:TextBox ID="txtSelectUser" runat="server"></asp:TextBox>
+            <br />
+            <asp:Button ID="btnAssignRole" runat="server" OnClick="btnAssignRole_Click" Text="Assign Role" Width="255px" />
+            <asp:Button ID="btnUnassignRole" runat="server" Text="Unassign Role" Width="255px" />
+            <br />
+            <br />
+            <asp:Label ID="lblActionStatus2" runat="server" Text="Status OK"></asp:Label>
+            <br />
             <br />
             <%--            <asp:DropDownList ID="ddlRoles" runat="server" DataSourceID="SqlDataSourceRoles" DataTextField="RoleName" DataValueField="RoleId" OnSelectedIndexChanged="ddlRoles_SelectedIndexChanged">
             </asp:DropDownList>
