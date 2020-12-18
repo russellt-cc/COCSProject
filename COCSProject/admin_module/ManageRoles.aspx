@@ -98,6 +98,17 @@ on aspnet_Users.UserId = aspnet_UsersInRoles.UserId
 left join aspnet_Roles
 on aspnet_UsersInRoles.RoleId = aspnet_Roles.RoleId"></asp:SqlDataSource>
             <br />
+            Manage Users:<br />
+            User Name:
+            <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
+            <br />
+            <asp:Button ID="btnAddUser" runat="server" OnClick="btnAddUser_Click" Text="Add User" Width="255px" />
+            <asp:Button ID="btnRemoveUser" runat="server" Text="Remove User" Width="255px" />
+            <br />
+            <br />
+            <asp:Label ID="lblActionStatus3" runat="server" Text="Status OK"></asp:Label>
+            <br />
+            <br />
             <span class="auto-style1">Users List:</span><%--<asp:DataList ID="dlUsers" runat="server" DataKeyField="ApplicationId" DataSourceID="SqlDataSourceUsers">
                 <ItemTemplate>
                     ApplicationId:

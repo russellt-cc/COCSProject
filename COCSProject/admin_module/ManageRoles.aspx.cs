@@ -149,6 +149,32 @@ namespace COCSProject.admin_module
             }
         }
 
+        protected void btnAddUser_Click(object sender, EventArgs e)
+        {
+            string uName = txtUserName.Text;
+            if (uName == "")
+            {
+                lblActionStatus3.Text = $"User was <strong>NOT</strong> added successfully.<br/>Error: Enter the name of the user.";
+            }
+            else if (!(System.Web.Security.Membership.GetUser(uName) == null))
+            {
+                lblActionStatus3.Text = $"User was <strong>NOT</strong> added successfully.<br/>Error: User already exists.";
+            }
+            else
+            {
+                try
+                {
+                    System.Web.Security.Membership.CreateUser(uName, "password");
+                    gvUsersInRolesList.DataBind();
+                    gvUsersList.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    lblActionStatus3.Text = $"User was <strong>NOT</strong> added successfully.<br/>Error: {ex.Message}.";
+                }
+            }
+        }
+
         //protected void ddlRoles_SelectedIndexChanged(object sender, EventArgs e)
         //{
         //    lblRoleID.Text = ddlRoles.SelectedValue;
