@@ -123,6 +123,32 @@ namespace COCSProject.admin_module
             }
         }
 
+        protected void btnUnassignRole_Click(object sender, EventArgs e)
+        {
+            string rName = txtSelectRole.Text.Trim();
+            string uName = txtSelectUser.Text.Trim();
+            if (rName == "" || uName == "")
+            {
+                lblActionStatus2.Text = $"Role was <strong>NOT</strong> unassigned successfully.<br/>Error: Enter the name of the role and user.";
+            }
+            else if (System.Web.Security.Roles.RoleExists(rName))
+            {
+                try
+                {
+                    System.Web.Security.Roles.RemoveUserFromRole(uName, rName);
+                    gvUsersInRolesList.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    lblActionStatus2.Text = $"Role (<strong>{rName}</strong>) was <strong>NOT</strong> unassigned successfully.<br/>Error: {ex.Message}";
+                }
+            }
+            else
+            {
+                lblActionStatus2.Text = $"Role was <strong>NOT</strong> unassigned successfully.<br/>Error: Role does not exist.";
+            }
+        }
+
         //protected void ddlRoles_SelectedIndexChanged(object sender, EventArgs e)
         //{
         //    lblRoleID.Text = ddlRoles.SelectedValue;

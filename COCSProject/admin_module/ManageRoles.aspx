@@ -53,7 +53,7 @@
             <asp:TextBox ID="txtSelectUser" runat="server"></asp:TextBox>
             <br />
             <asp:Button ID="btnAssignRole" runat="server" OnClick="btnAssignRole_Click" Text="Assign Role" Width="255px" />
-            <asp:Button ID="btnUnassignRole" runat="server" Text="Unassign Role" Width="255px" />
+            <asp:Button ID="btnUnassignRole" runat="server" OnClick="btnUnassignRole_Click" Text="Unassign Role" Width="255px" />
             <br />
             <br />
             <asp:Label ID="lblActionStatus2" runat="server" Text="Status OK"></asp:Label>
