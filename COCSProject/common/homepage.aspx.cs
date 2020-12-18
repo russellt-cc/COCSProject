@@ -64,17 +64,17 @@ namespace COCSProject
 
         protected void btnDashboard_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/admin_module/dashboard.aspx");
+            Response.Redirect("~/admin_module/dashboard2.aspx");
         }
 
         protected void btnReports_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/admin_module/report.aspx");
+            Response.Redirect("~/admin_module/report2.aspx");
         }
 
         protected void btnManageCaterers_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/admin_module/manage_caterers.aspx");
+            Response.Redirect("~/admin_module/manage_caterers2.aspx");
         }
 
         protected void btnTeam_Click(object sender, EventArgs e)
@@ -95,6 +95,11 @@ namespace COCSProject
         protected void btnCustomerOrders_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/CustomerModule/myorders.aspx");
+        }
+
+        protected void btnRoleManager_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/admin_module/ManageRoles.aspx");
         }
     }
 }

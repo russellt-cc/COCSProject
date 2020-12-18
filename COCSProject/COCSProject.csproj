@@ -71,8 +71,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="admin_module\Dashboard.aspx" />
+    <Content Include="admin_module\Dashboard2.aspx" />
+    <Content Include="admin_module\ManageRoles.aspx" />
     <Content Include="admin_module\Manage_Caterers.aspx" />
     <Content Include="admin_module\Report.aspx" />
+    <Content Include="admin_module\Manage_Caterers2.aspx" />
+    <Content Include="admin_module\Report2.aspx" />
     <Content Include="catererModule\menu.aspx" />
     <Content Include="catererModule\orders.aspx" />
     <Content Include="catererModule\packages.aspx" />
@@ -92,6 +96,34 @@
     <Content Include="common\homepage.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin_module\Dashboard2.aspx.cs">
+      <DependentUpon>Dashboard2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_module\Dashboard2.aspx.designer.cs">
+      <DependentUpon>Dashboard2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin_module\ManageRoles.aspx.cs">
+      <DependentUpon>ManageRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_module\ManageRoles.aspx.designer.cs">
+      <DependentUpon>ManageRoles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin_module\Manage_Caterers2.aspx.cs">
+      <DependentUpon>Manage_Caterers2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_module\Manage_Caterers2.aspx.designer.cs">
+      <DependentUpon>Manage_Caterers2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin_module\Report2.aspx.cs">
+      <DependentUpon>Report2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_module\Report2.aspx.designer.cs">
+      <DependentUpon>Report2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="catererModule\menu.aspx.cs">
       <DependentUpon>menu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
