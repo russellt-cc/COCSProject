@@ -82,7 +82,7 @@ namespace COCSProject.admin_module
                 if (!System.Web.Security.Roles.RoleExists(rName)) throw new Exception("Role does not exist");
                 System.Web.Security.Roles.AddUserToRole(uName, rName);
                 lblActionStatus2.Text = $"Role (<strong>{rName}</strong>) was assigned successfully.";
-                gvUsersInRolesList.DataBind();
+                //gvUsersInRolesList.DataBind();
             }
             catch (Exception ex)
             {
@@ -100,7 +100,7 @@ namespace COCSProject.admin_module
                 if (!System.Web.Security.Roles.RoleExists(rName)) throw new Exception("Role does not exist");
                 System.Web.Security.Roles.RemoveUserFromRole(uName, rName);
                 lblActionStatus2.Text = $"Role (<strong>{rName}</strong>) was unassigned successfully.";
-                gvUsersInRolesList.DataBind();
+                //gvUsersInRolesList.DataBind();
             }
             catch (Exception ex)
             {
@@ -151,7 +151,7 @@ namespace COCSProject.admin_module
                 //        throw new Exception("An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator");
                 //}
                 lblActionStatus3.Text = $"User <strong>{uName}</strong> was added successfully.";
-                gvUsersInRolesList.DataBind();
+                //gvUsersInRolesList.DataBind();
                 gvUsersList.DataBind();
             }
             catch (Exception ex)
@@ -169,7 +169,7 @@ namespace COCSProject.admin_module
                 if (System.Web.Security.Membership.FindUsersByName(uName) == null) throw new Exception("User name not found");
                 System.Web.Security.Membership.DeleteUser(uName);
                 lblActionStatus3.Text = $"User <strong>{uName}</strong> was removed successfully.";
-                gvUsersInRolesList.DataBind();
+                //gvUsersInRolesList.DataBind();
                 gvUsersList.DataBind();
             }
             catch (Exception ex)

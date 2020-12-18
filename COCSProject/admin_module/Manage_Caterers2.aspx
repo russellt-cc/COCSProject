@@ -21,44 +21,29 @@
             <br />
             <span class="auto-style1"><strong>Admin Manage Caterers</strong></span><br />
             <br />
-            <span class="auto-style1">List of approved caterers:</span><asp:GridView ID="gvApprovedCaterers" runat="server" AutoGenerateColumns="False" DataKeyNames="ApplicationId,LoweredUserName" DataSourceID="SqlDataSourceCaterers">
+            <span class="auto-style1">List of approved caterers:</span><asp:GridView ID="gvApprovedCaterers" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceCaterers">
                 <Columns>
-                    <asp:BoundField DataField="ApplicationId" HeaderText="ApplicationId" ReadOnly="True" SortExpression="ApplicationId" />
-                    <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" />
-                    <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
-                    <asp:BoundField DataField="LoweredUserName" HeaderText="LoweredUserName" ReadOnly="True" SortExpression="LoweredUserName" />
-                    <asp:BoundField DataField="MobileAlias" HeaderText="MobileAlias" SortExpression="MobileAlias" />
-                    <asp:CheckBoxField DataField="IsAnonymous" HeaderText="IsAnonymous" SortExpression="IsAnonymous" />
-                    <asp:BoundField DataField="LastActivityDate" HeaderText="LastActivityDate" SortExpression="LastActivityDate" />
+                    <asp:BoundField DataField="User Name" HeaderText="User Name" SortExpression="User Name" />
+                    <asp:BoundField DataField="Last Activity Date" HeaderText="Last Activity Date" SortExpression="Last Activity Date" />
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSourceCaterers" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT aspnet_Users.* FROM aspnet_Users INNER JOIN aspnet_UsersInRoles ON aspnet_Users.UserId = aspnet_UsersInRoles.UserId INNER JOIN aspnet_Roles ON aspnet_UsersInRoles.RoleId = aspnet_Roles.RoleId WHERE (aspnet_Roles.RoleName = N'Caterer')"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSourceCaterers" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT aspnet_Users.UserName AS [User Name], aspnet_Users.LastActivityDate AS [Last Activity Date] FROM aspnet_Users INNER JOIN aspnet_UsersInRoles ON aspnet_Users.UserId = aspnet_UsersInRoles.UserId INNER JOIN aspnet_Roles ON aspnet_UsersInRoles.RoleId = aspnet_Roles.RoleId WHERE (aspnet_Roles.RoleName = N'Caterer')"></asp:SqlDataSource>
             <br />
-            <span class="auto-style1">List of potential caterers:</span><asp:GridView ID="gvPotentialCaterers" runat="server" AutoGenerateColumns="False" DataKeyNames="ApplicationId,LoweredUserName" DataSourceID="SqlDataSourcePotential">
+            <span class="auto-style1">List of potential caterers:</span><asp:GridView ID="gvPotentialCaterers" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourcePotential">
                 <Columns>
-                    <asp:BoundField DataField="ApplicationId" HeaderText="ApplicationId" ReadOnly="True" SortExpression="ApplicationId" />
-                    <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" />
-                    <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
-                    <asp:BoundField DataField="LoweredUserName" HeaderText="LoweredUserName" ReadOnly="True" SortExpression="LoweredUserName" />
-                    <asp:BoundField DataField="MobileAlias" HeaderText="MobileAlias" SortExpression="MobileAlias" />
-                    <asp:CheckBoxField DataField="IsAnonymous" HeaderText="IsAnonymous" SortExpression="IsAnonymous" />
-                    <asp:BoundField DataField="LastActivityDate" HeaderText="LastActivityDate" SortExpression="LastActivityDate" />
+                    <asp:BoundField DataField="User Name" HeaderText="User Name" SortExpression="User Name" />
+                    <asp:BoundField DataField="Last Activity Date" HeaderText="Last Activity Date" SortExpression="Last Activity Date" />
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSourcePotential" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT aspnet_Users.* FROM aspnet_Users INNER JOIN aspnet_UsersInRoles ON aspnet_Users.UserId = aspnet_UsersInRoles.UserId INNER JOIN aspnet_Roles ON aspnet_UsersInRoles.RoleId = aspnet_Roles.RoleId WHERE (aspnet_Roles.RoleName = N'PotentialCaterer')"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSourcePotential" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT aspnet_Users.UserName AS [User Name], aspnet_Users.LastActivityDate AS [Last Activity Date] FROM aspnet_Users INNER JOIN aspnet_UsersInRoles ON aspnet_Users.UserId = aspnet_UsersInRoles.UserId INNER JOIN aspnet_Roles ON aspnet_UsersInRoles.RoleId = aspnet_Roles.RoleId WHERE (aspnet_Roles.RoleName = N'PotentialCaterer')"></asp:SqlDataSource>
             <br />
-            <span class="auto-style1">List of declined caterers:</span><asp:GridView ID="gvDeclinedCaterers" runat="server" AutoGenerateColumns="False" DataKeyNames="ApplicationId,LoweredUserName" DataSourceID="SqlDataSourceDeclined">
+            <span class="auto-style1">List of declined caterers:</span><asp:GridView ID="gvDeclinedCaterers" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceDeclined">
                 <Columns>
-                    <asp:BoundField DataField="ApplicationId" HeaderText="ApplicationId" ReadOnly="True" SortExpression="ApplicationId" />
-                    <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" />
-                    <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
-                    <asp:BoundField DataField="LoweredUserName" HeaderText="LoweredUserName" ReadOnly="True" SortExpression="LoweredUserName" />
-                    <asp:BoundField DataField="MobileAlias" HeaderText="MobileAlias" SortExpression="MobileAlias" />
-                    <asp:CheckBoxField DataField="IsAnonymous" HeaderText="IsAnonymous" SortExpression="IsAnonymous" />
-                    <asp:BoundField DataField="LastActivityDate" HeaderText="LastActivityDate" SortExpression="LastActivityDate" />
+                    <asp:BoundField DataField="User Name" HeaderText="User Name" SortExpression="User Name" />
+                    <asp:BoundField DataField="Last Activity Date" HeaderText="Last Activity Date" SortExpression="Last Activity Date" />
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSourceDeclined" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT aspnet_Users.* FROM aspnet_Users INNER JOIN aspnet_UsersInRoles ON aspnet_Users.UserId = aspnet_UsersInRoles.UserId INNER JOIN aspnet_Roles ON aspnet_UsersInRoles.RoleId = aspnet_Roles.RoleId WHERE (aspnet_Roles.RoleName = N'DeclinedCaterer')"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSourceDeclined" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT aspnet_Users.UserName AS [User Name], aspnet_Users.LastActivityDate AS [Last Activity Date] FROM aspnet_Users INNER JOIN aspnet_UsersInRoles ON aspnet_Users.UserId = aspnet_UsersInRoles.UserId INNER JOIN aspnet_Roles ON aspnet_UsersInRoles.RoleId = aspnet_Roles.RoleId WHERE (aspnet_Roles.RoleName = N'DeclinedCaterer')"></asp:SqlDataSource>
             <br />
             <span class="auto-style1">Approve or decline a caterer:</span><br />
             User Name: <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
