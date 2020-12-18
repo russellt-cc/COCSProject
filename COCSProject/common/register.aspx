@@ -47,7 +47,12 @@
             <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" />
             <br />
             <br />--%>
-            <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" BackColor="#F7F6F3" BorderColor="#E6E2D8" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" OnContinueButtonClick="CreateUserWizard1_ContinueButtonClick">
+            <br />
+            I want to be a:<asp:RadioButtonList ID="rblUserRole" runat="server">
+                <asp:ListItem Selected="True">Customer</asp:ListItem>
+                <asp:ListItem>Caterer</asp:ListItem>
+            </asp:RadioButtonList>
+&nbsp;<asp:CreateUserWizard ID="CreateUserWizard1" runat="server" BackColor="#F7F6F3" BorderColor="#E6E2D8" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" OnContinueButtonClick="CreateUserWizard1_ContinueButtonClick" OnCreatedUser="CreateUserWizard1_CreatedUser1" OnCreatingUser="CreateUserWizard1_CreatingUser">
                 <ContinueButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" ForeColor="#284775" />
                 <CreateUserButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" ForeColor="#284775" />
                 <TitleTextStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

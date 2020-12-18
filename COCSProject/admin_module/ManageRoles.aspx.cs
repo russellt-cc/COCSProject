@@ -60,7 +60,7 @@ namespace COCSProject.admin_module
             try
             {
                 if (rName == "") throw new Exception("Enter the name of role to remove");
-                if (rName.ToLower() == "admin" || rName.ToLower() == "caterer" || rName.ToLower() == "customer") throw new Exception("You cannot remove admin, caterer, or customer roles");
+                if (rName.ToLower() == "admin" || rName.ToLower() == "caterer" || rName.ToLower() == "customer" || rName.ToLower() == "potentialcaterer") throw new Exception("You cannot remove admin, caterer, or customer roles");
                 if (!System.Web.Security.Roles.RoleExists(rName)) throw new Exception("Role does not exist");
                 System.Web.Security.Roles.DeleteRole(rName);
                 lblActionStatus.Text = $"Role (<strong>{rName}</strong>) was removed successfully.";
@@ -80,8 +80,8 @@ namespace COCSProject.admin_module
             {
                 if (rName == "" || uName == "") throw new Exception("Enter the name of the role and user");
                 if (!System.Web.Security.Roles.RoleExists(rName)) throw new Exception("Role does not exist");
-                lblActionStatus2.Text = $"Role (<strong>{rName}</strong>) was assigned successfully.";
                 System.Web.Security.Roles.AddUserToRole(uName, rName);
+                lblActionStatus2.Text = $"Role (<strong>{rName}</strong>) was assigned successfully.";
                 gvUsersInRolesList.DataBind();
             }
             catch (Exception ex)
@@ -98,8 +98,8 @@ namespace COCSProject.admin_module
             {
                 if (rName == "" || uName == "") throw new Exception("Enter the name of the role and user");
                 if (!System.Web.Security.Roles.RoleExists(rName)) throw new Exception("Role does not exist");
-                lblActionStatus2.Text = $"Role (<strong>{rName}</strong>) was unassigned successfully.";
                 System.Web.Security.Roles.RemoveUserFromRole(uName, rName);
+                lblActionStatus2.Text = $"Role (<strong>{rName}</strong>) was unassigned successfully.";
                 gvUsersInRolesList.DataBind();
             }
             catch (Exception ex)

@@ -60,6 +60,11 @@
                             <asp:Button ID="btnCustomerOrders" runat="server" OnClick="btnCustomerOrders_Click" Text="Orders" Width="255px" />
                         </ContentTemplate>
                     </asp:RoleGroup>
+                    <asp:RoleGroup Roles="PotentialCaterer">
+                        <ContentTemplate>
+                            An administrator will review your request to become a caterer.
+                        </ContentTemplate>
+                    </asp:RoleGroup>
                 </RoleGroups>
             </asp:LoginView>
 

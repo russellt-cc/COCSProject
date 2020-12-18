@@ -103,5 +103,22 @@ namespace COCSProject
         {
             Response.Redirect("~/common/homepage.aspx");
         }
+
+        protected void CreateUserWizard1_CreatedUser1(object sender, EventArgs e)
+        {
+            if (rblUserRole.SelectedValue == "Customer")
+            {
+                System.Web.Security.Roles.AddUserToRole(CreateUserWizard1.UserName, "Customer");
+            }
+            else if (rblUserRole.SelectedValue == "Caterer")
+            {
+                System.Web.Security.Roles.AddUserToRole(CreateUserWizard1.UserName, "PotentialCaterer");
+            }
+        }
+
+        protected void CreateUserWizard1_CreatingUser(object sender, LoginCancelEventArgs e)
+        {
+
+        }
     }
 }
