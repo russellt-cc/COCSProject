@@ -19,6 +19,7 @@
             <asp:Button ID="btnReports" runat="server" OnClick="btnReports_Click" Text="Reports" Width="255px" />
             <asp:Button ID="btnManageRoles" runat="server" OnClick="btnManageRoles_Click" Text="Manage Roles and Users" Width="255px" />
             <br />
+            <br />
             <span class="auto-style1"><strong>Admin Manage Caterers</strong></span><br />
             <br />
             <span class="auto-style1">List of approved caterers:</span><asp:GridView ID="gvApprovedCaterers" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceCaterers">
