@@ -13,10 +13,11 @@ namespace COCSProject.admin_module
         {
             if (!Page.IsPostBack)
             {
-                gvRolesList.DataBind();
+                dlRolesList.DataBind();
                 //UsersRoleList.DataBind();
                 //ddlUsersList.DataBind();
                 //CheckRolesForSelectedUser();
+                //lblRoleID.Text = ddlRoles.SelectedValue;
             }
         }
 
@@ -53,7 +54,7 @@ namespace COCSProject.admin_module
                 {
                     System.Web.Security.Roles.CreateRole(rName);
                     lblActionStatus.Text = $"Role (<strong>{rName}</strong>) was created successfully.";
-                    gvRolesList.DataBind();
+                    dlRolesList.DataBind();
                 }
                 catch (Exception ex)
                 {
@@ -83,7 +84,7 @@ namespace COCSProject.admin_module
                 {
                     System.Web.Security.Roles.DeleteRole(rName);
                     lblActionStatus.Text = $"Role (<strong>{rName}</strong>) was removed successfully.";
-                    gvRolesList.DataBind();
+                    dlRolesList.DataBind();
                 }
                 catch (Exception ex)
                 {
@@ -95,5 +96,10 @@ namespace COCSProject.admin_module
                 lblActionStatus.Text = $"Role (<strong>{rName}</strong>) was <strong>NOT</strong> removed successfully.<br/>Error: Role does not exist.";
             }
         }
+
+        //protected void ddlRoles_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    lblRoleID.Text = ddlRoles.SelectedValue;
+        //}
     }
 }
