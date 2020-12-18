@@ -103,7 +103,7 @@ on aspnet_UsersInRoles.RoleId = aspnet_Roles.RoleId"></asp:SqlDataSource>
             <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
             <br />
             <asp:Button ID="btnAddUser" runat="server" OnClick="btnAddUser_Click" Text="Add User" Width="255px" />
-            <asp:Button ID="btnRemoveUser" runat="server" Text="Remove User" Width="255px" />
+            <asp:Button ID="btnRemoveUser" runat="server" Text="Remove User" Width="255px" OnClick="btnRemoveUser_Click" />
             <br />
             <br />
             <asp:Label ID="lblActionStatus3" runat="server" Text="Status OK"></asp:Label>

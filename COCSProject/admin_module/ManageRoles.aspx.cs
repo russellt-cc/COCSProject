@@ -175,6 +175,23 @@ namespace COCSProject.admin_module
             }
         }
 
+        protected void btnRemoveUser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string uName = txtUserName.Text.Trim();
+                if (uName == "") throw new Exception("Enter the name of the user.");
+                if (System.Web.Security.Membership.GetUser(uName) == null) throw new Exception("User name not found.");
+                System.Web.Security.Membership.DeleteUser(uName);
+                gvUsersInRolesList.DataBind();
+                gvUsersList.DataBind();
+            }
+            catch (Exception ex)
+            {
+                lblActionStatus3.Text = $"User was <strong>NOT</strong> removed successfully.<br/>Error: {ex.Message}.";
+            }
+        }
+
         //protected void ddlRoles_SelectedIndexChanged(object sender, EventArgs e)
         //{
         //    lblRoleID.Text = ddlRoles.SelectedValue;
