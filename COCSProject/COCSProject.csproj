@@ -201,8 +201,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Properties\PublishProfiles\COCSProject-dev-as - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\COCSProject20201218040107 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\COCSProjects - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
