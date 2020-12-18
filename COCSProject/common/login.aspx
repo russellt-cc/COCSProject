@@ -16,7 +16,7 @@
         <div>
             <span class="auto-style1"><strong>Login to NERD HERD COCS (Collaborative Online Catering System)<br />
             <asp:Button ID="btnHomePage" runat="server" OnClick="btnHomePage_Click" Text="Home Page" />
-            <br />
+<%--            <br />
             <br />
             </strong>
             <asp:Label ID="Label1" runat="server" Font-Underline="False" Text="Log In"></asp:Label>
@@ -32,7 +32,7 @@
             <br />
             <asp:Button ID="btnLogIn" runat="server" OnClick="btnLogIn_Click" Text="Log In" />
             <br />
-            <br />
+            <br />--%>
             <asp:Button ID="btnForgot" runat="server" OnClick="btnForgot_Click" Text="Forgot Password?" />
             <br />
             <br />

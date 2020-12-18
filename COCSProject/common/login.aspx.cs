@@ -26,64 +26,64 @@ namespace COCSProject
             Response.Redirect("~/common/forgotPassword.aspx");
         }
 
-        protected void btnLogIn_Click(object sender, EventArgs e)
-        {
-            // Vars
-            string user = txtUserName.Text;
-            string pass = txtPassword.Text;
+        //protected void btnLogIn_Click(object sender, EventArgs e)
+        //{
+        //    // Vars
+        //    string user = txtUserName.Text;
+        //    string pass = txtPassword.Text;
 
-            // Creating and opening connection to db
-            SqlConnection cnn = new SqlConnection(connectionString);
-            cnn.Open();
+        //    // Creating and opening connection to db
+        //    SqlConnection cnn = new SqlConnection(connectionString);
+        //    cnn.Open();
 
-            // SQL vars
-            SqlCommand command;
-            SqlDataReader dataReader;
-            string sql, Output = "";
+        //    // SQL vars
+        //    SqlCommand command;
+        //    SqlDataReader dataReader;
+        //    string sql, Output = "";
 
-            // Building query and command
-            sql = "SELECT Password, User_Name FROM Users WHERE User_Name ='" + user + "'";
-            command = new SqlCommand(sql, cnn);
+        //    // Building query and command
+        //    sql = "SELECT Password, User_Name FROM Users WHERE User_Name ='" + user + "'";
+        //    command = new SqlCommand(sql, cnn);
 
-            dataReader = command.ExecuteReader();
+        //    dataReader = command.ExecuteReader();
 
-            // Get output of query
-            while (dataReader.Read())
-            {
-                Output = Output + dataReader.GetValue(0);
-            }
+        //    // Get output of query
+        //    while (dataReader.Read())
+        //    {
+        //        Output = Output + dataReader.GetValue(0);
+        //    }
 
-            // Cleanup
-            dataReader.Close();
-            command.Dispose();
-            cnn.Close();
+        //    // Cleanup
+        //    dataReader.Close();
+        //    command.Dispose();
+        //    cnn.Close();
 
-            if (Output == pass)
-            {
-                // Make cookie
-                HttpCookie userInfo = new HttpCookie("userInfo");
-                // Populate cookie
-                userInfo["UserName"] = user;
-                // Check stay logged in box and set expiry on cookie
-                if (ckbStayLogged.Checked)
-                {
-                    userInfo.Expires = DateTime.Now.AddDays(30);
-                }
-                else
-                {
-                    userInfo.Expires = DateTime.Now.AddMinutes(5);
-                }
+        //    if (Output == pass)
+        //    {
+        //        // Make cookie
+        //        HttpCookie userInfo = new HttpCookie("userInfo");
+        //        // Populate cookie
+        //        userInfo["UserName"] = user;
+        //        // Check stay logged in box and set expiry on cookie
+        //        if (ckbStayLogged.Checked)
+        //        {
+        //            userInfo.Expires = DateTime.Now.AddDays(30);
+        //        }
+        //        else
+        //        {
+        //            userInfo.Expires = DateTime.Now.AddMinutes(5);
+        //        }
 
-                // Push cookie
-                Response.Cookies.Add(userInfo);
-                Response.Redirect("~/common/profile.aspx");
-            }
-            else
-            {
-                // Odd error detection
-                txtUserName.Text = "Something went wrong!";
-            }
-        }
+        //        // Push cookie
+        //        Response.Cookies.Add(userInfo);
+        //        Response.Redirect("~/common/profile.aspx");
+        //    }
+        //    else
+        //    {
+        //        // Odd error detection
+        //        txtUserName.Text = "Something went wrong!";
+        //    }
+        //}
 
         protected void btnHomePage_Click(object sender, EventArgs e)
         {
