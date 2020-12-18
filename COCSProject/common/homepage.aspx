@@ -68,7 +68,7 @@
             <br />
         </div>
         <p>
-            <strong>NERD HERD COCS (Collaborative Online Catering System) testing</strong></p>
+            <strong>NERD HERD COCS (Collaborative Online Catering System)</strong></p>
         <p class="auto-style1">
             Menu:</p>
         <p>
