@@ -14,7 +14,10 @@ namespace COCSProject
         //private string connectionString = @"Data Source=cocsnerdherd.database.windows.net;Initial Catalog=CateringSystemT02;Persist Security Info=True;User ID=cocs;Password=password1!";
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("~/common/homepage.aspx");
+            }
         }
 
         //protected void btnSubmit_Click(object sender, EventArgs e)

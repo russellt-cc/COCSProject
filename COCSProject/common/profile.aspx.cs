@@ -11,7 +11,10 @@ namespace COCSProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("~/common/homepage.aspx");
+            }
         }
 
         protected void btnChangePassword_Click(object sender, EventArgs e)

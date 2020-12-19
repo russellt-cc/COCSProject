@@ -38,16 +38,8 @@
         <br />
         <strong>Login to NERD HERD COCS (Collaborative Online Catering System)</strong><br />
         <br />
-        <asp:LoginView ID="LoginView1" runat="server">
-            <AnonymousTemplate>
-                <strong><span class="auto-style1">
-                    <asp:Login ID="Login1" runat="server" OnLoggedIn="Login1_LoggedIn">
-                    </asp:Login>
-            </AnonymousTemplate>
-            <LoggedInTemplate>
-                You are already logged in!
-            </LoggedInTemplate>
-        </asp:LoginView>
+        <asp:Login ID="Login1" runat="server" OnLoggedIn="Login1_LoggedIn">
+        </asp:Login>
     </form>
 </body>
 </html>

@@ -11,7 +11,10 @@ namespace COCSProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("~/common/homepage.aspx");
+            }
         }
 
         protected void PasswordRecovery1_SendingMail(object sender, MailMessageEventArgs e)

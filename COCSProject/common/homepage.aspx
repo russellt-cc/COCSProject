@@ -21,6 +21,7 @@
                 <%--                    (only for anonymous users)<br />--%>
                 <asp:Button ID="btnRegister" runat="server" OnClick="btnRegister_Click" Text="Register for a New Account" Width="255px" />
                 <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click" Text="Log In" Width="255px" />
+                <asp:Button ID="btnForgotPassword" runat="server" OnClick="btnForgotPassword_Click" Text="Forgot Password?" Width="255px" />
             </AnonymousTemplate>
             <LoggedInTemplate>
                 <%--                    (only for logged in users)<br />--%>

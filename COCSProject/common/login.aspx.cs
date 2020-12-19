@@ -14,10 +14,14 @@ namespace COCSProject
         //private string connectionString = @"Data Source=cocsnerdherd.database.windows.net;Initial Catalog=CateringSystemT02;Persist Security Info=True;User ID=cocs;Password=password1!";
         protected void Page_Load(object sender, EventArgs e)
         {
-            HttpCookie reqCookies = Request.Cookies["userInfo"];
-            if (reqCookies != null)
+            //HttpCookie reqCookies = Request.Cookies["userInfo"];
+            //if (reqCookies != null)
+            //{
+            //    Response.Redirect("~/common/profile.aspx");
+            //}
+            if (System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                Response.Redirect("~/common/profile.aspx");
+                Response.Redirect("~/common/homepage.aspx");
             }
         }
 

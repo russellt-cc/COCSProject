@@ -23,15 +23,8 @@
                 <br />
             </span>Forgot Password?</strong><br />
         <br />
-        <asp:LoginView ID="LoginView1" runat="server">
-            <AnonymousTemplate>
-                <asp:PasswordRecovery ID="PasswordRecovery1" runat="server">
-                </asp:PasswordRecovery>
-            </AnonymousTemplate>
-            <LoggedInTemplate>
-                You are already logged in!
-            </LoggedInTemplate>
-        </asp:LoginView>
+        <asp:PasswordRecovery ID="PasswordRecovery1" runat="server">
+        </asp:PasswordRecovery>
         <br />
     </form>
 </body>

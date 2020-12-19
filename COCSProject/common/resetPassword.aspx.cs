@@ -11,7 +11,10 @@ namespace COCSProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("~/common/homepage.aspx");
+            }
         }
 
         protected void btnHomePage_Click(object sender, EventArgs e)
@@ -19,14 +22,9 @@ namespace COCSProject
             Response.Redirect("~/common/homepage.aspx");
         }
 
-        protected void btnRegister_Click(object sender, EventArgs e)
+        protected void btnProfile_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/common/register.aspx");
-        }
-
-        protected void btnLogin_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/common/login.aspx");
+            Response.Redirect("~/common/profile.aspx");
         }
     }
 }
