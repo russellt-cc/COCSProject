@@ -43,16 +43,38 @@ namespace COCSProject.admin_module
             string uName = txtUserName.Text;
             try
             {
+                // Check the specified username
                 if (uName == "") throw new Exception("User name must not be blank");
                 if (System.Web.Security.Membership.GetUser(uName) == null) throw new Exception("User name not found");
                 if (System.Web.Security.Roles.IsUserInRole(uName, "Caterer")) throw new Exception("User has already been approved");
                 if (System.Web.Security.Roles.IsUserInRole(uName, "DeclinedCaterer")) throw new Exception("User has already been declined. Use role manager to approve");
                 if (!System.Web.Security.Roles.IsUserInRole(uName, "PotentialCaterer")) throw new Exception("User has not applied to be a caterer");
+
+                // Add the user to the caterers role and remove from potentialcaterers
                 System.Web.Security.Roles.AddUserToRole(uName, "Caterer");
                 System.Web.Security.Roles.RemoveUserFromRole(uName, "PotentialCaterer");
+
+                // Add the user to the caterers table
+                // Creating and opening connection to db
+                SqlConnection cnn = new SqlConnection(connectionString);
+                cnn.Open();
+                SqlCommand command;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                // Make insert query
+                string sql = "Insert into Caterers (Caterer_Name) values('" + uName + "')";
+                // Initialize command object
+                command = new SqlCommand(sql, cnn);
+                // Execute command
+                adapter.InsertCommand = command;
+                adapter.InsertCommand.ExecuteNonQuery();
+                // Cleanup
+                command.Dispose();
+                cnn.Close();
+
                 lblStatus.Text = $"User (<strong>{uName}</strong>) was approved successfully.";
                 gvApprovedCaterers.DataBind();
                 gvPotentialCaterers.DataBind();
+                gvCatererTable.DataBind();
             }
             catch (Exception ex)
             {
