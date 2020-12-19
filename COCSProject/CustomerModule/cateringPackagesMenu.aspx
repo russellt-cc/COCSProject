@@ -57,6 +57,7 @@
         }
 
     </style>
+    <link rel="stylesheet" type="text/css" href="../COCSProject.css" />
 </head>
 <body>
     <form id="form1" runat="server">

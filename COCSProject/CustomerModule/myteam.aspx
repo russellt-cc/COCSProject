@@ -26,6 +26,7 @@
             }
         }
     </script>
+    <link rel="stylesheet" type="text/css" href="../COCSProject.css" />
 </head>
 <body>
     <h1>Group Name</h1>
