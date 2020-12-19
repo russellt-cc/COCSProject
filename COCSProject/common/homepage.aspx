@@ -4,12 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head runat="server">
-    <title></title>
+    <title>COCS NERD HERD</title>
     <style type="text/css">
         .auto-style1 {
             text-decoration: underline;
         }
     </style>
+    <link rel="stylesheet" type ="text/css" href ="../COCSProject.css" />
 </head>
 <body>
     <form id="form1" runat="server">

@@ -4,12 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Forgot Password</title>
     <style type="text/css">
         .auto-style1 {
             text-decoration: underline;
         }
     </style>
+    <link rel="stylesheet" type ="text/css" href ="../COCSProject.css" />
 </head>
 <body>
     <form id="form1" runat="server">

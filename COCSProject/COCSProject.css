@@ -1,0 +1,18 @@
+﻿body {
+    background-image: url('../pizza.jpg');
+    background-size: cover;
+    color: black;
+}
+form {
+    width: 75%;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.8);
+}
+@media screen and (max-width: 800px) {
+    form {
+        width: 100%;
+    }
+/*    body button {
+        width: 100%;
+    }*/
+}
