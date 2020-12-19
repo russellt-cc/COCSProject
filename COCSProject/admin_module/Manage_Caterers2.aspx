@@ -22,6 +22,28 @@
             <br />
             <strong>Admin Manage Caterers</strong><br />
             <br />
+            <span class="auto-style1">Caterer Table</span><asp:GridView ID="gvCatererTable" runat="server" AutoGenerateColumns="False" DataKeyNames="Caterer ID" DataSourceID="SqlDataSourceCatererTable">
+                <Columns>
+                    <asp:BoundField DataField="Caterer ID" HeaderText="Caterer ID" InsertVisible="False" ReadOnly="True" SortExpression="Caterer ID" />
+                    <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                    <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
+                    <asp:BoundField DataField="Phone" HeaderText="Phone" SortExpression="Phone" />
+                    <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" />
+                </Columns>
+            </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSourceCatererTable" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT Caterer_ID AS [Caterer ID], Caterer_Name AS Name, Caterer_Description AS Description, Caterer_Phone AS Phone, Caterer_Image AS Image FROM Caterers"></asp:SqlDataSource>
+            Caterer Name:
+            <asp:TextBox ID="txtCatererName" runat="server"></asp:TextBox>
+            <br />
+            <asp:Button ID="btnAddCaterers" runat="server" OnClick="btnAddCaterers_Click" Text="Add a Caterer" Width="255px" />
+            <asp:Button ID="btnRemoveCaterers" runat="server" OnClick="btnRemoveCaterers_Click" Text="Remove a Caterer" Width="255px" />
+            <br />
+<%--            <asp:Button ID="btnAddAllCaterers" runat="server" OnClick="btnAddAllCaterers_Click" Text="Add All Approved Caterers" Width="255px" />
+            <asp:Button ID="btnRemoveOldCaterers" runat="server" OnClick="btnRemoveOldCaterers_Click" Text="Remove All Old Caterers" Width="255px" />
+            <br />--%>
+            <asp:Label ID="lblStatusCatererTable" runat="server" Text="Status OK"></asp:Label>
+            <br />
+            <br />
             <span class="auto-style1">List of approved caterers:</span><asp:GridView ID="gvApprovedCaterers" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceCaterers">
                 <Columns>
                     <asp:BoundField DataField="User Name" HeaderText="User Name" SortExpression="User Name" />

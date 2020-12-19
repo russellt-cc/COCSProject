@@ -60,6 +60,60 @@ namespace COCSProject.admin_module
         protected global::System.Web.UI.WebControls.Button btnManageRoles;
 
         /// <summary>
+        /// gvCatererTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvCatererTable;
+
+        /// <summary>
+        /// SqlDataSourceCatererTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceCatererTable;
+
+        /// <summary>
+        /// txtCatererName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCatererName;
+
+        /// <summary>
+        /// btnAddCaterers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddCaterers;
+
+        /// <summary>
+        /// btnRemoveCaterers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRemoveCaterers;
+
+        /// <summary>
+        /// lblStatusCatererTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblStatusCatererTable;
+
+        /// <summary>
         /// gvApprovedCaterers control.
         /// </summary>
         /// <remarks>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,6 +10,9 @@ namespace COCSProject.admin_module
 {
     public partial class Manage_Caterers2 : System.Web.UI.Page
     {
+        // Connection string
+        private string connectionString = @"Data Source=cocsnerdherd.database.windows.net;Initial Catalog=CateringSystemT02_ASP;Persist Security Info=True;User ID=cocs;Password=password1!";
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -77,5 +81,82 @@ namespace COCSProject.admin_module
                 lblStatus.Text = $"User (<strong>{uName}</strong>) was <strong>NOT</strong> declined successfully.<br/>Error: {ex.Message}.";
             }
         }
+
+        protected void btnAddCaterers_Click(object sender, EventArgs e)
+        {
+            String cName = txtCatererName.Text;
+            try
+            {
+                // Creating and opening connection to db
+                SqlConnection cnn = new SqlConnection(connectionString);
+                cnn.Open();
+                SqlCommand command;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                // Make insert query
+                string sql = "Insert into Caterers (Caterer_Name) values('" + cName + "')";
+                // Initialize command object
+                command = new SqlCommand(sql, cnn);
+                // Execute command
+                adapter.InsertCommand = command;
+                adapter.InsertCommand.ExecuteNonQuery();
+                // Cleanup
+                command.Dispose();
+                cnn.Close();
+
+                lblStatusCatererTable.Text = $"Caterer (<strong>{cName}</strong>) was added successfully.";
+                gvCatererTable.DataBind();
+            }
+            catch (Exception ex)
+            {
+                lblStatusCatererTable.Text = $"Caterer (<strong>{cName}</strong>) was <strong>NOT</strong> added successfully.<br/>Error: {ex.Message}.";
+            }
+        }
+
+        protected void btnRemoveCaterers_Click(object sender, EventArgs e)
+        {
+            String cName = txtCatererName.Text;
+            try
+            {
+                // Creating and opening connection to db
+                SqlConnection cnn = new SqlConnection(connectionString);
+                cnn.Open();
+                SqlCommand command;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                // Make insert query
+                string sql = "DELETE FROM Caterers WHERE Caterer_Name='" + cName + "'";
+                // Initialize command object
+                command = new SqlCommand(sql, cnn);
+                // Execute command
+                adapter.InsertCommand = command;
+                adapter.InsertCommand.ExecuteNonQuery();
+                // Cleanup
+                command.Dispose();
+                cnn.Close();
+
+                lblStatusCatererTable.Text = $"Caterer (<strong>{cName}</strong>) was removed successfully.";
+                gvCatererTable.DataBind();
+            }
+            catch (Exception ex)
+            {
+                lblStatusCatererTable.Text = $"Caterer (<strong>{cName}</strong>) was <strong>NOT</strong> removed successfully.<br/>Error: {ex.Message}.";
+            }
+        }
+
+        //protected void btnAddAllCaterers_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //    }
+        //}
+
+        //protected void btnRemoveOldCaterers_Click(object sender, EventArgs e)
+        //{
+
+        //}
     }
 }
