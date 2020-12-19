@@ -21,7 +21,9 @@
             <br />
             <br />
             <strong>Caterer Menu Page</strong><br />
-            Current User: <asp:Label ID="lblUserName" runat="server" Text="Label"></asp:Label>
+            Current Caterer Name: <asp:Label ID="lblUserName" runat="server" Text="Label"></asp:Label>
+            <br />
+            Current Caterer ID:<asp:Label ID="lblUserID" runat="server" Text="Label"></asp:Label>
             <br />
             <br />
             <span class="auto-style1">Menu<br />
@@ -57,7 +59,9 @@
             <asp:Label ID="Label5" runat="server" Text="Inventory" Width="125px"></asp:Label>
             <asp:TextBox ID="txtInventory" runat="server"></asp:TextBox>
             <br />
-            <asp:Button ID="btnAddItem" runat="server" Text="Add a New Item" Width="255px" />
+            <asp:Button ID="btnAddItem" runat="server" OnClick="btnAddItem_Click" Text="Add a New Item" Width="255px" />
+            <br />
+            <asp:Label ID="lblStatusItem" runat="server" Text="Status OK"></asp:Label>
             </span>
         </div>
     </form>
