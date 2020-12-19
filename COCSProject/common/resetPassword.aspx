@@ -10,20 +10,29 @@
             text-decoration: underline;
         }
     </style>
-    <link rel="stylesheet" type ="text/css" href ="../COCSProject.css" />
+    <link rel="stylesheet" type="text/css" href="../COCSProject.css" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <asp:Button ID="btnHomePage" runat="server" OnClick="btnHomePage_Click" Text="Home Page" />
-            <span class="auto-style1"><strong>
-            <br />
-            <br />
-            Change Password</strong></span><br />
-            <br />
-            <asp:ChangePassword ID="ChangePassword1" runat="server">
-            </asp:ChangePassword>
-        </div>
+        <asp:Button ID="btnHomePage" runat="server" OnClick="btnHomePage_Click" Text="Home Page" Width="255px" />
+        <asp:Button ID="btnRegister" runat="server" OnClick="btnRegister_Click" Text="Register for a New Account" Width="255px" />
+        <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click" Text="Log In" Width="255px" />
+        <strong>
+            <span class="auto-style1">
+                <br />
+                <br />
+            </span>Change Password</strong><br />
+        <br />
+        <asp:LoginView ID="LoginView1" runat="server">
+            <AnonymousTemplate>
+                You have to login first!
+            </AnonymousTemplate>
+            <LoggedInTemplate>
+                <asp:ChangePassword ID="ChangePassword1" runat="server">
+                </asp:ChangePassword>
+            </LoggedInTemplate>
+        </asp:LoginView>
+        <br />
     </form>
 </body>
 </html>

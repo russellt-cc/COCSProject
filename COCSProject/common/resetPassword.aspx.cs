@@ -18,5 +18,15 @@ namespace COCSProject
         {
             Response.Redirect("~/common/homepage.aspx");
         }
+
+        protected void btnRegister_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/common/register.aspx");
+        }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/common/login.aspx");
+        }
     }
 }

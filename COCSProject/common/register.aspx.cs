@@ -120,5 +120,15 @@ namespace COCSProject
         {
 
         }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/common/login.aspx");
+        }
+
+        protected void btnForgotPassword_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/common/forgotpassword.aspx");
+        }
     }
 }
