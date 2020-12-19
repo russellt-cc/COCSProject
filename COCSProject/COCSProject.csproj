@@ -93,6 +93,7 @@
     <Content Include="CustomerModule\myorders.aspx" />
     <Content Include="CustomerModule\myteam.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="images\pizza.jpg" />
     <Content Include="Web.config" />
     <Content Include="common\homepage.aspx" />
   </ItemGroup>
