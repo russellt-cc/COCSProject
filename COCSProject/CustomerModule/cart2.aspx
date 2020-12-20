@@ -30,17 +30,18 @@
                         <br />
                         <span class="auto-style1">List of items in cart:</span><asp:GridView ID="gvItemsInCart" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceItemsInCart">
                             <Columns>
-                                <asp:BoundField DataField="Item_ID" HeaderText="Item_ID" SortExpression="Item_ID" />
+                                <asp:BoundField DataField="Item ID" HeaderText="Item ID" SortExpression="Item ID" />
                                 <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
-                                <asp:BoundField DataField="Item_Name" HeaderText="Item_Name" SortExpression="Item_Name" />
-                                <asp:BoundField DataField="Item_Desc" HeaderText="Item_Desc" SortExpression="Item_Desc" />
-                                <asp:BoundField DataField="Item_Price" HeaderText="Item_Price" SortExpression="Item_Price" />
-                                <asp:BoundField DataField="Item_Calories" HeaderText="Item_Calories" SortExpression="Item_Calories" />
-                                <asp:BoundField DataField="Item_Inventory" HeaderText="Item_Inventory" SortExpression="Item_Inventory" />
-                                <asp:BoundField DataField="Item_Image" HeaderText="Item_Image" SortExpression="Item_Image" />
+                                <asp:BoundField DataField="Item Name" HeaderText="Item Name" SortExpression="Item Name" />
+                                <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
+                                <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
+                                <asp:BoundField DataField="Calories" HeaderText="Calories" SortExpression="Calories" />
+                                <asp:BoundField DataField="Inventory" HeaderText="Inventory" SortExpression="Inventory" />
+                                <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" />
+                                <asp:BoundField DataField="Total Price" HeaderText="Total Price" ReadOnly="True" SortExpression="Total Price" />
                             </Columns>
                         </asp:GridView>
-                        <asp:SqlDataSource ID="SqlDataSourceItemsInCart" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT Cart_Items.Item_ID, Cart_Items.Quantity, Items.Item_Name, Items.Item_Desc, Items.Item_Price, Items.Item_Calories, Items.Item_Inventory, Items.Item_Image FROM Cart_Items INNER JOIN Items ON Cart_Items.Item_ID = Items.Item_ID INNER JOIN Customers ON Cart_Items.Customer_ID = Customers.Customer_ID WHERE (Customers.Customer_Name = @myName)">
+                        <asp:SqlDataSource ID="SqlDataSourceItemsInCart" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT Cart_Items.Item_ID AS [Item ID], Cart_Items.Quantity, Items.Item_Name AS [Item Name], Items.Item_Desc AS Description, Items.Item_Price AS Price, Items.Item_Calories AS Calories, Items.Item_Inventory AS Inventory, Items.Item_Image AS Image, Cart_Items.Quantity * Items.Item_Price AS [Total Price] FROM Cart_Items INNER JOIN Items ON Cart_Items.Item_ID = Items.Item_ID INNER JOIN Customers ON Cart_Items.Customer_ID = Customers.Customer_ID WHERE (Customers.Customer_Name = @myName)">
                             <SelectParameters>
                                 <asp:ControlParameter ControlID="lblUserName" Name="myName" PropertyName="Text" />
                             </SelectParameters>
@@ -63,9 +64,11 @@
                                 <asp:BoundField DataField="Package Image" HeaderText="Package Image" SortExpression="Package Image" />
                                 <asp:BoundField DataField="Cart Quantity" HeaderText="Cart Quantity" SortExpression="Cart Quantity" />
                                 <asp:BoundField DataField="Total Quantity" HeaderText="Total Quantity" ReadOnly="True" SortExpression="Total Quantity" />
+                                <asp:BoundField DataField="Total Price" HeaderText="Total Price" ReadOnly="True" SortExpression="Total Price" />
+                                <asp:BoundField DataField="Price With Discount" HeaderText="Price With Discount" ReadOnly="True" SortExpression="Price With Discount" />
                             </Columns>
                         </asp:GridView>
-                        <asp:SqlDataSource ID="SqlDataSourceItemsInPackagesInCart" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT Items.Item_ID AS [Item ID], Items.Item_Name AS [Item Name], Items.Item_Desc AS [Item Description], Items.Item_Price AS [Item Price], Items.Item_Calories AS [Item Calories], Items.Item_Inventory AS [Item Inventory], Items.Item_Image AS [Item Image], Package_Items.Package_ID AS [Package ID], Package_Items.Quantity AS [Package Quantity], Packages.Package_Name AS [Package Name], Packages.Package_Desc AS [Package Description], Packages.Package_Discount AS [Package Discount], Packages.Package_Image AS [Package Image], Cart_Packages.Quantity AS [Cart Quantity], Package_Items.Quantity * Cart_Packages.Quantity AS [Total Quantity] FROM Items INNER JOIN Package_Items ON Items.Item_ID = Package_Items.Item_ID INNER JOIN Packages ON Package_Items.Package_ID = Packages.Package_ID INNER JOIN Cart_Packages ON Package_Items.Package_ID = Cart_Packages.Package_ID WHERE (Cart_Packages.Customer_ID = @myID)">
+                        <asp:SqlDataSource ID="SqlDataSourceItemsInPackagesInCart" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT Items.Item_ID AS [Item ID], Items.Item_Name AS [Item Name], Items.Item_Desc AS [Item Description], Items.Item_Price AS [Item Price], Items.Item_Calories AS [Item Calories], Items.Item_Inventory AS [Item Inventory], Items.Item_Image AS [Item Image], Package_Items.Package_ID AS [Package ID], Package_Items.Quantity AS [Package Quantity], Packages.Package_Name AS [Package Name], Packages.Package_Desc AS [Package Description], Packages.Package_Discount AS [Package Discount], Packages.Package_Image AS [Package Image], Cart_Packages.Quantity AS [Cart Quantity], Package_Items.Quantity * Cart_Packages.Quantity AS [Total Quantity], Package_Items.Quantity * Cart_Packages.Quantity * Items.Item_Price AS [Total Price], Package_Items.Quantity * Cart_Packages.Quantity * Items.Item_Price - Package_Items.Quantity * Cart_Packages.Quantity * Items.Item_Price * Packages.Package_Discount AS [Price With Discount] FROM Items INNER JOIN Package_Items ON Items.Item_ID = Package_Items.Item_ID INNER JOIN Packages ON Package_Items.Package_ID = Packages.Package_ID INNER JOIN Cart_Packages ON Package_Items.Package_ID = Cart_Packages.Package_ID WHERE (Cart_Packages.Customer_ID = @myID)">
                             <SelectParameters>
                                 <asp:ControlParameter ControlID="lblUserID" Name="myID" PropertyName="Text" />
                             </SelectParameters>
