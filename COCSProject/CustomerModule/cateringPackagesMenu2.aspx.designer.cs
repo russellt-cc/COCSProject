@@ -60,13 +60,13 @@ namespace COCSProject.CustomerModule
         protected global::System.Web.UI.WebControls.Button btnCustomerOrders;
 
         /// <summary>
-        /// GridView1 control.
+        /// gvMenuItems control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView gvMenuItems;
 
         /// <summary>
         /// SqlDataSourceMenuItems control.
@@ -78,13 +78,31 @@ namespace COCSProject.CustomerModule
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceMenuItems;
 
         /// <summary>
-        /// GridView2 control.
+        /// gvItemsInPackages control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView2;
+        protected global::System.Web.UI.WebControls.GridView gvItemsInPackages;
+
+        /// <summary>
+        /// SqlDataSourceItemsInPackages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceItemsInPackages;
+
+        /// <summary>
+        /// gvPackages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvPackages;
 
         /// <summary>
         /// SqlDataSourcePackages control.
