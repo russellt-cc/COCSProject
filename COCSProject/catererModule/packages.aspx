@@ -47,7 +47,7 @@
                 </SelectParameters>
             </asp:SqlDataSource>
             <br />
-            Items in Packages:<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Package_ID" DataSourceID="SqlDataSourceItemsInPackages">
+            Items in Packages:<asp:GridView ID="gvItemsInPackages" runat="server" AutoGenerateColumns="False" DataKeyNames="Package_ID" DataSourceID="SqlDataSourceItemsInPackages">
                 <Columns>
                     <asp:BoundField DataField="Package_ID" HeaderText="Package_ID" InsertVisible="False" ReadOnly="True" SortExpression="Package_ID" />
                     <asp:BoundField DataField="Package_Name" HeaderText="Package_Name" SortExpression="Package_Name" />
@@ -107,12 +107,15 @@
             <br />
             <span class="auto-style2">Add an Item to a Package:</span><br />
             <asp:Label ID="Label4" runat="server" Text="Package ID" Width="125px"></asp:Label>
-            <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtPackageID" runat="server"></asp:TextBox>
             <br />
             <asp:Label ID="Label5" runat="server" Text="Item ID" Width="125px"></asp:Label>
-            <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtItemID" runat="server"></asp:TextBox>
             <br />
-            <asp:Button ID="btnAddItemToPackage" runat="server" Text="Add Item to Package" Width="255px" />
+            <asp:Label ID="Label8" runat="server" Text="Quantity" Width="125px"></asp:Label>
+            <asp:TextBox ID="txtQuantity" runat="server"></asp:TextBox>
+            <br />
+            <asp:Button ID="btnAddItemToPackage" runat="server" OnClick="btnAddItemToPackage_Click" Text="Add Item to Package" Width="255px" />
             <br />
             <asp:Label ID="lblAddItemToPackageStatus" runat="server" Text="Status OK"></asp:Label>
             </span>

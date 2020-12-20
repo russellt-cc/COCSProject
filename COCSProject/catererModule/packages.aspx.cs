@@ -133,5 +133,96 @@ namespace COCSProject.catererModule
                 lblStatusAddPackage.Text = $"Item (<strong>{packageName}</strong>) was <strong>NOT</strong> created successfully.<br/>Error: {ex.Message}.";
             }
         }
+
+        protected void btnAddItemToPackage_Click(object sender, EventArgs e)
+        {
+            string packageID = txtPackageID.Text;
+            string itemID = txtItemID.Text;
+            string quantity = txtQuantity.Text;
+
+            int intPackageID = 0;
+            int intItemID = 0;
+            int intQuantity = 0;
+
+            try
+            {
+                // Validate the inputs
+                // Check if package ID is empty
+                if (packageID == "") throw new Exception("Package ID must not be empty");
+                // Check if item ID is empty
+                if (itemID == "") throw new Exception("Item ID must not be empty");
+                // Check if quantity is empty
+                if (quantity == "") throw new Exception("Quantity must not be empty");
+                // Check if package ID is numeric
+                if (!int.TryParse(packageID, out intPackageID)) throw new Exception("Package ID must be numeric");
+                // Check if item ID is numeric
+                if (!int.TryParse(itemID, out intItemID)) throw new Exception("Item ID must be numeric");
+                // Check if quantity is numeric
+                if (!int.TryParse(quantity, out intQuantity)) throw new Exception("Quantity must be numeric");
+
+                // Check if the item belongs to the current user
+                bool belongsToMe = false;
+                int myItem = 0;
+                // Get the items for the current user
+                SqlConnection cnn = new SqlConnection(connectionString);
+                cnn.Open();
+                SqlCommand command;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                string sql = "SELECT Items.Item_ID FROM Items INNER JOIN Caterer_Items ON Items.Item_ID = Caterer_Items.Item_ID WHERE (Caterer_Items.Caterer_ID = " + userID + ")";
+                command = new SqlCommand(sql, cnn);
+                adapter.SelectCommand = command;
+                SqlDataReader myReader = adapter.SelectCommand.ExecuteReader();
+                while (myReader.Read())
+                {
+                    myItem = int.Parse(myReader["Item_ID"].ToString());
+                    if (myItem == intItemID)
+                    {
+                        belongsToMe = true;
+                        break;
+                    }
+                }
+                myReader.Close();
+                if (belongsToMe == false) throw new Exception("That item ID does not belong to you");
+
+                // Check if the package is owned by the user
+                belongsToMe = false;
+                int myPackage = 0;
+                // Get the packages for the current user
+                cnn = new SqlConnection(connectionString);
+                cnn.Open();
+                adapter = new SqlDataAdapter();
+                sql = "SELECT Packages.Package_ID FROM Packages INNER JOIN Caterer_Packages ON Packages.Package_ID = Caterer_Packages.Package_ID WHERE (Caterer_Packages.Caterer_ID = " + userID + ")";
+                command = new SqlCommand(sql, cnn);
+                adapter.SelectCommand = command;
+                myReader = adapter.SelectCommand.ExecuteReader();
+                while (myReader.Read())
+                {
+                    myPackage = int.Parse(myReader["Package_ID"].ToString());
+                    if (myPackage == intPackageID)
+                    {
+                        belongsToMe = true;
+                        break;
+                    }
+                }
+                myReader.Close();
+                if (belongsToMe == false) throw new Exception("That package ID does not belong to you");
+
+                // Add the item to the package
+                sql = "Insert into Package_Items (Package_ID, Item_ID, Quantity) values ('" + intPackageID + "', '" + intItemID + "', '" + intQuantity + "')";
+                command = new SqlCommand(sql, cnn);
+                adapter.InsertCommand = command;
+                adapter.InsertCommand.ExecuteNonQuery();
+
+                // Show status on status label
+                lblAddItemToPackageStatus.Text = $"Item (<strong>{itemID}</strong>) was added successfully. Package ID: " + packageID;
+
+                // Refresh data grid
+                gvItemsInPackages.DataBind();
+            }
+            catch (Exception ex)
+            {
+                lblAddItemToPackageStatus.Text = $"Item (<strong>{itemID}</strong>) was <strong>NOT</strong> added successfully.<br/>Error: {ex.Message}.";
+            }
+        }
     }
 }
