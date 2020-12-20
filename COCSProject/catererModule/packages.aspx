@@ -30,7 +30,7 @@
             <asp:Label ID="lblUserID" runat="server" Text="Label"></asp:Label>
             <br />
             <br />
-            <span class="auto-style2">My Packages:</span><asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Package ID" DataSourceID="SqlDataSourceMyPackages">
+            <span class="auto-style2">My Packages:</span><asp:GridView ID="gvMyPackages" runat="server" AutoGenerateColumns="False" DataKeyNames="Package ID" DataSourceID="SqlDataSourceMyPackages">
                 <Columns>
                     <asp:BoundField DataField="Package ID" HeaderText="Package ID" InsertVisible="False" ReadOnly="True" SortExpression="Package ID" />
                     <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
@@ -46,7 +46,22 @@
                 </SelectParameters>
             </asp:SqlDataSource>
             <br />
-            My Menu:<br />
+            <span class="auto-style2">My Menu:</span><asp:GridView ID="gvMyMenu" runat="server" AutoGenerateColumns="False" DataKeyNames="Item ID" DataSourceID="SqlDataSourceMyMenu">
+                <Columns>
+                    <asp:BoundField DataField="Item ID" HeaderText="Item ID" InsertVisible="False" ReadOnly="True" SortExpression="Item ID" />
+                    <asp:BoundField DataField="Item Name" HeaderText="Item Name" SortExpression="Item Name" />
+                    <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
+                    <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
+                    <asp:BoundField DataField="Calories" HeaderText="Calories" SortExpression="Calories" />
+                    <asp:BoundField DataField="Inventory" HeaderText="Inventory" SortExpression="Inventory" />
+                    <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" />
+                </Columns>
+            </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSourceMyMenu" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT Items.Item_ID AS [Item ID], Items.Item_Name AS [Item Name], Items.Item_Desc AS Description, Items.Item_Price AS Price, Items.Item_Calories AS Calories, Items.Item_Inventory AS Inventory, Items.Item_Image AS Image FROM Items INNER JOIN Caterer_Items ON Items.Item_ID = Caterer_Items.Item_ID INNER JOIN Caterers ON Caterer_Items.Caterer_ID = Caterers.Caterer_ID WHERE (Caterers.Caterer_Name = @myName)">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="lblUserName" Name="myName" PropertyName="Text" />
+                </SelectParameters>
+            </asp:SqlDataSource>
             </span>
         </div>
     </form>
