@@ -11,7 +11,8 @@ namespace COCSProject.CustomerModule
     public partial class cart2 : System.Web.UI.Page
     {
         // Connection string
-        private string connectionString = @"Data Source=cocsnerdherd.database.windows.net;Initial Catalog=CateringSystemT02_ASP;Persist Security Info=True;User ID=cocs;Password=password1!";
+        //private string connectionString = @"Data Source=cocsnerdherd.database.windows.net;Initial Catalog=CateringSystemT02_ASP;Persist Security Info=True;User ID=cocs;Password=password1!";
+        private string connectionString = @"Server=tcp:cocsnerdherd.database.windows.net,1433;Initial Catalog=CateringSystemT02_ASP;Persist Security Info=False;User ID=cocs;Password=password1!;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30";
 
         String userName;
         String userID;
@@ -83,8 +84,11 @@ namespace COCSProject.CustomerModule
                 SqlConnection cnn = new SqlConnection(connectionString);
                 cnn.Open();
                 SqlCommand command;
+                SqlCommand command2 = new SqlCommand();
                 SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlDataAdapter adapter2 = new SqlDataAdapter();
                 string sql;
+                string sql2;
 
                 // Get the latest order in the orders table
                 sql = "SELECT TOP 1 OrderID FROM Orders ORDER BY OrderID DESC";
@@ -104,8 +108,30 @@ namespace COCSProject.CustomerModule
                 adapter.InsertCommand.ExecuteNonQuery();
 
                 // For each item in the cart
-                // Create an entry in the order_items table
-                // Remove the item from the cart_items table
+                // Get the items in the cart
+                sql = "SELECT Item_ID, Quantity FROM Cart_Items WHERE (Customer_ID = "+ userID + ")";
+                command = new SqlCommand(sql, cnn);
+                adapter.SelectCommand = command;
+                myReader = adapter.SelectCommand.ExecuteReader();
+                string itemID;
+                string quantity;
+                while (myReader.Read())
+                {
+                    // Get item ID and quantity
+                    itemID = myReader["Item_ID"].ToString();
+                    quantity = myReader["Quantity"].ToString();
+                    // Create an entry in the order_items table
+                    sql2 = "INSERT into Order_Items (Order_ID, Item_ID, Quantity) values (" + orderID + ", " + itemID + ", " + quantity + ")";
+                    command2 = new SqlCommand(sql2, cnn);
+                    adapter2.InsertCommand = command2;
+                    adapter2.InsertCommand.ExecuteNonQuery();
+                    // Remove the item from the cart_items table
+                    sql2 = "DELETE TOP(1) FROM Cart_Items WHERE(Customer_ID = " + userID + ") AND (Item_ID = " + itemID + ") AND (Quantity = " + quantity + ")";
+                    command2 = new SqlCommand(sql2, cnn);
+                    adapter2.InsertCommand = command2;
+                    adapter2.InsertCommand.ExecuteNonQuery();
+                }
+                myReader.Close();
 
                 // For each package in the cart
                 // Create an entry in the order_packages table
@@ -113,8 +139,15 @@ namespace COCSProject.CustomerModule
 
                 // Cleanup
                 command.Dispose();
+                command2.Dispose();
                 cnn.Close();
 
+                // Update data grids
+                gvItemsInCart.DataBind();
+                gvItemsInPackagesInCart.DataBind();
+                gvPackagesInCart.DataBind();
+
+                // Show status
                 lblOrderStatus.Text = $"Order (<strong>{orderID}</strong>) was submitted successfully.";
             }
             catch (Exception ex)
