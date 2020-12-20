@@ -60,75 +60,93 @@ namespace COCSProject.CustomerModule
         protected global::System.Web.UI.WebControls.Button btnCart;
 
         /// <summary>
-        /// GridView1 control.
+        /// lblUserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.Label lblUserName;
 
         /// <summary>
-        /// SqlDataSource1 control.
+        /// lblUserID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.Label lblUserID;
 
         /// <summary>
-        /// GridView2 control.
+        /// gvMyOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView2;
+        protected global::System.Web.UI.WebControls.GridView gvMyOrders;
 
         /// <summary>
-        /// SqlDataSource2 control.
+        /// SqlDataSourceMyOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceMyOrders;
 
         /// <summary>
-        /// GridView3 control.
+        /// gvItemsInMyOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView3;
+        protected global::System.Web.UI.WebControls.GridView gvItemsInMyOrders;
 
         /// <summary>
-        /// SqlDataSource3 control.
+        /// SqlDataSourceItemsInMyOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceItemsInMyOrders;
 
         /// <summary>
-        /// GridView4 control.
+        /// gvItemsInPackagesInMyOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView4;
+        protected global::System.Web.UI.WebControls.GridView gvItemsInPackagesInMyOrders;
 
         /// <summary>
-        /// SqlDataSource4 control.
+        /// SqlDataSourceItemsInPackagesInMyOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource4;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceItemsInPackagesInMyOrders;
+
+        /// <summary>
+        /// gvPackagesInMyOrders control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvPackagesInMyOrders;
+
+        /// <summary>
+        /// SqlDataSourcePackagesInMyOrders control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourcePackagesInMyOrders;
     }
 }

@@ -21,23 +21,38 @@
                         <br />
                         <br />
                         <strong>Customer Orders Page</strong><br />
+                        Current User Name:
+                        <asp:Label ID="lblUserName" runat="server" Text="Label"></asp:Label>
                         <br />
-                        <span class="auto-style1">My Orders:</span><asp:GridView ID="GridView1" runat="server">
+                        Current User ID:
+                        <asp:Label ID="lblUserID" runat="server" Text="Label"></asp:Label>
+                        <br />
+                        <br />
+                        <span class="auto-style1">My Orders:</span><asp:GridView ID="gvMyOrders" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceMyOrders">
+                            <Columns>
+                                <asp:BoundField DataField="Order ID" HeaderText="Order ID" SortExpression="Order ID" />
+                                <asp:BoundField DataField="Date Ordered" HeaderText="Date Ordered" SortExpression="Date Ordered" />
+                                <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
+                            </Columns>
                         </asp:GridView>
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDataSourceMyOrders" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT OrderID AS [Order ID], Date_Ordered AS [Date Ordered], Status FROM Orders WHERE (Customer_ID = @myID)">
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="lblUserID" Name="myID" PropertyName="Text" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
                         <br />
-                        I<span class="auto-style1">tems in My Orders:</span><asp:GridView ID="GridView2" runat="server">
+                        I<span class="auto-style1">tems in My Orders:</span><asp:GridView ID="gvItemsInMyOrders" runat="server" DataSourceID="SqlDataSourceItemsInMyOrders">
                         </asp:GridView>
-                        <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDataSourceItemsInMyOrders" runat="server"></asp:SqlDataSource>
                         <br />
-                        <span class="auto-style1">Items in Packages in My Orders:</span><asp:GridView ID="GridView3" runat="server">
+                        <span class="auto-style1">Items in Packages in My Orders:</span><asp:GridView ID="gvItemsInPackagesInMyOrders" runat="server" DataSourceID="SqlDataSourceItemsInPackagesInMyOrders">
                         </asp:GridView>
-                        <asp:SqlDataSource ID="SqlDataSource3" runat="server"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDataSourceItemsInPackagesInMyOrders" runat="server"></asp:SqlDataSource>
                         <br />
                         <br />
-                        <span class="auto-style1">Packages in My Orders:</span><asp:GridView ID="GridView4" runat="server">
+                        <span class="auto-style1">Packages in My Orders:</span><asp:GridView ID="gvPackagesInMyOrders" runat="server" DataSourceID="SqlDataSourcePackagesInMyOrders">
                         </asp:GridView>
-                        <asp:SqlDataSource ID="SqlDataSource4" runat="server"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDataSourcePackagesInMyOrders" runat="server"></asp:SqlDataSource>
     </form>
 </body>
 </html>
