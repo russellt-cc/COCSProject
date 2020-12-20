@@ -82,6 +82,7 @@
     <Content Include="catererModule\menu.aspx" />
     <Content Include="catererModule\orders.aspx" />
     <Content Include="catererModule\packages.aspx" />
+    <Content Include="CustomerModule\cart2.aspx" />
     <Content Include="CustomerModule\cateringPackagesMenu.aspx" />
     <Content Include="common\forgotPassword.aspx" />
     <Content Include="common\login.aspx" />
@@ -90,9 +91,12 @@
     <Content Include="common\resetPassword.aspx" />
     <Content Include="common\search.aspx" />
     <Content Include="CustomerModule\cart.aspx" />
+    <Content Include="CustomerModule\cateringPackagesMenu2.aspx" />
     <Content Include="CustomerModule\CustomerModule.html" />
     <Content Include="CustomerModule\myorders.aspx" />
+    <Content Include="CustomerModule\myorders2.aspx" />
     <Content Include="CustomerModule\myteam.aspx" />
+    <Content Include="CustomerModule\myteam2.aspx" />
     <Content Include="login.aspx" />
     <Content Include="images\pizza.jpg" />
     <Content Include="Web.config" />
@@ -155,6 +159,13 @@
     <Compile Include="catererModule\packages.aspx.designer.cs">
       <DependentUpon>packages.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CustomerModule\cart2.aspx.cs">
+      <DependentUpon>cart2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerModule\cart2.aspx.designer.cs">
+      <DependentUpon>cart2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CustomerModule\cateringPackagesMenu.aspx.cs">
       <DependentUpon>cateringPackagesMenu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -190,6 +201,13 @@
     <Compile Include="CustomerModule\cart.aspx.designer.cs">
       <DependentUpon>cart.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CustomerModule\cateringPackagesMenu2.aspx.cs">
+      <DependentUpon>cateringPackagesMenu2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerModule\cateringPackagesMenu2.aspx.designer.cs">
+      <DependentUpon>cateringPackagesMenu2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CustomerModule\myorders.aspx.cs">
       <DependentUpon>myorders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -197,12 +215,26 @@
     <Compile Include="CustomerModule\myorders.aspx.designer.cs">
       <DependentUpon>myorders.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CustomerModule\myorders2.aspx.cs">
+      <DependentUpon>myorders2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerModule\myorders2.aspx.designer.cs">
+      <DependentUpon>myorders2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CustomerModule\myteam.aspx.cs">
       <DependentUpon>myteam.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CustomerModule\myteam.aspx.designer.cs">
       <DependentUpon>myteam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerModule\myteam2.aspx.cs">
+      <DependentUpon>myteam2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerModule\myteam2.aspx.designer.cs">
+      <DependentUpon>myteam2.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

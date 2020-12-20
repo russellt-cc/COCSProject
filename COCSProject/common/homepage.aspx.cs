@@ -79,22 +79,22 @@ namespace COCSProject
 
         protected void btnTeam_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/CustomerModule/myteam.aspx");
+            Response.Redirect("~/CustomerModule/myteam2.aspx");
         }
 
         protected void btnCustomerMenu_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/CustomerModule/cateringPackagesMenu.aspx");
+            Response.Redirect("~/CustomerModule/cateringPackagesMenu2.aspx");
         }
 
         protected void btnCart_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/CustomerModule/cart.aspx");
+            Response.Redirect("~/CustomerModule/cart2.aspx");
         }
 
         protected void btnCustomerOrders_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/CustomerModule/myorders.aspx");
+            Response.Redirect("~/CustomerModule/myorders2.aspx");
         }
 
         protected void btnRoleManager_Click(object sender, EventArgs e)
