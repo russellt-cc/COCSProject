@@ -73,5 +73,54 @@ namespace COCSProject.CustomerModule
         {
 
         }
+
+        protected void btnCheckout_Click(object sender, EventArgs e)
+        {
+            string orderID = "0";
+
+            try
+            {
+                SqlConnection cnn = new SqlConnection(connectionString);
+                cnn.Open();
+                SqlCommand command;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                string sql;
+
+                // Get the latest order in the orders table
+                sql = "SELECT TOP 1 OrderID FROM Orders ORDER BY OrderID DESC";
+                command = new SqlCommand(sql, cnn);
+                adapter.SelectCommand = command;
+                SqlDataReader myReader = adapter.SelectCommand.ExecuteReader();
+                if (myReader.Read()) orderID = myReader["OrderID"].ToString();
+                myReader.Close();
+
+                // Increment the order id by 1
+                orderID = (int.Parse(orderID) + 1).ToString();
+
+                // Create a new entry in the orders table
+                sql = "Insert into Orders (OrderID, Customer_ID, Status) values ('" + orderID + "', '" + userID + "', 'Pending')";
+                command = new SqlCommand(sql, cnn);
+                adapter.InsertCommand = command;
+                adapter.InsertCommand.ExecuteNonQuery();
+
+                // For each item in the cart
+                // Create an entry in the order_items table
+                // Remove the item from the cart_items table
+
+                // For each package in the cart
+                // Create an entry in the order_packages table
+                // Remove the item from the cart_packages table
+
+                // Cleanup
+                command.Dispose();
+                cnn.Close();
+
+                lblOrderStatus.Text = $"Order (<strong>{orderID}</strong>) was submitted successfully.";
+            }
+            catch (Exception ex)
+            {
+                lblOrderStatus.Text = $"Order (<strong>{orderID}</strong>) was <strong>NOT</strong> submitted successfully.<br/>Error: {ex.Message}.";
+            }
+        }
     }
 }

@@ -114,7 +114,9 @@
                         <asp:Label ID="lblUpdatePackageStatus" runat="server" Text="Status OK"></asp:Label>
                         <br />
                         <br />
-                        <asp:Button ID="btnCheckout" runat="server" Text="Submit Order" Width="255px" />
+                        <asp:Button ID="btnCheckout" runat="server" OnClick="btnCheckout_Click" Text="Submit Order" Width="255px" />
+                        <br />
+                        <asp:Label ID="lblOrderStatus" runat="server" Text="Status OK"></asp:Label>
                         <br />
     </form>
 </body>
