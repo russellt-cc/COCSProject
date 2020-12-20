@@ -178,6 +178,11 @@ namespace COCSProject.admin_module
             }
         }
 
+        protected void btnManageItems_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/admin_module/ManageItems.aspx");
+        }
+
         //protected void ddlRoles_SelectedIndexChanged(object sender, EventArgs e)
         //{
         //    lblRoleID.Text = ddlRoles.SelectedValue;

@@ -18,6 +18,7 @@
             <asp:Button ID="btnDashboard" runat="server" OnClick="btnDashboard_Click" Text="Dashboard" Width="255px" />
             <asp:Button ID="btnReports" runat="server" OnClick="btnReports_Click" Text="Reports" Width="255px" />
             <asp:Button ID="btnManageRoles" runat="server" OnClick="btnManageRoles_Click" Text="Manage Roles and Users" Width="255px" />
+            <asp:Button ID="btnManageItems" runat="server" OnClick="btnManageItems_Click" Text="Manage Menu Items" Width="255px" />
             <br />
             <br />
             <strong>Admin Manage Caterers</strong><br />
@@ -38,7 +39,7 @@
             <asp:Button ID="btnAddCaterers" runat="server" OnClick="btnAddCaterers_Click" Text="Add a Caterer" Width="255px" />
             <asp:Button ID="btnRemoveCaterers" runat="server" OnClick="btnRemoveCaterers_Click" Text="Remove a Caterer" Width="255px" />
             <br />
-<%--            <asp:Button ID="btnAddAllCaterers" runat="server" OnClick="btnAddAllCaterers_Click" Text="Add All Approved Caterers" Width="255px" />
+            <%--            <asp:Button ID="btnAddAllCaterers" runat="server" OnClick="btnAddAllCaterers_Click" Text="Add All Approved Caterers" Width="255px" />
             <asp:Button ID="btnRemoveOldCaterers" runat="server" OnClick="btnRemoveOldCaterers_Click" Text="Remove All Old Caterers" Width="255px" />
             <br />--%>
             <asp:Label ID="lblStatusCatererTable" runat="server" Text="Status OK"></asp:Label>

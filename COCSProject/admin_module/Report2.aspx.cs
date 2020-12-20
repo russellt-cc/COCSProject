@@ -33,5 +33,10 @@ namespace COCSProject.admin_module
         {
             Response.Redirect("~/admin_module/ManageRoles.aspx");
         }
+
+        protected void btnManageItems_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/admin_module/ManageItems.aspx");
+        }
     }
 }

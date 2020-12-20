@@ -164,6 +164,11 @@ namespace COCSProject.admin_module
             }
         }
 
+        protected void btnManageItems_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/admin_module/ManageItems.aspx");
+        }
+
         //protected void btnAddAllCaterers_Click(object sender, EventArgs e)
         //{
         //    try

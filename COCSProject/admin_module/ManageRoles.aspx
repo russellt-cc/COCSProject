@@ -18,6 +18,7 @@
             <asp:Button ID="btnDashboard" runat="server" OnClick="btnDashboard_Click" Text="Dashboard" Width="255px" />
             <asp:Button ID="btnReports" runat="server" OnClick="btnReports_Click" Text="Reports" Width="255px" />
             <asp:Button ID="btnManageCaterers" runat="server" OnClick="btnManageCaterers_Click" Text="Manage Caterers" Width="255px" />
+            <asp:Button ID="btnManageItems" runat="server" OnClick="btnManageItems_Click" Text="Manage Menu Items" Width="255px" />
             <br />
             <br />
             <strong>Admin Manage Roles and Users</strong><br />
@@ -132,7 +133,7 @@ on aspnet_UsersInRoles.RoleId = aspnet_Roles.RoleId"></asp:SqlDataSource>
             Password:&nbsp;&nbsp;
             <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
             <br />
-<%--            Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <%--            Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
             <br />
             Question:&nbsp;&nbsp;&nbsp;&nbsp;
