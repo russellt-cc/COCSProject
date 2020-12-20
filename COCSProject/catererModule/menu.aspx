@@ -62,6 +62,14 @@
             <asp:Button ID="btnAddItem" runat="server" OnClick="btnAddItem_Click" Text="Add a New Item" Width="255px" />
             <br />
             <asp:Label ID="lblStatusItem" runat="server" Text="Status OK"></asp:Label>
+            <br />
+            <br />
+            <asp:Label ID="Label6" runat="server" Text="Item ID" Width="125px"></asp:Label>
+            <asp:TextBox ID="txtItemID" runat="server"></asp:TextBox>
+            <br />
+            <asp:Button ID="btnRemoveItem" runat="server" OnClick="btnRemoveItem_Click" Text="Remove an Item" Width="255px" />
+            <br />
+            <asp:Label ID="lblRemoveStatus" runat="server" Text="Status OK"></asp:Label>
             </span>
         </div>
     </form>

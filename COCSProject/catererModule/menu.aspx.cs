@@ -138,5 +138,63 @@ namespace COCSProject.catererModule
                 lblStatusItem.Text = $"Item (<strong>{itemName}</strong>) was <strong>NOT</strong> created successfully.<br/>Error: {ex.Message}.";
             }
         }
+
+        protected void btnRemoveItem_Click(object sender, EventArgs e)
+        {
+            // Save the data into a string
+            String itemID = txtItemID.Text;
+            int intItemID = 0;
+
+            try
+            {
+                // Check if the input is empty
+                if (itemID == "") throw new Exception("Enter the ID for the item you want to remove");
+
+                // Check if the input is numeric
+                if (!int.TryParse(itemID, out intItemID)) throw new Exception("ID must be numeric");
+
+                // Check if the item belongs to the current user
+                bool belongsToMe = false;
+                int myItem = 0;
+                // Get the items for the current user
+                SqlConnection cnn = new SqlConnection(connectionString);
+                cnn.Open();
+                SqlCommand command;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                string sql = "SELECT Items.Item_ID FROM Items INNER JOIN Caterer_Items ON Items.Item_ID = Caterer_Items.Item_ID WHERE (Caterer_Items.Caterer_ID = " + userID + ")";
+                command = new SqlCommand(sql, cnn);
+                adapter.SelectCommand = command;
+                SqlDataReader myReader = adapter.SelectCommand.ExecuteReader();
+                while (myReader.Read())
+                {
+                    myItem = int.Parse(myReader["Item_ID"].ToString());
+                    if (myItem == intItemID)
+                    {
+                        belongsToMe = true;
+                        break;
+                    }
+                }
+                myReader.Close();
+                if (belongsToMe == false) throw new Exception("That item ID does not belong to you");
+
+
+
+                // Cleanup
+                command.Dispose();
+                cnn.Close();
+
+                // Show status on status label
+                lblRemoveStatus.Text = $"Item (<strong>{itemID}</strong>) was removed successfully.";
+
+                // Refresh data grid
+                gvMyMenu.DataBind();
+
+            }
+            catch (Exception ex)
+            {
+                lblRemoveStatus.Text = $"Item (<strong>{itemID}</strong>) was <strong>NOT</strong> removed successfully.<br/>Error: {ex.Message}.";
+            }
+
+        }
     }
 }
