@@ -129,7 +129,60 @@ namespace COCSProject.CustomerModule
 
         protected void btnAddPackageToCart_Click(object sender, EventArgs e)
         {
+            string packageID = txtPackageID.Text;
+            string quantity = txtPackageQuantity.Text;
 
+            int intPackageID = 0;
+            int intQuantity = 0;
+
+            try
+            {
+                if (packageID == "") throw new Exception("Enter the package ID");
+                if (quantity == "") throw new Exception("Enter the quantity");
+                if (!int.TryParse(packageID, out intPackageID)) throw new Exception("Package ID must be numeric");
+                if (!int.TryParse(quantity, out intQuantity)) throw new Exception("Quantity must be numeric");
+                if (intQuantity <= 0) throw new Exception("Quantity must be greater than 0");
+
+                // Check if the item exists
+                bool exists = false;
+                int myPackage = 0;
+                // Get the packages in the packages table
+                SqlConnection cnn = new SqlConnection(connectionString);
+                cnn.Open();
+                SqlCommand command;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                string sql = "SELECT Packages.Package_ID FROM Packages";
+                command = new SqlCommand(sql, cnn);
+                adapter.SelectCommand = command;
+                SqlDataReader myReader = adapter.SelectCommand.ExecuteReader();
+                while (myReader.Read())
+                {
+                    myPackage = int.Parse(myReader["Package_ID"].ToString());
+                    if (myPackage == intPackageID)
+                    {
+                        exists = true;
+                        break;
+                    }
+                }
+                myReader.Close();
+                if (exists == false) throw new Exception("That package ID does not exist in the packages table");
+
+                // Add the package to the cart
+                sql = "Insert into Cart_Packages (Customer_ID, Package_ID, Quantity) values ('" + userID + "', '" + intPackageID + "', '" + intQuantity + "')";
+                command = new SqlCommand(sql, cnn);
+                adapter.InsertCommand = command;
+                adapter.InsertCommand.ExecuteNonQuery();
+
+                // Cleanup
+                command.Dispose();
+                cnn.Close();
+
+                lblAddPackageToCartStatus.Text = $"Package (<strong>{packageID}</strong>) was added successfully.";
+            }
+            catch (Exception ex)
+            {
+                lblAddPackageToCartStatus.Text = $"Package (<strong>{packageID}</strong>) was <strong>NOT</strong> added successfully.<br/>Error: {ex.Message}.";
+            }
         }
     }
 }
