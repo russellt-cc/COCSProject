@@ -106,5 +106,10 @@ namespace COCSProject
         {
             Response.Redirect("~/common/forgotpassword.aspx");
         }
+
+        protected void btnManageItems_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/admin_module/ManageItems.aspx");
+        }
     }
 }

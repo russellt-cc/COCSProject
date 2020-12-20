@@ -41,6 +41,7 @@
                         <asp:Button ID="btnReports" runat="server" OnClick="btnReports_Click" Text="Reports" Width="255px" />
                         <asp:Button ID="btnManageCaterers" runat="server" OnClick="btnManageCaterers_Click" Text="Manage Caterers" Width="255px" />
                         <asp:Button ID="btnRoleManager" runat="server" OnClick="btnRoleManager_Click" Text="Manage Roles and Users" Width="255px" />
+                        <asp:Button ID="btnManageItems" runat="server" OnClick="btnManageItems_Click" Text="Manage Menu Items" Width="255px" />
                     </ContentTemplate>
                 </asp:RoleGroup>
                 <asp:RoleGroup Roles="Caterer">

@@ -70,6 +70,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin_module\ManageItems.aspx" />
     <Content Include="COCSProject.css" />
     <Content Include="admin_module\Dashboard.aspx" />
     <Content Include="admin_module\Dashboard2.aspx" />
@@ -104,6 +105,13 @@
     </Compile>
     <Compile Include="admin_module\Dashboard2.aspx.designer.cs">
       <DependentUpon>Dashboard2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin_module\ManageItems.aspx.cs">
+      <DependentUpon>ManageItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_module\ManageItems.aspx.designer.cs">
+      <DependentUpon>ManageItems.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin_module\ManageRoles.aspx.cs">
       <DependentUpon>ManageRoles.aspx</DependentUpon>
