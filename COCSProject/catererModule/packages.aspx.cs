@@ -63,5 +63,75 @@ namespace COCSProject.catererModule
         {
             Response.Redirect("~/catererModule/orders.aspx");
         }
+
+        protected void btnAddPackage_Click(object sender, EventArgs e)
+        {
+            // Save all the data into strings
+            String packageName = txtPackageName.Text;
+            String packageDescription = txtPackageDescription.Text;
+            String packageDiscount = txtPackageDiscount.Text;
+            String packageLimits = txtPackageLimits.Text;
+
+            Decimal decimalPackageDiscount = 0;
+
+            int intPackageLimits = 0;
+
+            try
+            {
+                // Validate the inputs
+                // Check if package name is empty
+                if (packageName == "") throw new Exception("Package name must not be empty");
+                // Check if limits is empty
+                if (packageLimits == "") throw new Exception("Package limits must not be empty");
+                // Check if discount is numeric
+                if (packageDiscount != "" && !decimal.TryParse(packageDiscount, out decimalPackageDiscount)) throw new Exception("Package discount must be numeric");
+                // Check if limits is numeric
+                if (!int.TryParse(packageLimits, out intPackageLimits)) throw new Exception("Package limits must be numeric");
+
+                // Insert the package into the database
+                // Creating and opening connection to db
+                SqlConnection cnn = new SqlConnection(connectionString);
+                cnn.Open();
+                SqlCommand command;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                // Make insert query
+                string sql = "Insert into Packages (Package_Name, Package_Desc, Package_Discount) values('" + packageName + "', '" + packageDescription + "', '" + decimalPackageDiscount + "')";
+                // Initialize command object
+                command = new SqlCommand(sql, cnn);
+                // Execute command
+                adapter.InsertCommand = command;
+                adapter.InsertCommand.ExecuteNonQuery();
+
+                // Get the latest entry in the packages table
+                sql = "SELECT TOP 1 Package_ID FROM Packages ORDER BY Package_ID DESC";
+                command = new SqlCommand(sql, cnn);
+                adapter.SelectCommand = command;
+                SqlDataReader myReader = adapter.SelectCommand.ExecuteReader();
+                myReader.Read();
+                String PackageID = myReader["Package_ID"].ToString();
+                myReader.Close();
+
+                // Create a new entry in Caterer_Packages table
+                sql = "Insert into Caterer_Packages (Package_ID, Caterer_ID, Limits) values ('" + int.Parse(PackageID) + "', '" + int.Parse(userID) + "', '" + intPackageLimits + "')";
+                command = new SqlCommand(sql, cnn);
+                adapter.InsertCommand = command;
+                adapter.InsertCommand.ExecuteNonQuery();
+
+                // Cleanup
+                command.Dispose();
+                cnn.Close();
+
+                // Show status on status label
+                lblStatusAddPackage.Text = $"Package (<strong>{packageName}</strong>) was created successfully. Package ID: " + PackageID;
+
+                // Refresh data grid
+                gvMyPackages.DataBind();
+
+            }
+            catch (Exception ex)
+            {
+                lblStatusAddPackage.Text = $"Item (<strong>{packageName}</strong>) was <strong>NOT</strong> created successfully.<br/>Error: {ex.Message}.";
+            }
+        }
     }
 }

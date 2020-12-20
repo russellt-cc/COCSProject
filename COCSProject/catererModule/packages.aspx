@@ -62,6 +62,35 @@
                     <asp:ControlParameter ControlID="lblUserName" Name="myName" PropertyName="Text" />
                 </SelectParameters>
             </asp:SqlDataSource>
+            <br />
+            <span class="auto-style2">Add a New Package:</span><br />
+            <asp:Label ID="Label1" runat="server" Text="Package Name" Width="125px"></asp:Label>
+            <asp:TextBox ID="txtPackageName" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="Label2" runat="server" Text="Package Description" Width="125px"></asp:Label>
+            <asp:TextBox ID="txtPackageDescription" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="Label3" runat="server" Text="Package Discount" Width="125px"></asp:Label>
+            <asp:TextBox ID="txtPackageDiscount" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="Label7" runat="server" Text="Package Limits" Width="125px"></asp:Label>
+            <asp:TextBox ID="txtPackageLimits" runat="server"></asp:TextBox>
+            <br />
+            <asp:Button ID="btnAddPackage" runat="server" OnClick="btnAddPackage_Click" Text="Add a New Package" Width="255px" />
+            <br />
+            <asp:Label ID="lblStatusAddPackage" runat="server" Text="Status OK"></asp:Label>
+            <br />
+            <br />
+            <span class="auto-style2">Add an Item to a Package:</span><br />
+            <asp:Label ID="Label4" runat="server" Text="Package ID" Width="125px"></asp:Label>
+            <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="Label5" runat="server" Text="Item ID" Width="125px"></asp:Label>
+            <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+            <br />
+            <asp:Button ID="btnAddItemToPackage" runat="server" Text="Add Item to Package" Width="255px" />
+            <br />
+            <asp:Label ID="lblAddItemToPackageStatus" runat="server" Text="Status OK"></asp:Label>
             </span>
         </div>
     </form>
