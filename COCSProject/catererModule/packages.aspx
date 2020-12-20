@@ -24,11 +24,13 @@
             <br />
             <br class="auto-style1" />
             <strong>Caterer Packages Page</strong><span class="auto-style1"><br />
+            </span>
             Current Caterer Name:
             <asp:Label ID="lblUserName" runat="server" Text="Label"></asp:Label>
             <br />
             Current Caterer ID:
             <asp:Label ID="lblUserID" runat="server" Text="Label"></asp:Label>
+            <span class="auto-style1">
             <br />
             <br />
             <span class="auto-style2">My Packages:</span><asp:GridView ID="gvMyPackages" runat="server" AutoGenerateColumns="False" DataKeyNames="Package ID" DataSourceID="SqlDataSourceMyPackages">
