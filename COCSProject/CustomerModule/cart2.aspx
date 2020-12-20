@@ -28,17 +28,64 @@
                         <asp:Label ID="lblUserID" runat="server" Text="Label"></asp:Label>
                         <br />
                         <br />
-                        <span class="auto-style1">List of items in cart:</span><asp:GridView ID="gvItemsInCart" runat="server">
+                        <span class="auto-style1">List of items in cart:</span><asp:GridView ID="gvItemsInCart" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceItemsInCart">
+                            <Columns>
+                                <asp:BoundField DataField="Item_ID" HeaderText="Item_ID" SortExpression="Item_ID" />
+                                <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
+                                <asp:BoundField DataField="Item_Name" HeaderText="Item_Name" SortExpression="Item_Name" />
+                                <asp:BoundField DataField="Item_Desc" HeaderText="Item_Desc" SortExpression="Item_Desc" />
+                                <asp:BoundField DataField="Item_Price" HeaderText="Item_Price" SortExpression="Item_Price" />
+                                <asp:BoundField DataField="Item_Calories" HeaderText="Item_Calories" SortExpression="Item_Calories" />
+                                <asp:BoundField DataField="Item_Inventory" HeaderText="Item_Inventory" SortExpression="Item_Inventory" />
+                                <asp:BoundField DataField="Item_Image" HeaderText="Item_Image" SortExpression="Item_Image" />
+                            </Columns>
                         </asp:GridView>
-                        <asp:SqlDataSource ID="SqlDataSourceItemsInCart" runat="server"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDataSourceItemsInCart" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT Cart_Items.Item_ID, Cart_Items.Quantity, Items.Item_Name, Items.Item_Desc, Items.Item_Price, Items.Item_Calories, Items.Item_Inventory, Items.Item_Image FROM Cart_Items INNER JOIN Items ON Cart_Items.Item_ID = Items.Item_ID INNER JOIN Customers ON Cart_Items.Customer_ID = Customers.Customer_ID WHERE (Customers.Customer_Name = @myName)">
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="lblUserName" Name="myName" PropertyName="Text" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
                         <br />
-                        <span class="auto-style1">List of items in packages in cart:</span><asp:GridView ID="gvItemsInPackagesInCart" runat="server">
+                        <span class="auto-style1">List of items in packages in cart:</span><asp:GridView ID="gvItemsInPackagesInCart" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceItemsInPackagesInCart">
+                            <Columns>
+                                <asp:BoundField DataField="Item ID" HeaderText="Item ID" InsertVisible="False" ReadOnly="True" SortExpression="Item ID" />
+                                <asp:BoundField DataField="Item Name" HeaderText="Item Name" SortExpression="Item Name" />
+                                <asp:BoundField DataField="Item Description" HeaderText="Item Description" SortExpression="Item Description" />
+                                <asp:BoundField DataField="Item Price" HeaderText="Item Price" SortExpression="Item Price" />
+                                <asp:BoundField DataField="Item Calories" HeaderText="Item Calories" SortExpression="Item Calories" />
+                                <asp:BoundField DataField="Item Inventory" HeaderText="Item Inventory" SortExpression="Item Inventory" />
+                                <asp:BoundField DataField="Item Image" HeaderText="Item Image" SortExpression="Item Image" />
+                                <asp:BoundField DataField="Package ID" HeaderText="Package ID" SortExpression="Package ID" />
+                                <asp:BoundField DataField="Package Quantity" HeaderText="Package Quantity" SortExpression="Package Quantity" />
+                                <asp:BoundField DataField="Package Name" HeaderText="Package Name" SortExpression="Package Name" />
+                                <asp:BoundField DataField="Package Description" HeaderText="Package Description" SortExpression="Package Description" />
+                                <asp:BoundField DataField="Package Discount" HeaderText="Package Discount" SortExpression="Package Discount" />
+                                <asp:BoundField DataField="Package Image" HeaderText="Package Image" SortExpression="Package Image" />
+                                <asp:BoundField DataField="Cart Quantity" HeaderText="Cart Quantity" SortExpression="Cart Quantity" />
+                                <asp:BoundField DataField="Total Quantity" HeaderText="Total Quantity" ReadOnly="True" SortExpression="Total Quantity" />
+                            </Columns>
                         </asp:GridView>
-                        <asp:SqlDataSource ID="SqlDataSourceItemsInPackagesInCart" runat="server"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDataSourceItemsInPackagesInCart" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT Items.Item_ID AS [Item ID], Items.Item_Name AS [Item Name], Items.Item_Desc AS [Item Description], Items.Item_Price AS [Item Price], Items.Item_Calories AS [Item Calories], Items.Item_Inventory AS [Item Inventory], Items.Item_Image AS [Item Image], Package_Items.Package_ID AS [Package ID], Package_Items.Quantity AS [Package Quantity], Packages.Package_Name AS [Package Name], Packages.Package_Desc AS [Package Description], Packages.Package_Discount AS [Package Discount], Packages.Package_Image AS [Package Image], Cart_Packages.Quantity AS [Cart Quantity], Package_Items.Quantity * Cart_Packages.Quantity AS [Total Quantity] FROM Items INNER JOIN Package_Items ON Items.Item_ID = Package_Items.Item_ID INNER JOIN Packages ON Package_Items.Package_ID = Packages.Package_ID INNER JOIN Cart_Packages ON Package_Items.Package_ID = Cart_Packages.Package_ID WHERE (Cart_Packages.Customer_ID = @myID)">
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="lblUserID" Name="myID" PropertyName="Text" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
                         <br />
-                        <span class="auto-style1">List of packages in cart:</span><asp:GridView ID="gvPackagesInCart" runat="server">
+                        <span class="auto-style1">List of packages in cart:</span><asp:GridView ID="gvPackagesInCart" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourcePackagesInCart">
+                            <Columns>
+                                <asp:BoundField DataField="Package_ID" HeaderText="Package_ID" SortExpression="Package_ID" />
+                                <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
+                                <asp:BoundField DataField="Package_Name" HeaderText="Package_Name" SortExpression="Package_Name" />
+                                <asp:BoundField DataField="Package_Desc" HeaderText="Package_Desc" SortExpression="Package_Desc" />
+                                <asp:BoundField DataField="Package_Discount" HeaderText="Package_Discount" SortExpression="Package_Discount" />
+                                <asp:BoundField DataField="Package_Image" HeaderText="Package_Image" SortExpression="Package_Image" />
+                            </Columns>
                         </asp:GridView>
-                        <asp:SqlDataSource ID="SqlDataSourcePackagesInCart" runat="server" OnSelecting="SqlDataSource2_Selecting"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDataSourcePackagesInCart" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" OnSelecting="SqlDataSource2_Selecting" SelectCommand="SELECT Cart_Packages.Package_ID, Cart_Packages.Quantity, Packages.Package_Name, Packages.Package_Desc, Packages.Package_Discount, Packages.Package_Image FROM Cart_Packages INNER JOIN Packages ON Cart_Packages.Package_ID = Packages.Package_ID WHERE (Cart_Packages.Customer_ID = @myID)">
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="lblUserID" Name="myID" PropertyName="Text" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
                         <br />
                         <span class="auto-style1">Update an item:</span><br />
                         <asp:Label ID="Label1" runat="server" Text="Item ID" Width="125px"></asp:Label>
