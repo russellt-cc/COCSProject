@@ -50,6 +50,13 @@
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSourceItemsAndCaterers" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT Items.Item_ID AS [Item ID], Items.Item_Name AS [Item Name], Items.Item_Desc AS Description, Items.Item_Price AS Price, Items.Item_Calories AS Calories, Items.Item_Inventory AS Inventory, Items.Item_Image AS Image, Caterers.Caterer_ID AS [Caterer ID], Caterers.Caterer_Name AS [Caterer Name], Caterers.Caterer_Description AS Description, Caterers.Caterer_Phone AS Phone, Caterers.Caterer_Image AS Image FROM Items INNER JOIN Caterer_Items ON Items.Item_ID = Caterer_Items.Item_ID INNER JOIN Caterers ON Caterer_Items.Caterer_ID = Caterers.Caterer_ID"></asp:SqlDataSource>
             <br />
+            <span class="auto-style1">Remove an unlinked item:</span><br />
+            <asp:Label ID="Label1" runat="server" Text="Item ID" Width="125px"></asp:Label>
+            <asp:TextBox ID="txtItemID" runat="server"></asp:TextBox>
+            <br />
+            <asp:Button ID="btnRemoveItem" runat="server" OnClick="btnRemoveItem_Click" Text="Remove Item" Width="255px" />
+            <br />
+            <asp:Label ID="lblRemoveItemStatus" runat="server" Text="Status OK"></asp:Label>
         </div>
     </form>
 </body>
