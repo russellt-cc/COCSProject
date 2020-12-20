@@ -69,13 +69,13 @@ namespace COCSProject
         protected global::System.Web.UI.WebControls.LoginStatus LoginStatus1;
 
         /// <summary>
-        /// dataListMenu control.
+        /// gvMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dataListMenu;
+        protected global::System.Web.UI.WebControls.GridView gvMenu;
 
         /// <summary>
         /// dataSourceMenu control.
@@ -87,13 +87,13 @@ namespace COCSProject
         protected global::System.Web.UI.WebControls.SqlDataSource dataSourceMenu;
 
         /// <summary>
-        /// dataListCaterers control.
+        /// gvCaterers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dataListCaterers;
+        protected global::System.Web.UI.WebControls.GridView gvCaterers;
 
         /// <summary>
         /// dataSourceCaterers control.

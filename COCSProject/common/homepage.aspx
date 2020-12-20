@@ -5,12 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head runat="server">
     <title>COCS NERD HERD</title>
+    <link rel="stylesheet" type="text/css" href="../COCSProject.css" />
     <style type="text/css">
         .auto-style1 {
             text-decoration: underline;
         }
     </style>
-    <link rel="stylesheet" type="text/css" href="../COCSProject.css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -30,7 +30,6 @@
                 <br />
             </LoggedInTemplate>
         </asp:LoginView>
-
         <br />
         <asp:LoginView ID="LoginView2" runat="server">
             <RoleGroups>
@@ -73,76 +72,41 @@
                 </asp:RoleGroup>
             </RoleGroups>
         </asp:LoginView>
-
         <br />
         <br />
         <asp:LoginStatus ID="LoginStatus1" runat="server" />
         <br />
-        <p>
-            <strong>NERD HERD COCS (Collaborative Online Catering System)</strong>
-        </p>
-        <p class="auto-style1">
-            Menu:
-        </p>
-        <p>
-            <asp:DataList ID="dataListMenu" runat="server" DataKeyField="Item_ID" DataSourceID="dataSourceMenu">
-                <ItemTemplate>
-                    Item_ID:
-                    <asp:Label ID="Item_IDLabel" runat="server" Text='<%# Eval("Item_ID") %>' />
-                    <br />
-                    Item_Name:
-                    <asp:Label ID="Item_NameLabel" runat="server" Text='<%# Eval("Item_Name") %>' />
-                    <br />
-                    Item_Desc:
-                    <asp:Label ID="Item_DescLabel" runat="server" Text='<%# Eval("Item_Desc") %>' />
-                    <br />
-                    Item_Price:
-                    <asp:Label ID="Item_PriceLabel" runat="server" Text='<%# Eval("Item_Price") %>' />
-                    <br />
-                    Item_Calories:
-                    <asp:Label ID="Item_CaloriesLabel" runat="server" Text='<%# Eval("Item_Calories") %>' />
-                    <br />
-                    Item_Inventory:
-                    <asp:Label ID="Item_InventoryLabel" runat="server" Text='<%# Eval("Item_Inventory") %>' />
-                    <br />
-                    Item_Image:
-                    <asp:Label ID="Item_ImageLabel" runat="server" Text='<%# Eval("Item_Image") %>' />
-                    <br />
-                    <br />
-                </ItemTemplate>
-            </asp:DataList>
-            <asp:SqlDataSource ID="dataSourceMenu" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT * FROM [Items]"></asp:SqlDataSource>
-        </p>
-        <p class="auto-style1">
-            Caterers List:
-        </p>
-
-
-        <asp:DataList ID="dataListCaterers" runat="server" DataKeyField="Caterer_ID" DataSourceID="dataSourceCaterers">
-            <ItemTemplate>
-                Caterer_ID:
-                <asp:Label ID="Caterer_IDLabel" runat="server" Text='<%# Eval("Caterer_ID") %>' />
-                <br />
-                Caterer_Name:
-                <asp:Label ID="Caterer_NameLabel" runat="server" Text='<%# Eval("Caterer_Name") %>' />
-                <br />
-                Caterer_Description:
-                <asp:Label ID="Caterer_DescriptionLabel" runat="server" Text='<%# Eval("Caterer_Description") %>' />
-                <br />
-                Caterer_Phone:
-                <asp:Label ID="Caterer_PhoneLabel" runat="server" Text='<%# Eval("Caterer_Phone") %>' />
-                <br />
-                Caterer_Image:
-                <asp:Label ID="Caterer_ImageLabel" runat="server" Text='<%# Eval("Caterer_Image") %>' />
-                <br />
-                <br />
-            </ItemTemplate>
-        </asp:DataList>
-
-
-        <asp:SqlDataSource ID="dataSourceCaterers" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT * FROM [Caterers]"></asp:SqlDataSource>
-
-
+        <br />
+        <strong>NERD HERD COCS (Collaborative Online Catering System)</strong>
+        <br />
+        <br />
+        <span class="auto-style1">Menu:</span>
+        <asp:GridView ID="gvMenu" runat="server" AutoGenerateColumns="False" DataKeyNames="Item ID,Caterer ID" DataSourceID="dataSourceMenu">
+            <Columns>
+                <asp:BoundField DataField="Item ID" HeaderText="Item ID" InsertVisible="False" ReadOnly="True" SortExpression="Item ID" />
+                <asp:BoundField DataField="Item Name" HeaderText="Item Name" SortExpression="Item Name" />
+                <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
+                <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
+                <asp:BoundField DataField="Calories" HeaderText="Calories" SortExpression="Calories" />
+                <asp:BoundField DataField="Inventory" HeaderText="Inventory" SortExpression="Inventory" />
+                <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" />
+                <asp:BoundField DataField="Caterer ID" HeaderText="Caterer ID" InsertVisible="False" ReadOnly="True" SortExpression="Caterer ID" />
+                <asp:BoundField DataField="Caterer Name" HeaderText="Caterer Name" SortExpression="Caterer Name" />
+            </Columns>
+        </asp:GridView>
+        <asp:SqlDataSource ID="dataSourceMenu" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT Items.Item_ID AS [Item ID], Items.Item_Name AS [Item Name], Items.Item_Desc AS Description, Items.Item_Price AS Price, Items.Item_Calories AS Calories, Items.Item_Inventory AS Inventory, Items.Item_Image AS Image, Caterers.Caterer_ID AS [Caterer ID], Caterers.Caterer_Name AS [Caterer Name] FROM Items INNER JOIN Caterer_Items ON Items.Item_ID = Caterer_Items.Item_ID INNER JOIN Caterers ON Caterer_Items.Caterer_ID = Caterers.Caterer_ID"></asp:SqlDataSource>
+        <br />
+        <span class="auto-style1">Caterers List:</span>
+        <asp:GridView ID="gvCaterers" runat="server" AutoGenerateColumns="False" DataKeyNames="Caterer ID" DataSourceID="dataSourceCaterers">
+            <Columns>
+                <asp:BoundField DataField="Caterer ID" HeaderText="Caterer ID" InsertVisible="False" ReadOnly="True" SortExpression="Caterer ID" />
+                <asp:BoundField DataField="Caterer Name" HeaderText="Caterer Name" SortExpression="Caterer Name" />
+                <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
+                <asp:BoundField DataField="Phone" HeaderText="Phone" SortExpression="Phone" />
+                <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" />
+            </Columns>
+        </asp:GridView>
+        <asp:SqlDataSource ID="dataSourceCaterers" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT Caterer_ID AS [Caterer ID], Caterer_Name AS [Caterer Name], Caterer_Description AS Description, Caterer_Phone AS Phone, Caterer_Image AS Image FROM Caterers"></asp:SqlDataSource>
     </form>
 </body>
 </html>
