@@ -74,8 +74,25 @@ namespace COCSProject.catererModule
             String itemCalories = txtCalories.Text;
             String itemInventory = txtInventory.Text;
 
+            Decimal decimalPrice = 0;
+
+            int intCalories = 0;
+            int intInventory = 0;
+
             try
             {
+                // Validate the inputs
+                // Check if item name is empty
+                if (itemName == "") throw new Exception("Item name must not be empty");
+                // Check if item price is empty
+                if (itemPrice == "") throw new Exception("Item price must not be empty");
+                // Check if price is numeric
+                if (!decimal.TryParse(itemPrice, out decimalPrice)) throw new Exception("Item price must be numeric");
+                // Check if calories are numeric
+                if (itemCalories != "" && !int.TryParse(itemCalories, out intCalories)) throw new Exception("Calories must be numeric");
+                // Check if inventory is numeric
+                if (itemInventory != "" && !int.TryParse(itemInventory, out intInventory)) throw new Exception("Inventory must be numeric");
+
                 // Insert the item into the database
                 // Creating and opening connection to db
                 SqlConnection cnn = new SqlConnection(connectionString);
@@ -83,7 +100,7 @@ namespace COCSProject.catererModule
                 SqlCommand command;
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 // Make insert query
-                string sql = "Insert into Items (Item_Name, Item_Desc, Item_Price, Item_Calories, Item_Inventory) values('" + itemName + "', '" + itemDescription + "', '" + itemPrice + "', '" + int.Parse(itemCalories) + "', '" + int.Parse(itemInventory) + "')";
+                string sql = "Insert into Items (Item_Name, Item_Desc, Item_Price, Item_Calories, Item_Inventory) values('" + itemName + "', '" + itemDescription + "', '" + decimalPrice + "', '" + intCalories + "', '" + intInventory + "')";
                 // Initialize command object
                 command = new SqlCommand(sql, cnn);
                 // Execute command
