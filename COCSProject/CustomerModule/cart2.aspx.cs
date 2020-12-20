@@ -134,8 +134,30 @@ namespace COCSProject.CustomerModule
                 myReader.Close();
 
                 // For each package in the cart
-                // Create an entry in the order_packages table
-                // Remove the item from the cart_packages table
+                // Get the packages in the cart
+                sql = "SELECT Package_ID, Quantity FROM Cart_Packages WHERE (Customer_ID = " + userID + ")";
+                command = new SqlCommand(sql, cnn);
+                adapter.SelectCommand = command;
+                myReader = adapter.SelectCommand.ExecuteReader();
+                string packageID;
+                string packageQuantity;
+                while (myReader.Read())
+                {
+                    // Get item ID and quantity
+                    packageID = myReader["Package_ID"].ToString();
+                    packageQuantity = myReader["Quantity"].ToString();
+                    // Create an entry in the order_packages table
+                    sql2 = "INSERT into Order_Packages (Order_ID, Package_ID, Quantity) values (" + orderID + ", " + packageID + ", " + packageQuantity + ")";
+                    command2 = new SqlCommand(sql2, cnn);
+                    adapter2.InsertCommand = command2;
+                    adapter2.InsertCommand.ExecuteNonQuery();
+                    // Remove the item from the cart_packages table
+                    sql2 = "DELETE TOP(1) FROM Cart_Packages WHERE(Customer_ID = " + userID + ") AND (Package_ID = " + packageID + ") AND (Quantity = " + packageQuantity + ")";
+                    command2 = new SqlCommand(sql2, cnn);
+                    adapter2.InsertCommand = command2;
+                    adapter2.InsertCommand.ExecuteNonQuery();
+                }
+                myReader.Close();
 
                 // Cleanup
                 command.Dispose();
