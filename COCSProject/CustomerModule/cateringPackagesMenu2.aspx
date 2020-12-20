@@ -21,6 +21,12 @@
                         <br />
                         <br />
                         <strong>Customer Menu Page</strong><br />
+                        Current User Name:
+                        <asp:Label ID="lblUserName" runat="server" Text="Label"></asp:Label>
+                        <br />
+                        Current User ID:
+                        <asp:Label ID="lblUserID" runat="server" Text="Label"></asp:Label>
+                        <br />
                         <br />
                         <span class="auto-style1">List of menu items:</span><asp:GridView ID="gvMenuItems" runat="server" AutoGenerateColumns="False" DataKeyNames="Item ID,Caterer ID" DataSourceID="SqlDataSourceMenuItems">
                             <Columns>
@@ -69,7 +75,7 @@
                         <asp:Label ID="Label2" runat="server" Text="Quantity" Width="125px"></asp:Label>
                         <asp:TextBox ID="txtItemQuantity" runat="server"></asp:TextBox>
                         <br />
-                        <asp:Button ID="btnAddItemToCart" runat="server" Text="Add Item to Cart" Width="255px" />
+                        <asp:Button ID="btnAddItemToCart" runat="server" OnClick="btnAddItemToCart_Click" Text="Add Item to Cart" Width="255px" />
                         <br />
                         <asp:Label ID="lblAddItemToCartStatus" runat="server" Text="Status OK"></asp:Label>
                         <br />
@@ -81,7 +87,7 @@
                         <asp:Label ID="Label5" runat="server" Text="Quantity" Width="125px"></asp:Label>
                         <asp:TextBox ID="txtPackageQuantity" runat="server"></asp:TextBox>
                         <br />
-                        <asp:Button ID="btnAddPackageToCart" runat="server" Text="Add Package To Cart" Width="255px" />
+                        <asp:Button ID="btnAddPackageToCart" runat="server" OnClick="btnAddPackageToCart_Click" Text="Add Package To Cart" Width="255px" />
                         <br />
                         <asp:Label ID="lblAddPackageToCartStatus" runat="server" Text="Status OK"></asp:Label>
     </form>

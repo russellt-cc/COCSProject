@@ -10,8 +10,9 @@ namespace COCSProject
 {
     public partial class register : System.Web.UI.Page
     {
-        // Connection string
-        //private string connectionString = @"Data Source=cocsnerdherd.database.windows.net;Initial Catalog=CateringSystemT02;Persist Security Info=True;User ID=cocs;Password=password1!";
+        //Connection string
+        private string connectionString = @"Data Source=cocsnerdherd.database.windows.net;Initial Catalog=CateringSystemT02_ASP;Persist Security Info=True;User ID=cocs;Password=password1!";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
@@ -121,7 +122,25 @@ namespace COCSProject
 
         protected void CreateUserWizard1_CreatingUser(object sender, LoginCancelEventArgs e)
         {
-
+            if (rblUserRole.SelectedValue == "Customer")
+            {
+                // Add the user to the customer table
+                // Creating and opening connection to db
+                SqlConnection cnn = new SqlConnection(connectionString);
+                cnn.Open();
+                SqlCommand command;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                // Make insert query
+                string sql = "Insert into Customers (Customer_Name) values('" + CreateUserWizard1.UserName + "')";
+                // Initialize command object
+                command = new SqlCommand(sql, cnn);
+                // Execute command
+                adapter.InsertCommand = command;
+                adapter.InsertCommand.ExecuteNonQuery();
+                // Cleanup
+                command.Dispose();
+                cnn.Close();
+            }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
