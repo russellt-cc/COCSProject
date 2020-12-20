@@ -23,10 +23,10 @@
             <strong>Caterer Menu Page</strong><br />
             Current Caterer Name: <asp:Label ID="lblUserName" runat="server" Text="Label"></asp:Label>
             <br />
-            Current Caterer ID:<asp:Label ID="lblUserID" runat="server" Text="Label"></asp:Label>
+            Current Caterer ID: <asp:Label ID="lblUserID" runat="server" Text="Label"></asp:Label>
             <br />
             <br />
-            <span class="auto-style1">Menu<br />
+            <span class="auto-style1">My Menu<br />
             <asp:GridView ID="gvMyMenu" runat="server" AutoGenerateColumns="False" DataKeyNames="Item ID" DataSourceID="SqlDataSourceMyMenu">
                 <Columns>
                     <asp:BoundField DataField="Item ID" HeaderText="Item ID" InsertVisible="False" ReadOnly="True" SortExpression="Item ID" />

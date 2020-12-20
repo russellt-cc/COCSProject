@@ -47,7 +47,6 @@ namespace COCSProject.catererModule
             // Cleanup
             command.Dispose();
             cnn.Close();
-
         }
 
         protected void btnHomePage_Click(object sender, EventArgs e)

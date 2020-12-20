@@ -7,6 +7,8 @@
     <title></title>
     <style type="text/css">
         .auto-style1 {
+        }
+        .auto-style2 {
             text-decoration: underline;
         }
     </style>
@@ -20,23 +22,31 @@
             <asp:Button ID="btnOrders" runat="server" OnClick="btnOrders_Click" Text="Orders" Width="255px" />
             <br />
             <br class="auto-style1" />
-            <span class="auto-style1">Packages<br />
-            <asp:DataList ID="DataList1" runat="server" DataKeyField="Package_ID" DataSourceID="SqlDataSource1">
-                <ItemTemplate>
-                    Package_ID:
-                    <asp:Label ID="Package_IDLabel" runat="server" Text='<%# Eval("Package_ID") %>' />
-                    <br />
-                    Caterer_ID:
-                    <asp:Label ID="Caterer_IDLabel" runat="server" Text='<%# Eval("Caterer_ID") %>' />
-                    <br />
-                    Limits:
-                    <asp:Label ID="LimitsLabel" runat="server" Text='<%# Eval("Limits") %>' />
-                    <br />
-<br />
-                </ItemTemplate>
-            </asp:DataList>
+            <strong>Caterer Packages Page</strong><span class="auto-style1"><br />
+            Current Caterer Name:
+            <asp:Label ID="lblUserName" runat="server" Text="Label"></asp:Label>
             <br />
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT * FROM [Caterer_Packages]"></asp:SqlDataSource>
+            Current Caterer ID:
+            <asp:Label ID="lblUserID" runat="server" Text="Label"></asp:Label>
+            <br />
+            <br />
+            <span class="auto-style2">My Packages:</span><asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Package ID" DataSourceID="SqlDataSourceMyPackages">
+                <Columns>
+                    <asp:BoundField DataField="Package ID" HeaderText="Package ID" InsertVisible="False" ReadOnly="True" SortExpression="Package ID" />
+                    <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                    <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
+                    <asp:BoundField DataField="Discount" HeaderText="Discount" SortExpression="Discount" />
+                    <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" />
+                    <asp:BoundField DataField="Limits" HeaderText="Limits" SortExpression="Limits" />
+                </Columns>
+            </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSourceMyPackages" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT Packages.Package_ID AS [Package ID], Packages.Package_Name AS Name, Packages.Package_Desc AS Description, Packages.Package_Discount AS Discount, Packages.Package_Image AS Image, Caterer_Packages.Limits FROM Caterer_Packages INNER JOIN Packages ON Caterer_Packages.Package_ID = Packages.Package_ID INNER JOIN Caterers ON Caterer_Packages.Caterer_ID = Caterers.Caterer_ID WHERE (Caterers.Caterer_Name = @myName)">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="lblUserName" Name="myName" PropertyName="Text" />
+                </SelectParameters>
+            </asp:SqlDataSource>
+            <br />
+            My Menu:<br />
             </span>
         </div>
     </form>
