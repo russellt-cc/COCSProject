@@ -107,6 +107,14 @@
                                 <asp:ControlParameter ControlID="lblUserID" Name="myID" PropertyName="Text" />
                             </SelectParameters>
                         </asp:SqlDataSource>
+                        <br />
+                        <span class="auto-style1">Cancel an order:</span><br />
+                        <asp:Label ID="Label1" runat="server" Text="Order ID" Width="125px"></asp:Label>
+                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                        <br />
+                        <asp:Button ID="btnCancelOrder" runat="server" Text="Cancel Order" Width="255px" />
+                        <br />
+                        <asp:Label ID="lblCancelOrderStatus" runat="server" Text="Status OK"></asp:Label>
     </form>
 </body>
 </html>
