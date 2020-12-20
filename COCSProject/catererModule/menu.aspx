@@ -70,6 +70,17 @@
             <asp:Button ID="btnRemoveItem" runat="server" OnClick="btnRemoveItem_Click" Text="Remove an Item" Width="255px" />
             <br />
             <asp:Label ID="lblRemoveStatus" runat="server" Text="Status OK"></asp:Label>
+            <br />
+            <br />
+            <asp:Label ID="Label7" runat="server" Text="Item ID" Width="125px"></asp:Label>
+            <asp:TextBox ID="txtItemID2" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="Label8" runat="server" Text="Inventory" Width="125px"></asp:Label>
+            <asp:TextBox ID="txtInventory2" runat="server"></asp:TextBox>
+            <br />
+            <asp:Button ID="btnUpdateInventory" runat="server" OnClick="btnUpdateInventory_Click" Text="Update Inventory" Width="255px" />
+            <br />
+            <asp:Label ID="lblUpdateInventoryStatus" runat="server" Text="Status OK"></asp:Label>
             </span>
         </div>
     </form>

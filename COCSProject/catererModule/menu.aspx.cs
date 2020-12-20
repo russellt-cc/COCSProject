@@ -206,5 +206,69 @@ namespace COCSProject.catererModule
             }
 
         }
+
+        protected void btnUpdateInventory_Click(object sender, EventArgs e)
+        {
+            String itemID = txtItemID2.Text;
+            String inventory = txtInventory2.Text;
+
+            int intItemID = 0;
+            int intInventory = 0;
+
+            try
+            {
+                // Check if the input is empty
+                if (itemID == "") throw new Exception("Enter the ID for the item you want to update");
+                if (inventory == "") throw new Exception("Enter the inventory for the item you want to update");
+
+                // Check if the input is numeric
+                if (!int.TryParse(itemID, out intItemID)) throw new Exception("Item ID must be numeric");
+                if (!int.TryParse(inventory, out intInventory)) throw new Exception("Inventory must be numeric");
+
+                // Check if the item belongs to the current user
+                bool belongsToMe = false;
+                int myItem = 0;
+                // Get the items for the current user
+                SqlConnection cnn = new SqlConnection(connectionString);
+                cnn.Open();
+                SqlCommand command;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                string sql = "SELECT Items.Item_ID FROM Items INNER JOIN Caterer_Items ON Items.Item_ID = Caterer_Items.Item_ID WHERE (Caterer_Items.Caterer_ID = " + userID + ")";
+                command = new SqlCommand(sql, cnn);
+                adapter.SelectCommand = command;
+                SqlDataReader myReader = adapter.SelectCommand.ExecuteReader();
+                while (myReader.Read())
+                {
+                    myItem = int.Parse(myReader["Item_ID"].ToString());
+                    if (myItem == intItemID)
+                    {
+                        belongsToMe = true;
+                        break;
+                    }
+                }
+                myReader.Close();
+                if (belongsToMe == false) throw new Exception("That item ID does not belong to you");
+
+                // Update the inventory
+                sql = "Update Items set Item_Inventory=" + intInventory + "where Item_ID=" + intItemID;
+                command = new SqlCommand(sql, cnn);
+                adapter.InsertCommand = command;
+                adapter.InsertCommand.ExecuteNonQuery();
+
+                // Cleanup
+                command.Dispose();
+                cnn.Close();
+
+                // Show status on status label
+                lblUpdateInventoryStatus.Text = $"Item (<strong>{itemID}</strong>) was updated successfully.";
+
+                // Refresh data grid
+                gvMyMenu.DataBind();
+            }
+            catch (Exception ex)
+            {
+                lblUpdateInventoryStatus.Text = $"Item (<strong>{itemID}</strong>) was <strong>NOT</strong> updated successfully.<br/>Error: {ex.Message}.";
+            }
+        }
     }
 }
