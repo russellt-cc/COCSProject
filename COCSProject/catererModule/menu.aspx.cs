@@ -177,7 +177,17 @@ namespace COCSProject.catererModule
                 myReader.Close();
                 if (belongsToMe == false) throw new Exception("That item ID does not belong to you");
 
+                // Remove the item from items table
+                sql = "DELETE FROM Items WHERE Item_ID='" + intItemID + "'";
+                command = new SqlCommand(sql, cnn);
+                adapter.InsertCommand = command;
+                adapter.InsertCommand.ExecuteNonQuery();
 
+                // Remove the item from caterers items table
+                sql = "DELETE FROM Caterer_Items WHERE Item_ID='" + intItemID + "'";
+                command = new SqlCommand(sql, cnn);
+                adapter.InsertCommand = command;
+                adapter.InsertCommand.ExecuteNonQuery();
 
                 // Cleanup
                 command.Dispose();
