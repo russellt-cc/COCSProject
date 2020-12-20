@@ -6,6 +6,11 @@
 <head runat="server">
     <title>Customer Orders</title>
     <link rel="stylesheet" type="text/css" href="../COCSProject.css" />
+    <style type="text/css">
+        .auto-style1 {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -16,6 +21,23 @@
                         <br />
                         <br />
                         <strong>Customer Orders Page</strong><br />
+                        <br />
+                        <span class="auto-style1">My Orders:</span><asp:GridView ID="GridView1" runat="server">
+                        </asp:GridView>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+                        <br />
+                        I<span class="auto-style1">tems in My Orders:</span><asp:GridView ID="GridView2" runat="server">
+                        </asp:GridView>
+                        <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
+                        <br />
+                        <span class="auto-style1">Items in Packages in My Orders:</span><asp:GridView ID="GridView3" runat="server">
+                        </asp:GridView>
+                        <asp:SqlDataSource ID="SqlDataSource3" runat="server"></asp:SqlDataSource>
+                        <br />
+                        <br />
+                        <span class="auto-style1">Packages in My Orders:</span><asp:GridView ID="GridView4" runat="server">
+                        </asp:GridView>
+                        <asp:SqlDataSource ID="SqlDataSource4" runat="server"></asp:SqlDataSource>
     </form>
 </body>
 </html>
