@@ -46,6 +46,23 @@
                     <asp:ControlParameter ControlID="lblUserName" Name="myName" PropertyName="Text" />
                 </SelectParameters>
             </asp:SqlDataSource>
+            <br />
+            <span class="auto-style1">Packages Ordered By Customers:</span><asp:GridView ID="gvPackagesOrdered" runat="server" AutoGenerateColumns="False" DataKeyNames="Package ID" DataSourceID="SqlDataSourcePackagesOrdered">
+                <Columns>
+                    <asp:BoundField DataField="Package ID" HeaderText="Package ID" InsertVisible="False" ReadOnly="True" SortExpression="Package ID" />
+                    <asp:BoundField DataField="Package Name" HeaderText="Package Name" SortExpression="Package Name" />
+                    <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
+                    <asp:BoundField DataField="Discount" HeaderText="Discount" SortExpression="Discount" />
+                    <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" />
+                    <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
+                    <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
+                </Columns>
+            </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSourcePackagesOrdered" runat="server" ConnectionString="<%$ ConnectionStrings:CateringSystemT02ConnectionString %>" SelectCommand="SELECT Packages.Package_ID AS [Package ID], Packages.Package_Name AS [Package Name], Packages.Package_Desc AS Description, Packages.Package_Discount AS Discount, Packages.Package_Image AS Image, Order_Packages.Quantity, Orders.Status FROM Packages INNER JOIN Order_Packages ON Packages.Package_ID = Order_Packages.Package_ID INNER JOIN Orders ON Order_Packages.Order_ID = Orders.OrderID INNER JOIN Caterer_Packages ON Packages.Package_ID = Caterer_Packages.Package_ID INNER JOIN Caterers ON Caterer_Packages.Caterer_ID = Caterers.Caterer_ID WHERE (Caterers.Caterer_Name = @myName)">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="lblUserName" Name="myName" PropertyName="Text" />
+                </SelectParameters>
+            </asp:SqlDataSource>
         </div>
     </form>
 </body>
