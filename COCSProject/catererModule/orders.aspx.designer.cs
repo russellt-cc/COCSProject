@@ -69,21 +69,21 @@ namespace COCSProject.catererModule
         protected global::System.Web.UI.WebControls.Label lblUserID;
 
         /// <summary>
-        /// gvOrders control.
+        /// gvItemsOrdered control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvOrders;
+        protected global::System.Web.UI.WebControls.GridView gvItemsOrdered;
 
         /// <summary>
-        /// SqlDataSourceOrders control.
+        /// SqlDataSourceItemsOrdered control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceOrders;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceItemsOrdered;
     }
 }
