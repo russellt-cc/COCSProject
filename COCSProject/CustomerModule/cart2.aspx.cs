@@ -12,7 +12,8 @@ namespace COCSProject.CustomerModule
     {
         // Connection string
         //private string connectionString = @"Data Source=cocsnerdherd.database.windows.net;Initial Catalog=CateringSystemT02_ASP;Persist Security Info=True;User ID=cocs;Password=password1!";
-        private string connectionString = @"Server=tcp:cocsnerdherd.database.windows.net,1433;Initial Catalog=CateringSystemT02_ASP;Persist Security Info=False;User ID=cocs;Password=password1!;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30";
+        //private string connectionString = @"Server=tcp:cocsnerdherd.database.windows.net,1433;Initial Catalog=CateringSystemT02_ASP;Persist Security Info=False;User ID=cocs;Password=password1!;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30";
+        private string connectionString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=CateringSystemT02_ASP;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework";
 
         String userName;
         String userID;
